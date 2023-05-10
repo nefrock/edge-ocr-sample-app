@@ -13,10 +13,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class WhitelistTextAnalyser implements AnalyserWithCallback {
+public class WhitelistTextAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
-    private AnalysisCallback callback;
     private volatile boolean isActive;
     private final Set<String> whiteList;
 
@@ -41,7 +40,7 @@ public class WhitelistTextAnalyser implements AnalyserWithCallback {
             if (!isActive) return;
             if (callback == null) return;
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
-            List<Detection> detections = api.scanTexts(image).getDetections();
+            List<Detection> detections = api.scanTexts(image, cropLeft, cropTop, cropSize).getDetections();
             ArrayList<Detection> filteredDetections = new ArrayList<>();
             for (Detection detection : detections) {
                 if(whiteList.contains(detection.getText())) {
@@ -55,11 +54,6 @@ public class WhitelistTextAnalyser implements AnalyserWithCallback {
         } finally {
             image.close();
         }
-    }
-
-    @Override
-    public void setCallback(AnalysisCallback callback) {
-        this.callback = callback;
     }
 
     @Override

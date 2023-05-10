@@ -1,19 +1,24 @@
 package com.nefrock.edgeocr_example.ui;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.text.ClipboardManager;
 import android.util.Log;
+import android.util.Rational;
+import android.util.Size;
 import android.view.Gravity;
+import android.view.View;
 import android.view.WindowManager.LayoutParams;
-import android.widget.LinearLayout;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Toast;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.OptIn;
@@ -21,12 +26,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.camera2.interop.ExperimentalCamera2Interop;
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
+import androidx.camera.core.CameraControl;
+import androidx.camera.core.FocusMeteringAction;
+import androidx.camera.core.FocusMeteringResult;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageCapture;
+import androidx.camera.core.MeteringPoint;
+import androidx.camera.core.ImageCaptureException;
+import androidx.camera.core.ImageProxy;
 import androidx.camera.core.Preview;
+import androidx.camera.core.SurfaceOrientedMeteringPointFactory;
+import androidx.camera.core.UseCaseGroup;
+import androidx.camera.core.ViewPort;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
-import androidx.camera.core.UseCaseGroup;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -47,11 +61,17 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
 @ExperimentalCamera2Interop public class TextScannerActivity extends AppCompatActivity {
 
     private final ExecutorService analysisExecutor = Executors.newSingleThreadExecutor();
+    private final ExecutorService focusExecutor = Executors.newSingleThreadExecutor();
     private AnalyserWithCallback imageAnalyser;
+    private float aspectRatio = 1.0f;
+    private ConstraintLayout overlay;
     private BoxesOverlay boxesOverlay;
+    private SeekBar hCropBar, vCropBar, sCropBar;
     private ImageAnalysis imageAnalysis;
+    private ImageCapture imageCapture;
     private boolean overlayDrawn = false;
     private Camera camera;
+    private SurfaceOrientedMeteringPointFactory meteringPointFactory;
     //ダイアログを表示するか（表示中はスキャンを辞める）
     private boolean showDialog = false;
     EdgeVisionAPI api;
@@ -83,15 +103,13 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
             return;
         }
 
+        overlay = findViewById(R.id.overlay);
+        boxesOverlay = findViewById(R.id.boxesOverlay);
+
         // Wait for overlay to be drawn
-        findViewById(R.id.boxesOverlay).post(() -> overlayDrawn = true);
+        overlay.post(() -> overlayDrawn = true);
 
         api.useModel(model, (ModelInformation modelInformation) -> {
-            float aspectRatio = modelInformation.getAspectRatio();
-            // Overlay consists of a top and bottom view, as well as the central
-            // boxesOverlay. Use weights to ensure that the boxesOverlay is
-            // has the same aspect ratio as the model.
-            View overlay = findViewById(R.id.overlay);
             while (!overlayDrawn) {
                 try {
                     Thread.sleep(30);
@@ -100,26 +118,8 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
                     return;
                 }
             }
-            float overlayAspectRatio = (float) overlay.getWidth() / (float) overlay.getHeight();
-            if (aspectRatio < overlayAspectRatio) {
-                Log.e("EdgeOCRExample", "[onCreate] Aspect ratio of model is smaller than aspect ratio of overlay");
-                return;
-            }
-            float boxesOverlayWeight = overlayAspectRatio / aspectRatio;
-            boxesOverlay = findViewById(R.id.boxesOverlay);
-            LinearLayout.LayoutParams boxesOverlayLayoutParams = (LinearLayout.LayoutParams) boxesOverlay.getLayoutParams();
-            boxesOverlayLayoutParams.weight = boxesOverlayWeight;
-            View overlayTop = findViewById(R.id.overlayTop);
-            View overlayBottom = findViewById(R.id.overlayBottom);
-            LinearLayout.LayoutParams overlayTopLayoutParams = (LinearLayout.LayoutParams) overlayTop.getLayoutParams();
-            LinearLayout.LayoutParams overlayBottomLayoutParams = (LinearLayout.LayoutParams) overlayBottom.getLayoutParams();
-            overlayTopLayoutParams.weight = (1 - boxesOverlayWeight) / 2;
-            overlayBottomLayoutParams.weight = (1 - boxesOverlayWeight) / 2;
-            runOnUiThread(() -> {
-                overlayTop.setLayoutParams(overlayTopLayoutParams);
-                overlayBottom.setLayoutParams(overlayBottomLayoutParams);
-                boxesOverlay.setLayoutParams(boxesOverlayLayoutParams);
-            });
+            aspectRatio = modelInformation.getAspectRatio();
+            adaptOverlayWeights();
             imageAnalyser.setCallback((filteredDetections, allDetections) -> {
                 runOnUiThread(() -> boxesOverlay.setBoxes(allDetections));
                 if (!showDialog) {
@@ -139,28 +139,92 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
                     this, new String[]{"android.permission.CAMERA"}, 10);
         }
 
-        SeekBar seekBar = findViewById(R.id.seekBar);
-        seekBar.setProgress(50);
-        seekBar.setMax(100);
-        seekBar.setOnSeekBarChangeListener(
+        hCropBar = findViewById(R.id.hCropBar);
+        vCropBar = findViewById(R.id.vCropBar);
+        sCropBar = findViewById(R.id.sCropBar);
+        // Loop over seekbars and set their initial values
+        for (SeekBar seekBar : new SeekBar[] {hCropBar, vCropBar, sCropBar}) {
+            seekBar.setOnSeekBarChangeListener(
+                    new SeekBar.OnSeekBarChangeListener() {
+                        @Override
+                        public void onProgressChanged(
+                                SeekBar seekBar, int progress, boolean fromUser) {
+                            adaptOverlayWeights();
+                        }
+                        @Override
+                        public void onStartTrackingTouch(SeekBar seekBar) {}
+                        @Override
+                        public void onStopTrackingTouch(SeekBar seekBar) {}
+                    });
+            seekBar.setMax(100);
+        }
+        hCropBar.setProgress(0);
+        vCropBar.setProgress(50);
+        sCropBar.setProgress(100);
+
+        Button reportButton = findViewById(R.id.reportButton);
+        reportButton.setOnClickListener(
+            (View v) -> {
+                imageAnalyser.stop();
+                api.resetScanningState();
+                // Capture the image
+                imageCapture.takePicture(
+                    analysisExecutor,
+                    new ImageCapture.OnImageCapturedCallback() {
+                        @Override
+                        public void onCaptureSuccess(ImageProxy image) {
+                            try {
+                                api.reportImage(image, imageAnalyser.cropLeft, imageAnalyser.cropTop, imageAnalyser.cropSize, "test");
+                            } catch (Exception e) {
+                                Log.e("EdgeOCRExample", Log.getStackTraceString(e));
+                            } finally {
+                                image.close();
+                            }
+                            imageAnalyser.resume();
+                        }
+
+                        @Override
+                        public void onError(ImageCaptureException exception) {
+                            Log.e("EdgeOCRExample", "[onCaptureSuccess] Failed to capture image", exception);
+                        }
+                    });
+            });
+
+        Button centerCaptureButton = findViewById(R.id.centerCaptureButton);
+        centerCaptureButton.setOnClickListener(
+            (View v) -> {
+                String centerText = boxesOverlay.getCenterText();
+                if (centerText == null) {
+                    return;
+                }
+                Toast.makeText(
+                    getApplicationContext(), "クリップボードにコピーしました: " + centerText,
+                    Toast.LENGTH_SHORT).show();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                clipboard.setText(centerText);
+            });
+
+        SeekBar zoomBar = findViewById(R.id.zoomBar);
+        zoomBar.setProgress(50);
+        zoomBar.setMax(100);
+        zoomBar.setOnSeekBarChangeListener(
                 new SeekBar.OnSeekBarChangeListener() {
                     //ツマミがドラッグされると呼ばれる
                     @Override
                     public void onProgressChanged(
-                            SeekBar seekBar, int progress, boolean fromUser) {
+                            SeekBar zoomBar, int progress, boolean fromUser) {
                         camera.getCameraControl().setLinearZoom(progress / 100.0f);
                     }
 
                     //ツマミがタッチされた時に呼ばれる
                     @Override
-                    public void onStartTrackingTouch(SeekBar seekBar) {
+                    public void onStartTrackingTouch(SeekBar zoomBar) {
                     }
 
                     //ツマミがリリースされた時に呼ばれる
                     @Override
-                    public void onStopTrackingTouch(SeekBar seekBar) {
+                    public void onStopTrackingTouch(SeekBar zoomBar) {
                     }
-
                 });
     }
 
@@ -168,6 +232,7 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
     public void onDestroy() {
         super.onDestroy();
         analysisExecutor.shutdown();
+        focusExecutor.shutdownNow();
     }
 
     @Override
@@ -196,6 +261,7 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
         ListenableFuture<ProcessCameraProvider> cameraProviderFuture
                 = ProcessCameraProvider.getInstance(this);
         cameraProviderFuture.addListener(() -> {
+            Size targetResolution = new Size(1080, 1080);
             // Acquire camera and set up preview
             ProcessCameraProvider cameraProvider;
             try {
@@ -204,13 +270,16 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
                 Log.e("EdgeOCRExample", "[startCamera] Lifecycle binding failed", e);
                 return;
             }
-            Preview preview = new Preview.Builder().build();
+            Preview preview = new Preview.Builder()
+                .setTargetResolution(targetResolution)
+                .build();
             PreviewView previewView = findViewById(R.id.previewView);
             preview.setSurfaceProvider(previewView.getSurfaceProvider());
             // Set up image analysis using EdgeOCR
             imageAnalysis = new ImageAnalysis.Builder()
                     .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_YUV_420_888)
                     .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                    .setTargetResolution(targetResolution)
                     .build();
             imageAnalysis.setAnalyzer(analysisExecutor, imageAnalyser);
 
@@ -231,21 +300,60 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
 //            );
             // 固定フォーカスの設定の終わり
 
-            ImageCapture imageCapture = imageCaptureBuilder
+            imageCapture = imageCaptureBuilder
                     .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
+                    .setTargetRotation(preview.getTargetRotation())
+                    .setTargetResolution(targetResolution)
                     .build();
 
+            // Aspect ratio is ignored since we use FIT
+            Rational aspectRatio = new Rational(1, 1);
+            ViewPort viewPort = new ViewPort.Builder(aspectRatio, preview.getTargetRotation())
+                    .build();
             // Bind use cases to camera
             UseCaseGroup useCaseGroup = new UseCaseGroup.Builder()
                     .addUseCase(preview)
                     .addUseCase(imageAnalysis)
                     .addUseCase(imageCapture)
+                    .setViewPort(viewPort)
                     .build();
             try {
                 cameraProvider.unbindAll();
                 camera = cameraProvider.bindToLifecycle(
                         this, CameraSelector.DEFAULT_BACK_CAMERA,
                         useCaseGroup);
+                meteringPointFactory = new SurfaceOrientedMeteringPointFactory(1.0f, 1.0f, imageAnalysis);
+                // Focus on center of model input once every second
+                focusExecutor.execute(() -> {
+                    ListenableFuture<FocusMeteringResult> future = null;
+                    while(!Thread.currentThread().isInterrupted()) {
+                        try {
+                            if (future != null) {
+                                try {
+                                    FocusMeteringResult result = future.get();
+                                    if (!result.isFocusSuccessful()) {
+                                        Log.d("EdgeOCRExample", "[customAutoFocus] failed: " + result);
+                                    }
+                                } catch (ExecutionException e) {
+                                    if (e.getCause() instanceof CameraControl.OperationCanceledException) {
+                                        // Do nothing, if there is no AF available on the device.
+                                    } else {
+                                        Log.e("EdgeOCRExample", "[customAutoFocus] Failed to get focus result", e);
+                                    }
+                                }
+                            }
+                            MeteringPoint point = buildMeteringPoint();
+                            FocusMeteringAction action =
+                                new FocusMeteringAction.Builder(point, FocusMeteringAction.FLAG_AF)
+                                    .disableAutoCancel()
+                                    .build();
+                            future = camera.getCameraControl().startFocusAndMetering(action);
+                            Thread.sleep(1000);
+                        } catch (InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                        }
+                    }
+                });
             } catch (Exception e) {
                 Log.e("EdgeOCRExample", "[startCamera] Use case binding failed", e);
             }
@@ -285,5 +393,62 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
         lp.alpha = 0.9f;
         lp.gravity = Gravity.BOTTOM;
         alertDialog.show();
+    }
+
+    private class OverlayParams {
+        float widthPercent;
+        float heightPercent;
+        float horizontalBias;
+        float verticalBias;
+
+        OverlayParams(
+                float widthPercent, float heightPercent, float horizontalBias, float verticalBias) {
+            this.widthPercent = widthPercent;
+            this.heightPercent = heightPercent;
+            this.horizontalBias = horizontalBias;
+            this.verticalBias = verticalBias;
+        }
+    }
+
+    private OverlayParams getOverlayParams() {
+        float horizontal = hCropBar.getProgress() / 100f;
+        float vertical = vCropBar.getProgress() / 100f;
+        float size = sCropBar.getProgress() / 100f;
+        imageAnalyser.setCrop(horizontal, vertical, size);
+        float overlayAspectRatio = (float) overlay.getWidth() / overlay.getHeight();
+        float widthPercent = size * Math.min(1, aspectRatio / overlayAspectRatio);
+        float heightPercent = size * Math.min(1, overlayAspectRatio / aspectRatio);
+        return new OverlayParams(widthPercent, heightPercent, horizontal, vertical);
+    }
+
+    private MeteringPoint buildMeteringPoint() {
+        // Get center of the overlay
+        OverlayParams params = getOverlayParams();
+        float centerX = (1 - params.widthPercent) * params.horizontalBias + params.widthPercent / 2;
+        float centerY = (1 - params.heightPercent) * params.verticalBias + params.heightPercent / 2;
+        MeteringPoint point;
+        int rotation = camera.getCameraInfo().getSensorRotationDegrees();
+        if (rotation == 0) {
+            point = meteringPointFactory.createPoint(centerX, centerY);
+        } else if (rotation == 90) {
+            point = meteringPointFactory.createPoint(centerY, 1 - centerX);
+        } else if (rotation == 180) {
+            point = meteringPointFactory.createPoint(1 - centerX, 1 - centerY);
+        } else {
+            point = meteringPointFactory.createPoint(1 - centerY, centerX);
+        }
+        return point;
+    }
+
+    private void adaptOverlayWeights() {
+        OverlayParams params = getOverlayParams();
+        ConstraintLayout.LayoutParams boxesOverlayLayoutParams = (ConstraintLayout.LayoutParams) boxesOverlay.getLayoutParams();
+        boxesOverlayLayoutParams.matchConstraintPercentWidth = params.widthPercent;
+        boxesOverlayLayoutParams.matchConstraintPercentHeight = params.heightPercent;
+        boxesOverlayLayoutParams.horizontalBias = params.horizontalBias;
+        boxesOverlayLayoutParams.verticalBias = params.verticalBias;
+        runOnUiThread(() -> {
+            boxesOverlay.setLayoutParams(boxesOverlayLayoutParams);
+        });
     }
 }

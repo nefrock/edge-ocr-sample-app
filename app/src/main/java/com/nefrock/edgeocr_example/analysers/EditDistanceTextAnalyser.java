@@ -14,10 +14,9 @@ import java.util.List;
 
 import info.debatty.java.stringsimilarity.Levenshtein;
 
-public class EditDistanceTextAnalyser implements AnalyserWithCallback {
+public class EditDistanceTextAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
-    private AnalysisCallback callback;
     private volatile boolean isScanning;
     private final Levenshtein metrics;
     private final List<String> candidates;
@@ -50,7 +49,7 @@ public class EditDistanceTextAnalyser implements AnalyserWithCallback {
             if (!api.isReady())
                 throw new RuntimeException("Model not loaded!");
 
-            ScanResult analysisResult = api.scanTexts(image);
+            ScanResult analysisResult = api.scanTexts(image, cropLeft, cropTop, cropSize);
             List<Detection> rawDetections = analysisResult.getDetections();
             List<Detection> filteredDetections = new ArrayList<>();
             for (Detection detection : rawDetections) {
@@ -79,11 +78,6 @@ public class EditDistanceTextAnalyser implements AnalyserWithCallback {
         } finally {
             image.close();
         }
-    }
-
-    @Override
-    public void setCallback(AnalysisCallback callback) {
-        this.callback = callback;
     }
 
     @Override

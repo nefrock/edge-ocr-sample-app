@@ -31,7 +31,7 @@ dependencies {
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 
-    implementation "com.nefrock.edgeocr:edgeocr:1.0.0"
+    implementation "com.nefrock.edgeocr:edgeocr:1.1.0"
     implementation "info.debatty:java-string-similarity:2.0.0"
 
     //camerax

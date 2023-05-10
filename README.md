@@ -232,12 +232,30 @@ public class Detection {
 モデルはインプットとして取れる画像のアスペクト比を持っており、
 `model-small`、`model-large` は、それぞれ `256x64（width x height）`、`256x128` のアスペクト比の画像をインプットの画像として受け取ることを想定しています。
 
-インプットの画像として、モデルが想定しているアスペクト比とは異なる画像が渡された場合は、SDK は画像をそのアスペクト比になるように、画像の中心部分を切り取りモデルに渡します。
+インプットの画像として、モデルが想定しているアスペクト比とは異なる画像が渡された場合は、SDK は画像をそのアスペクト比になるように、画像の一部（規定の場合中心部分）を切り取りモデルに渡します。
 
-下記の画像のように、切り取りる範囲は、横幅はインプット画像の幅と同じ、縦幅はモデルの想定しているアスペクト比を保つように計算します。そうして計算された画面中心の矩形範囲をモデルに渡します。たとえば画像のサイズを 360x720 とすると、`model-large` を使用した場合に、切り取られる画像の大きさは 360x90 です。高さはの算出方法は 360x64/256=90 です。
+下記の画像のように、切り取りる範囲は、横幅はインプット画像の幅と同じ、縦幅はモデルの想定しているアスペクト比を保つように計算します。そうして計算された画面中心の矩形範囲をモデルに渡します。たとえば画像のサイズを 360x720 とすると、`model-small` を使用した場合に、切り取られる画像の大きさは 360x90 です。高さはの算出方法は 360x64/256=90 です。
+
+中心部分ではなく、画像の他の部分を自由に切取り、スキャンすることも可能です。その場合は、`api.scanText`に
+`cropLeft`、`cropTop`、`cropSize`を渡してください。規定では、`cropLeft = 0.0` , `cropTop = 0.5` ,
+ `cropSize = 1.0` となっています（以下の左の画像）。つまり、切り取られる画像のサイズはアスペクト比が許す
+限り大きくなり、実際の画像の縦方向の中心部となります。この場合は、画像の横方向の全部を切り取られますので、
+`cropLeft`は位置に影響しません。
+
+以下の右の画像では、`cropLeft = 0.75` , `cropTop = 0.75` , `cropSize = 0.5` としています。
+実際の画像の右下の方に位置する、アスペクト比が許す最大サイズの半分の大きさの画像が切り取られます。
+このように、`cropLeft`、`cropTop`、`cropSize`を指定することで、画像の任意の部分を切り取って
+スキャンすることができます。
 
 <br/>
-<img src="images/small-model-aspect-example.png" height="300px">
+<figure style="display:inline-block">
+  <img src="images/small-model-aspect-example_default.png" height="300px">
+  <figcaption>api.scanText(image)</figcaption>
+</figure>
+<figure style="display:inline-block">
+  <img src="images/small-model-aspect-example_modified.png" height="300px">
+  <figcaption>api.scanText(image, 0.75, 0.75, 0.5)</figcaption>
+</figure>
 <br/>
 <br/>
 
@@ -252,7 +270,7 @@ api.useModel(model, (ModelInformation modelInformation) -> {
 
 `TextScannerActivity` では、アスペクト比を取得して、モデルが読み込まない部分をホワイトアウトしています。
 
-別のアスペクト比を持つモデルが必要な場合は、弊社カスタマーサポートにご連絡ください。また Bitmap を入力とするようなローレベル API も開発中ですので、必要であればそちらも提供いたします。
+別のアスペクト比を持つモデルが必要な場合は、弊社カスタマーサポートにご連絡ください。また Bitmap を入力とするような高レベル API も開発中ですので、必要であればそちらも提供いたします。
 
 ### GPU を使用するモデルのロードにかかる時間について
 
@@ -289,7 +307,7 @@ OCR 結果の表示や、画面のホワイトアウトは、プレビューの�
 <br/>
 <br/>
 
-上の図の `overlayTop`、`overlayBottom` の背景を白（透過）にすることによりホワイトアウトを実現し、`boxesOverly` には OCR 結果を表示します。レイアウトは機種依存であるカメラの画角や、使用するモデルのアスペクト比によって決まりますので、動的に決定する必要があります。
+上の図の `overlayTop`、`overlayBottom` の背景を白（透過）にすることによりホワイトアウトを実現し、`boxesOverlay` には OCR 結果を表示します。レイアウトは機種依存であるカメラの画角や、使用するモデルのアスペクト比によって決まりますので、動的に決定する必要があります。
 
 ではここからは、「もっともシンプルな例」からの変更点を実際に見ていきます。
 
@@ -298,7 +316,6 @@ OCR 結果の表示や、画面のホワイトアウトは、プレビューの�
 レイアウトは下記のように UI スレッドでレイアウトを設定します。
 
 ```Java
-//TextScannerAnalyzer.java 117行目付近
 runOnUiThread(() -> {
     overlayTop.setLayoutParams(overlayTopLayoutParams);
     overlayBottom.setLayoutParams(overlayBottomLayoutParams);
@@ -309,7 +326,6 @@ runOnUiThread(() -> {
 また見通しを良くするために、スキャンする処理を別クラスとして切り出しています。
 
 ```Java
-//TextScannerAnalyzer.java 219行目付近
 imageAnalysis.setAnalyzer(analysisExecutor, imageAnalyser);
 ```
 
@@ -318,7 +334,6 @@ imageAnalysis.setAnalyzer(analysisExecutor, imageAnalyser);
 またそのアナライザーのコールバックに結果を表示するように記述しています。ここでも UI スレッドを使用します。
 
 ```Java
-//TextScannerAnalyzer.java 126行目付近
 public void call(List<Detection> filteredDetections, List<Detection> allDetections) {
   runOnUiThread(() -> {
       boxesOverlay.setBoxes(allDetections);
@@ -343,10 +358,9 @@ public void call(List<Detection> filteredDetections, List<Detection> allDetectio
 「フリースタイルの例」では表示するだけですが、実際にはスキャン結果を既存のマスターデータと突合することが多いのではないでしょうか。この例では、Java の `Set` にマスターデータを保存して、OCR 結果と突合しています。このコードは `WhitelistTextAnalyser` クラスに書かれています。ホワイトリストはここでは特定の電話番号としています。
 
 ```Java
-public class WhitelistTextAnalyser implements AnalyserWithCallback {
+public class WhitelistTextAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
-    private AnalysisCallback callback;
     private volatile boolean isActive;
     private final Set<String> whiteList;
 
@@ -371,7 +385,7 @@ public class WhitelistTextAnalyser implements AnalyserWithCallback {
             if (!isActive) return;
             if (callback == null) return;
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
-            List<Detection> detections = api.scanTexts(image).getDetections();
+            List<Detection> detections = api.scanTexts(image, cropLeft, cropTop, cropSize, cropStart).getDetections();
             ArrayList<Detection> filteredDetections = new ArrayList<>();
             for (Detection detection : detections) {
                 if(whiteList.contains(detection.getText())) {
@@ -403,7 +417,6 @@ public class WhitelistTextAnalyser implements AnalyserWithCallback {
 この機能を実装しているのは `TextScannerActivity` クラスの次のコードです。
 
 ```Java
-//122行目付近
 imageAnalyser.setCallback(new AnalysisCallback() {
               @Override
               public void call(List<Detection> filteredDetections, List<Detection> allDetections) {
@@ -427,7 +440,6 @@ imageAnalyser.setCallback(new AnalysisCallback() {
 `filteredDetections` のサイズが 0 でない場合は、`showDialog` メソッドでダイアログを表示しています。またダイアログを表示し、OCR を中断するかは `showDialog` フィールドで管理しており、これは `MainActivity` から `Intent.putExtra` で渡されています。
 
 ```Java
-//MainActivity.javaの36行目付近
 findViewById(R.id.whitelist_ocr_button).setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -446,10 +458,9 @@ findViewById(R.id.whitelist_ocr_button).setOnClickListener(new View.OnClickListe
 「ホワイトリスト」方式は完全に一致するものをスキャンしますが、今回は制約をもう少し緩めて `正規表現` に一致するフォーマットをスキャンする例を挙げます。たとえばある特定のフォーマットの日付のみを読みたい場合です。これは`EditDistanceTextAnalyser` クラスで実装されていています。
 
 ```Java
-public class RegexTextAnalyser implements AnalyserWithCallback {
+public class RegexTextAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
-    private AnalysisCallback callback;
     private volatile boolean isActive;
     private final Pattern regexPattern;
 
@@ -467,7 +478,7 @@ public class RegexTextAnalyser implements AnalyserWithCallback {
             if (callback == null) return;
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
 
-            ScanResult analysisResult = api.scanTexts(image);
+            ScanResult analysisResult = api.scanTexts(image, cropLeft, cropTop, cropSize);
             List<Detection> rawDetections = analysisResult.getDetections();
             List<Detection> filteredDetection = new ArrayList<>();
             for (Detection rawDetection : rawDetections ) {
@@ -501,10 +512,9 @@ OCR する環境が暗い、特殊なフォントや手書き漢字をスキャ�
 この機能は、`EditDistanceTextAnalyser` に実装されていて、この例では関東地方の県名にマッチングさせています。
 
 ```Java
-public class EditDistanceTextAnalyser implements AnalyserWithCallback {
+public class EditDistanceTextAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
-    private AnalysisCallback callback;
     private volatile boolean isScanning;
     private final Levenshtein metrics;
     private final List<String> candidates;
@@ -537,7 +547,7 @@ public class EditDistanceTextAnalyser implements AnalyserWithCallback {
             if (!api.isReady())
                 throw new RuntimeException("Model not loaded!");
 
-            ScanResult analysisResult = api.scanTexts(image);
+            ScanResult analysisResult = api.scanTexts(image, cropLeft, cropTop, cropSize);
             List<Detection> rawDetections = analysisResult.getDetections();
             List<Detection> filteredDetections = new ArrayList<>();
             for (Detection detection : rawDetections) {
@@ -588,11 +598,10 @@ public class EditDistanceTextAnalyser implements AnalyserWithCallback {
 バーコードを読み込むアナライザは `BarcodeAnalyser` です。
 
 ```Java
-public class BarcodeAnalyser implements AnalyserWithCallback {
+public class BarcodeAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
     private final BarcodeScanOption scanOption;
-    private AnalysisCallback callback;
     private volatile boolean isScanning;
 
     public BarcodeAnalyser(EdgeVisionAPI api) {
@@ -623,6 +632,114 @@ OCR の場合と基本的には同じですが、バーコードを読む場合�
 
 ## 読めない画像のフィードバック
 
-EdgeOCR で使用している AI を、日々訓練し進化させてます。現場で読めない画像を、弊社のサーバーにフィードバックしていただければ、優先的にそれらの画像を学習し、いま読めない文字も次回のリリースでは読めるようになる可能性があります。
+EdgeOCR で使用している AI を、日々訓練し進化させいてます。現場で読めない画像を、弊社のサーバーにフィードバックしていただければ、優先的にそれらの画像を学習し、いま読めない文字も次回のリリースでは読めるようになる可能性があります。
 
-TODO: レポートするコード断片をここであげる
+そのために、`EdgeVisionAPI` には `reportImage` というメソッドがあります。これを使うと、読めない画像を弊社に送信することができます。
+
+```Java
+ScanResult reportImage(
+        @NonNull ImageProxy image,
+        @NonNull float cropLeft, @NonNull float cropTop, @NonNull float cropSize,
+        @NonNull String userMessage) throws EdgeError;
+```
+`cropLeft` 、 `cropTop` 、 `cropSize` は `scanText`メッソドと同じです。
+`userMessage` には、読めない場面などについてのメッセージを自由に書き、または `""`
+を指定してください。
+
+`app/src/main/java/com/nefrock/edgeocr_example/ui/SimpleTextScannerActivity.java`
+に、ボタンを押すと現在の画面をフィードバックする機能を実装しています。ご自身のアプリに組み込む場合は、このコードを参考にしてください。
+
+```Java
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // ...
+        Button reportButton = findViewById(R.id.reportButton);
+        reportButton.setOnClickListener(
+            (View v) -> {
+                imageAnalyser.stop();
+                api.resetScanningState();
+                // Capture the image
+                imageCapture.takePicture(
+                    analysisExecutor,
+                    new ImageCapture.OnImageCapturedCallback() {
+                        @Override
+                        public void onCaptureSuccess(ImageProxy image) {
+                            try {
+                                api.reportImage(image, imageAnalyser.cropLeft, imageAnalyser.cropTop, imageAnalyser.cropSize, "");
+                            } catch (Exception e) {
+                                Log.e("EdgeOCRExample", Log.getStackTraceString(e));
+                            } finally {
+                                image.close();
+                            }
+                            imageAnalyser.resume();
+                        }
+
+                        @Override
+                        public void onError(ImageCaptureException exception) {
+                            Log.e("EdgeOCRExample", "[onCaptureSuccess] Failed to capture image", exception);
+                        }
+                    });
+            });
+        // ...
+    }
+```
+
+## 中心のテキストを選択・それ以外非表示
+
+テキストが複数検出した場合、どれを選択するかという問題があります。箱をタップして選択する方法も考えられますが、
+手を動かすことによってスマホも動いてしまうので、間違ったテキストを選択してしまう可能性があります。
+そのために、 `BoxesOverlay` で常に画像の中心に一番近いテキストを把握し、別のボタンでそのテキストを選択する方法を実装しています。
+`app/src/main/java/com/nefrock/edgeocr_example/ui/TextScannerActivity.java` に以下の
+コードがあります。
+
+```Java
+public class TextScannerActivity extends AppCompatActivity {
+    // ...
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        // ...
+        Button centerCaptureButton = findViewById(R.id.centerCaptureButton);
+        centerCaptureButton.setOnClickListener(
+            (View v) -> {
+                String centerText = boxesOverlay.getCenterText();
+                if (centerText == null) {
+                    return;
+                }
+                Toast.makeText(
+                    getApplicationContext(), "クリップボードにコピーしました: " + centerText,
+                    Toast.LENGTH_SHORT).show();
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                clipboard.setText(centerText);
+            });
+        // ...
+    }
+    // ...
+}
+```
+
+なお、`app/src/main/java/com/nefrock/edgeocr_example/ui/BoxesOverlay.java`に
+中心に一番近い箱のみを表示するフラグがあります。これを `true` にすると、中心のテキストのみを表示します。
+その場合より使いやすくするには、カメラプレビューの中心に `x` マークなどを表示するのはおすすめです。
+
+```Java
+public class BoxesOverlay extends View {
+    // ...
+    private boolean showOnlyCenter = false;
+    // ...
+
+    @Override
+    public void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        if (showOnlyCenter) {
+            int size = 15;
+            int left = getWidth() / 2 - size;
+            int top = getHeight() / 2 - size;
+            int right = getWidth() / 2 + size;
+            int bottom = getHeight() / 2 + size;
+            canvas.drawLine(left, top, right, bottom, centerBoxPaint);
+            canvas.drawLine(left, bottom, right, top, centerBoxPaint);
+        }
+        // ...
+    }
+}
+```

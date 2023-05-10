@@ -12,11 +12,10 @@ import com.nefrock.edgeocr.model.ScanResult;
 
 import java.util.Arrays;
 
-public class BarcodeAnalyser implements AnalyserWithCallback {
+public class BarcodeAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
     private final BarcodeScanOption scanOption;
-    private AnalysisCallback callback;
     private volatile boolean isScanning;
 
     public BarcodeAnalyser(EdgeVisionAPI api) {
@@ -37,11 +36,6 @@ public class BarcodeAnalyser implements AnalyserWithCallback {
         } finally {
             image.close();
         }
-    }
-
-    @Override
-    public void setCallback(AnalysisCallback callback) {
-        this.callback = callback;
     }
 
     @Override

@@ -14,10 +14,9 @@ import com.nefrock.edgeocr.api.EdgeVisionAPI;
 import com.nefrock.edgeocr.model.Detection;
 import com.nefrock.edgeocr.model.ScanResult;
 
-public class RegexTextAnalyser implements AnalyserWithCallback {
+public class RegexTextAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
-    private AnalysisCallback callback;
     private volatile boolean isActive;
     private final Pattern regexPattern;
 
@@ -35,7 +34,7 @@ public class RegexTextAnalyser implements AnalyserWithCallback {
             if (callback == null) return;
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
 
-            ScanResult analysisResult = api.scanTexts(image);
+            ScanResult analysisResult = api.scanTexts(image, cropLeft, cropTop, cropSize);
             List<Detection> rawDetections = analysisResult.getDetections();
             List<Detection> filteredDetection = new ArrayList<>();
             for (Detection rawDetection : rawDetections ) {
@@ -53,11 +52,6 @@ public class RegexTextAnalyser implements AnalyserWithCallback {
         } finally {
             image.close();
         }
-    }
-
-    @Override
-    public void setCallback(AnalysisCallback callback) {
-        this.callback = callback;
     }
 
     @Override

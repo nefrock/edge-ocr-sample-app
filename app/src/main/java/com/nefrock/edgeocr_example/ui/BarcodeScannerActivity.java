@@ -8,6 +8,8 @@ import android.app.AlertDialog;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Rational;
+import android.util.Size;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,6 +18,7 @@ import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.Preview;
 import androidx.camera.core.UseCaseGroup;
+import androidx.camera.core.ViewPort;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
@@ -110,6 +113,7 @@ public class BarcodeScannerActivity extends AppCompatActivity {
         ListenableFuture<ProcessCameraProvider> cameraProviderFuture
                 = ProcessCameraProvider.getInstance(this);
         cameraProviderFuture.addListener(() -> {
+            Size targetResolution = new Size(1080, 1080);
             // Acquire camera and set up preview
             ProcessCameraProvider cameraProvider;
             try {
@@ -118,13 +122,16 @@ public class BarcodeScannerActivity extends AppCompatActivity {
                 Log.e("EdgeOCRExample", "[startCamera] Lifecycle binding failed", e);
                 return;
             }
-            Preview preview = new Preview.Builder().build();
+            Preview preview = new Preview.Builder()
+                    .setTargetResolution(targetResolution)
+                    .build();
             PreviewView previewView = findViewById(R.id.previewView);
             preview.setSurfaceProvider(previewView.getSurfaceProvider());
             // Set up image analysis using EdgeOCR
             imageAnalysis = new ImageAnalysis.Builder()
                     .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_YUV_420_888)
                     .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                    .setTargetResolution(targetResolution)
                     .build();
             boxesOverlay = findViewById(R.id.boxesOverlay);
             imageAnalyser.setCallback((filteredDetections, allDetections) -> runOnUiThread(() -> boxesOverlay.setBoxes(allDetections)));
@@ -143,11 +150,13 @@ public class BarcodeScannerActivity extends AppCompatActivity {
             });
 
             // Bind use cases to camera
+            ViewPort viewPort = new ViewPort.Builder(new Rational(1, 1), preview.getTargetRotation())
+                    .build();
             UseCaseGroup useCaseGroup = new UseCaseGroup.Builder()
                     .addUseCase(preview)
                     .addUseCase(imageAnalysis)
+                    .setViewPort(viewPort)
                     .build();
-
 
             try {
                 cameraProvider.unbindAll();

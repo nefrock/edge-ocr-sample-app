@@ -8,20 +8,14 @@ import androidx.camera.core.ImageProxy;
 import com.nefrock.edgeocr.api.EdgeVisionAPI;
 import com.nefrock.edgeocr.model.ScanResult;
 
-public class FreeStyleTextAnalyser implements AnalyserWithCallback {
+public class FreeStyleTextAnalyser extends AnalyserWithCallback {
 
     private final EdgeVisionAPI api;
-    private AnalysisCallback callback;
     private volatile boolean isActive;
 
     public FreeStyleTextAnalyser(EdgeVisionAPI api) {
         this.api = api;
         this.isActive = true;
-    }
-
-    @Override
-    public void setCallback(AnalysisCallback callback) {
-        this.callback = callback;
     }
 
     @Override
@@ -32,7 +26,7 @@ public class FreeStyleTextAnalyser implements AnalyserWithCallback {
             if (callback == null) return;
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
 
-            ScanResult analysisResult = api.scanTexts(image);
+            ScanResult analysisResult = api.scanTexts(image, cropLeft, cropTop, cropSize);
             callback.call(analysisResult.getDetections(), analysisResult.getDetections());
         } catch (RuntimeException e) {
             Log.e("EdgeOCRExample", Log.getStackTraceString(e));
