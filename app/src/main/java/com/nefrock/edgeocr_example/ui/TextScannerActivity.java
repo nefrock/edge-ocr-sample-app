@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -343,11 +344,13 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
                                 }
                             }
                             MeteringPoint point = buildMeteringPoint();
-                            FocusMeteringAction action =
-                                new FocusMeteringAction.Builder(point, FocusMeteringAction.FLAG_AF)
-                                    .disableAutoCancel()
-                                    .build();
-                            future = camera.getCameraControl().startFocusAndMetering(action);
+                            if (point != null) {
+                                FocusMeteringAction action =
+                                    new FocusMeteringAction.Builder(point, FocusMeteringAction.FLAG_AF)
+                                        .setAutoCancelDuration(1, TimeUnit.SECONDS)
+                                        .build();
+                                future = camera.getCameraControl().startFocusAndMetering(action);
+                            }
                             Thread.sleep(1000);
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
@@ -426,6 +429,11 @@ import com.nefrock.edgeocr_example.analysers.WhitelistTextAnalyser;
         OverlayParams params = getOverlayParams();
         float centerX = (1 - params.widthPercent) * params.horizontalBias + params.widthPercent / 2;
         float centerY = (1 - params.heightPercent) * params.verticalBias + params.heightPercent / 2;
+        // Skip focusing if we are close to the center of the image
+        if (Math.abs(centerX - 0.5) < 0.05 && Math.abs(centerY - 0.5) < 0.05) {
+            Log.d("EdgeOCRExample", "[buildMeteringPoint] Skip focusing on center of the image");
+            return null;
+        }
         MeteringPoint point;
         int rotation = camera.getCameraInfo().getSensorRotationDegrees();
         if (rotation == 0) {

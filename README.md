@@ -630,6 +630,46 @@ public class BarcodeAnalyser extends AnalyserWithCallback {
 
 OCR の場合と基本的には同じですが、バーコードを読む場合は `api.scanTexts` の代わりに `api.scanBarcodes` を呼び出してください。`api.scanBarcodes` の第 2 引数には、読みたいバーコードのフォーマットを指定します。
 
+## Bitmap実装
+
+apiへのインプットとして、ImageProxyではなくBitmapを用いた実装の例が `BitmapActivity` です。
+
+```Java
+public class BitmapActivity extends AppCompatActivity {
+    //略
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        ImageView imageView = (ImageView)findViewById(R.id.bitmapImageView);
+        try{
+            AssetManager assetManager = getAssets();
+            this.bitmap = BitmapFactory.decodeStream(assetManager.open("images/sample.bmp"));
+            imageView.setImageBitmap(this.bitmap);
+            imageView.post(() -> {
+                try{
+                    while(!api.isReady()) {
+                        Thread.sleep(30);
+                    }
+                    ScanResult analysisResult = api.scanTextsOneShot(bitmap, 0.5f, 0.5f, 1.0f);
+                    runOnUiThread(() -> boxesOverlay.setBoxes(analysisResult.getDetections()));
+                }catch(InterruptedException e){
+                    Log.e("EdgeOCRExample", "[onCreate] Interrupted while waiting for load model", e);
+                }
+            });
+        }catch(IOException e){
+            Log.e("EdgeOCRExample", "[onCreate] Failed to load image", e);
+        }
+    }
+
+    //以下略
+}
+```
+
+OCRの例と基本的には同じですが、AssetManagerを用いて、`assets/images/sample.bmp`を読み出しapiに渡しています。
+なおこの例では、`api.scanTexts`ではなく、`api.scanTextsOneShot`を呼び出しており、このメソッドは同期的にOCR結果が返却されるため、callback処理の受け渡しが必要ありません。
+パフォーマンス的には劣化しますのでお気をつけてご使用ください。
+
+
 ## 読めない画像のフィードバック
 
 EdgeOCR で使用している AI を、日々訓練し進化させいてます。現場で読めない画像を、弊社のサーバーにフィードバックしていただければ、優先的にそれらの画像を学習し、いま読めない文字も次回のリリースでは読めるようになる可能性があります。

@@ -60,6 +60,11 @@ import com.nefrock.edgeocr_example.R;
             startActivity(intent);
         });
 
+        findViewById(R.id.bitmap_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), BitmapActivity.class);
+            startActivity(intent);
+        });
+
 
         NefrockLicenseAPI licenseAPI = new NefrockLicenseAPI.Builder(this)
             .withLicenseKey(<your key>)
