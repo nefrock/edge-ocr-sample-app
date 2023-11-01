@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TextScannerActivity">
+    tools:context=".custom_analyzer.TextScannerActivity">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
@@ -16,22 +16,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.nefrock.edgeocr.ui.CameraOverlay
         android:id="@+id/overlay"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="@+id/previewView"
         app:layout_constraintBottom_toBottomOf="@+id/previewView"
         app:layout_constraintStart_toStartOf="@+id/previewView"
-        app:layout_constraintEnd_toEndOf="@+id/previewView" >
-        <com.nefrock.edgeocr_example.ui.BoxesOverlay
-            android:id="@+id/boxesOverlay"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintEnd_toEndOf="@+id/previewView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

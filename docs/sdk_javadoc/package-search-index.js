@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.nefrock.edgeocr.api"},{"l":"com.nefrock.edgeocr.callback"},{"l":"com.nefrock.edgeocr.error"},{"l":"com.nefrock.edgeocr.model"},{"l":"com.nefrock.edgeocr.ui"}];updateSearchResults();

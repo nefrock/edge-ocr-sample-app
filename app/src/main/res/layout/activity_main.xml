@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/titleTextView"
@@ -19,100 +19,118 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/simple_ocr_button"
+    <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:width="240dp"
-        android:text="もっともシンプルな例"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:fadeScrollbars="false"
+        android:paddingVertical="30dp"
+        android:scrollbarThumbVertical="@android:color/white"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
 
-    <Button
-        android:id="@+id/free_ocr_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:width="240dp"
-        android:text="フリースタイル"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simple_ocr_button" />
+            <Button
+                android:id="@+id/simple_ocr_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:width="240dp"
+                android:text="もっともシンプルな例" />
 
-    <Button
-        android:id="@+id/whitelist_ocr_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:width="240dp"
-        android:text="ホワイトリスト"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/free_ocr_button" />
+            <Button
+                android:id="@+id/camera_overlay_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="OCR結果を表示させる" />
 
-    <Button
-        android:id="@+id/reg_ocr_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:width="240dp"
-        android:text="正規表現"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/whitelist_ocr_button" />
+            <Button
+                android:id="@+id/report_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="読み取れない画像のフィードバック" />
 
-    <Button
-        android:id="@+id/ed_ocr_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:width="240dp"
-        android:text="編集距離"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reg_ocr_button" />
+            <Button
+                android:id="@+id/free_ocr_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="範囲を指定してOCR"
+                app:layout_constraintTop_toBottomOf="@+id/simple_ocr_button" />
 
-    <Button
-        android:id="@+id/barcode_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:width="240dp"
-        android:text="バーコード"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ed_ocr_button" />
+            <Button
+                android:id="@+id/whitelist_ocr_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="ホワイトリスト"
+                app:layout_constraintTop_toBottomOf="@+id/free_ocr_button" />
 
-    <Button
-        android:id="@+id/activation_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:width="240dp"
-        android:backgroundTint="#35952A"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bitmap_button" />
+            <Button
+                android:id="@+id/reg_ocr_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="正規表現"
+                app:layout_constraintTop_toBottomOf="@+id/whitelist_ocr_button" />
 
-    <Button
-        android:id="@+id/bitmap_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:width="240dp"
-        android:text="Bitmap実装"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/barcode_button" />
+            <Button
+                android:id="@+id/ed_ocr_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="編集距離"
+                app:layout_constraintTop_toBottomOf="@+id/reg_ocr_button" />
+
+            <Button
+                android:id="@+id/barcode_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="バーコード"
+                app:layout_constraintTop_toBottomOf="@+id/ed_ocr_button" />
+
+            <Button
+                android:id="@+id/activation_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:width="240dp"
+                android:backgroundTint="#35952A"
+                app:layout_constraintTop_toBottomOf="@+id/text_bitmap_button" />
+
+            <Button
+                android:id="@+id/text_bitmap_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="TextBitmap実装"
+                app:layout_constraintTop_toBottomOf="@+id/barcode_bitmap_button"/>
+
+            <Button
+                android:id="@+id/barcode_bitmap_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="BarcodeBitmap実装" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

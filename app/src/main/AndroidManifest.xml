@@ -16,7 +16,7 @@
         android:theme="@style/Theme.EdgeOCRExample"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MainActivity"
+            android:name=".MainActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -27,25 +27,49 @@
         </activity>
 
         <activity
-            android:name=".ui.SimpleTextScannerActivity"
+            android:name=".simple_text.SimpleTextScannerActivity"
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.TextScannerActivity"
+            android:name=".camera_overlay.CameraOverlayTextScannerActivity"
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.BarcodeScannerActivity"
+            android:name=".report.ReportScannerActivity"
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>
 
         <activity
-            android:name=".ui.BitmapActivity"
+            android:name=".crop.CropTextScannerActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".custom_analyzer.TextScannerActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".barcode.BarcodeScannerActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".text_bitmap.TextBitmapActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".barcode_bitmap.BarcodeBitmapActivity"
             android:exported="true"
             android:screenOrientation="portrait">
         </activity>

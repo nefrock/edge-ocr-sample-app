@@ -5,81 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TextScannerActivity">
-
-    <LinearLayout
-        android:id="@+id/hvCropBarLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:paddingBottom="16dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal">
-        <TextView
-            android:text="横"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_width="0dp"
-            android:layout_weight="0.05"
-            android:layout_height="wrap_content"
-            android:gravity="right" />
-        <SeekBar
-            android:id="@+id/hCropBar"
-            android:layout_width="0dp"
-            android:layout_weight="0.45"
-            android:layout_marginEnd="16dp"
-            android:layout_height="wrap_content"/>
-        <SeekBar
-            android:id="@+id/vCropBar"
-            android:layout_width="0dp"
-            android:layout_weight="0.45"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:text="縦"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_width="0dp"
-            android:layout_weight="0.05"
-            android:layout_height="wrap_content"
-            android:gravity="left" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/sCropBarLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/hvCropBarLayout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal">
-        <TextView
-            android:text="サイズ"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:layout_width="0dp"
-            android:layout_weight="0.2"
-            android:layout_height="wrap_content"
-            android:gravity="right" />
-        <SeekBar
-            android:id="@+id/sCropBar"
-            android:layout_width="0dp"
-            android:layout_weight="0.8"
-            android:layout_marginEnd="16dp"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/reportButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:text="読めない内容を報告"
-        app:layout_constraintTop_toBottomOf="@+id/sCropBarLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    tools:context=".custom_analyzer.TextScannerActivity">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"
@@ -90,73 +16,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.nefrock.edgeocr.ui.CameraOverlay
         android:id="@+id/overlay"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintTop_toTopOf="@+id/previewView"
         app:layout_constraintBottom_toBottomOf="@+id/previewView"
         app:layout_constraintStart_toStartOf="@+id/previewView"
-        app:layout_constraintEnd_toEndOf="@+id/previewView" >
-        <com.nefrock.edgeocr_example.ui.BoxesOverlay
-            android:id="@+id/boxesOverlay"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintWidth_percent="1.0"
-            app:layout_constraintHeight_percent="0.6"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintVertical_bias="0.5" />
-        <View
-            android:id="@+id/overlayTop"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/boxesOverlay"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/overlay" />
-        <View
-            android:id="@+id/overlayBottom"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/boxesOverlay"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/overlay" />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/overlayTop"
-            app:layout_constraintBottom_toTopOf="@+id/overlayBottom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/boxesOverlay"
-            android:background="@color/overlay" />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@+id/overlayTop"
-            app:layout_constraintBottom_toTopOf="@+id/overlayBottom"
-            app:layout_constraintStart_toEndOf="@+id/boxesOverlay"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:background="@color/overlay" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintEnd_toEndOf="@+id/previewView" />
 
-    <Button
-        android:id="@+id/centerCaptureButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginStart="24dp"
-        android:text="中心のテキスト（緑色）をコピー"
-        app:layout_constraintBottom_toTopOf="@+id/zoomBar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <SeekBar
         android:id="@+id/zoomBar"
@@ -164,6 +32,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
