@@ -47,6 +47,7 @@ dependencies {
 - [OCR結果を画面に表示する](./docs/boxesoverlay.md)
 - [読み取れない画像のフィードバック](./docs/feedback.md)
 - [範囲を指定してOCR](./docs/crop.md)
-- [実用的な例](./docs/analyzers.md)
+- [テキスト範囲の検出時にフィルタを行う](./docs/detectionfilter.md)
+- [textの複数回読み取りで精度を上げる](./docs/ntimes-scan.md)
 - [バーコードスキャン](./docs/barcode.md)
 - [Bitmap からの OCR](./docs/bitmap.md)

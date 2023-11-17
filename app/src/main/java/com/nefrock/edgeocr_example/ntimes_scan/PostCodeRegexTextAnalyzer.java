@@ -1,13 +1,15 @@
-package com.nefrock.edgeocr_example.custom_analyzer;
+package com.nefrock.edgeocr_example.ntimes_scan;
 
 import android.util.Log;
 
 import androidx.annotation.NonNull;
+import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
 
 import com.nefrock.edgeocr.api.EdgeVisionAPI;
 import com.nefrock.edgeocr.error.EdgeError;
 import com.nefrock.edgeocr.model.Detection;
+import com.nefrock.edgeocr.model.ScanConfirmationStatus;
 import com.nefrock.edgeocr.model.ScanResult;
 import com.nefrock.edgeocr.model.Text;
 
@@ -16,17 +18,15 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-class RegexTextAnalyzer extends AnalyzerWithCallback {
-
+class PostCodeRegexTextAnalyzer implements ImageAnalysis.Analyzer {
+    private AnalysisCallback callback;
     private final EdgeVisionAPI api;
     private volatile boolean isActive;
     private final Pattern regexPattern;
-
-    public RegexTextAnalyzer(EdgeVisionAPI api) {
+    public PostCodeRegexTextAnalyzer(EdgeVisionAPI api) {
         this.api = api;
-        //2023.9.30、のような日付のみスキャンする(2020年代のみ)
-        this.regexPattern = Pattern.compile(".*(202\\d\\.\\d{1,2}\\.\\d{1,2}).*");
         this.isActive = true;
+        this.regexPattern = Pattern.compile("(\\d{3})-(\\d{4})");
     }
 
     @Override @androidx.camera.core.ExperimentalGetImage
@@ -37,18 +37,20 @@ class RegexTextAnalyzer extends AnalyzerWithCallback {
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
 
             ScanResult scanResult = api.scanTexts(image);
-            List<Detection<Text>> detections = scanResult.getTextDetections();
             List<Detection<Text>> filteredDetections = new ArrayList<>();
-            for (Detection<Text> detection : detections ) {
+            List<Detection<Text>> notTargetDetections = new ArrayList<>();
+            for (Detection<Text> detection : scanResult.getTextDetections()) {
                 String text = detection.getScanObject().getText();
                 Matcher matcher = regexPattern.matcher(text);
                 if(matcher.find()) {
-                    String newText = matcher.group(1);
-                    detection.getScanObject().setText(newText);
-                    filteredDetections.add(detection);
+                    if (detection.getStatus() == ScanConfirmationStatus.Confirmed) {
+                        filteredDetections.add(detection);
+                    } else {
+                        notTargetDetections.add(detection);
+                    }
                 }
             }
-            callback.call(filteredDetections, detections);
+            callback.call(filteredDetections, notTargetDetections);
         } catch (EdgeError e) {
             Log.e("EdgeOCRExample", Log.getStackTraceString(e));
         } finally {
@@ -56,12 +58,14 @@ class RegexTextAnalyzer extends AnalyzerWithCallback {
         }
     }
 
-    @Override
+    public void setCallback(AnalysisCallback callback) {
+        this.callback = callback;
+    }
+
     public void stop() {
         isActive = false;
     }
 
-    @Override
     public void resume() {
         isActive = true;
     }

@@ -29,50 +29,45 @@
         <activity
             android:name=".simple_text.SimpleTextScannerActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".camera_overlay.CameraOverlayTextScannerActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".report.ReportScannerActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".crop.CropTextScannerActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
-
-        <activity
-            android:name=".custom_analyzer.TextScannerActivity"
-            android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".barcode.BarcodeScannerActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".text_bitmap.TextBitmapActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
 
         <activity
             android:name=".barcode_bitmap.BarcodeBitmapActivity"
             android:exported="true"
-            android:screenOrientation="portrait">
-        </activity>
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".detection_filter.DetectionFilterScannerActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity android:name=".ntimes_scan.NtimesTextScanActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

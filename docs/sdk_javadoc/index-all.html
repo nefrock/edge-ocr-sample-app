@@ -75,22 +75,20 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#Any" class="member-name-link">Any</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">すべてのバーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#Any" class="member-name-link">Any</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">すべてのバーコード</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/api/TextMapper.html#apply(com.nefrock.edgeocr.model.Text)" class="member-name-link">apply(Text)</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a></dt>
+<dd>
+<div class="block">テキスト検出結果を変更するためのメソッドです。<br/>
+ このメソッドをオーバーライドして、マッピング処理を実装してください。Textクラスの情報を
+ 元に、文字列を変更することができます。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#availableModels()" class="member-name-link">availableModels()</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
 <div class="block">利用可能なOCRモデルのリストを返します。`useModel`メソッドを使用してモデルを使用する前に、
  このメソッドを使用して利用可能なモデルを確認することをお勧めします。</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#Aztec" class="member-name-link">Aztec</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">Aztec 2D バーコード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#Aztec" class="member-name-link">Aztec</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
@@ -103,10 +101,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">検出対象がバーコードの場合の検出結果を表すクラスです。</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/DetectionType.html#Barcode" class="member-name-link">Barcode</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/DetectionType.html" title="class in com.nefrock.edgeocr.api">DetectionType</a></dt>
-<dd>
-<div class="block">バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/DetectionType.html#Barcode" class="member-name-link">Barcode</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/DetectionType.html" title="class in com.nefrock.edgeocr.model">DetectionType</a></dt>
 <dd>
 <div class="block">バーコード</div>
@@ -114,10 +108,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/model/Barcode.html#%3Cinit%3E(com.nefrock.edgeocr.jni.Detection)" class="member-name-link">Barcode(Detection)</a> - Constructor for class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Barcode.html" title="class in com.nefrock.edgeocr.model">Barcode</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html" class="type-name-link" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a> - Class in <a href="com/nefrock/edgeocr/api/package-summary.html">com.nefrock.edgeocr.api</a></dt>
-<dd>
-<div class="block">バーコードの種類を表す列挙型</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a> - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
 <dd>
@@ -199,33 +189,21 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">現在使用しているOCRモデルに設定されている検出結果のフィルタをクリアします。</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#Codabar" class="member-name-link">Codabar</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
+<dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#clearTextMapper()" class="member-name-link">clearTextMapper()</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">Codabar バーコード</div>
+<div class="block">現在使用しているOCRモデルに設定されているテキストマッパーをクリアします。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#Codabar" class="member-name-link">Codabar</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">Codabar バーコード</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#Code128" class="member-name-link">Code128</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">Code 128 バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#Code128" class="member-name-link">Code128</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">Code 128 バーコード</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#Code39" class="member-name-link">Code39</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">Code 39 バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#Code39" class="member-name-link">Code39</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">Code 39 バーコード</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#Code93" class="member-name-link">Code93</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">Code 93 バーコード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#Code93" class="member-name-link">Code93</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
@@ -245,18 +223,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">信頼値</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html#Confirmed" class="member-name-link">Confirmed</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.api">ScanConfirmationStatus</a></dt>
-<dd>
-<div class="block">N回連続で同じ結果が読み込まれたので、確定された</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html#Confirmed" class="member-name-link">Confirmed</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a></dt>
 <dd>
 <div class="block">N回連続で同じ結果が読み込まれたので、確定された</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/Constants.html" class="type-name-link" title="class in com.nefrock.edgeocr.api">Constants</a> - Class in <a href="com/nefrock/edgeocr/api/package-summary.html">com.nefrock.edgeocr.api</a></dt>
-<dd>&nbsp;</dd>
-<dt><a href="com/nefrock/edgeocr/api/Constants.html#%3Cinit%3E()" class="member-name-link">Constants()</a> - Constructor for class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/Constants.html" title="class in com.nefrock.edgeocr.api">Constants</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/api/CropRect.html" class="type-name-link" title="class in com.nefrock.edgeocr.api">CropRect</a> - Class in <a href="com/nefrock/edgeocr/api/package-summary.html">com.nefrock.edgeocr.api</a></dt>
 <dd>
 <div class="block">画像のスキャン範囲を表すデータクラスです。<br>
@@ -278,25 +248,13 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#DataBar" class="member-name-link">DataBar</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">GS1 DataBar バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#DataBar" class="member-name-link">DataBar</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">GS1 DataBar バーコード</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#DataBarExpanded" class="member-name-link">DataBarExpanded</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">GS1 DataBar 拡張バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#DataBarExpanded" class="member-name-link">DataBarExpanded</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">GS1 DataBar 拡張バーコード</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#DataMatrix" class="member-name-link">DataMatrix</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">Data Matrix 2D バーコード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#DataMatrix" class="member-name-link">DataMatrix</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
@@ -316,10 +274,6 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/api/DetectionFilter.html#%3Cinit%3E()" class="member-name-link">DetectionFilter()</a> - Constructor for class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/DetectionFilter.html" title="class in com.nefrock.edgeocr.api">DetectionFilter</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/nefrock/edgeocr/api/DetectionType.html" class="type-name-link" title="class in com.nefrock.edgeocr.api">DetectionType</a> - Class in <a href="com/nefrock/edgeocr/api/package-summary.html">com.nefrock.edgeocr.api</a></dt>
-<dd>
-<div class="block">検出結果の種類を表す列挙型</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/DetectionType.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">DetectionType</a> - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
 <dd>
 <div class="block">検出結果の種類を表す列挙型</div>
@@ -327,17 +281,9 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:E">E</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#EAN13" class="member-name-link">EAN13</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">EAN-13 バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#EAN13" class="member-name-link">EAN13</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">EAN-13 バーコード</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#EAN8" class="member-name-link">EAN8</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">EAN-8 バーコード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#EAN8" class="member-name-link">EAN8</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
@@ -390,7 +336,7 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:F">F</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/api/DetectionFilter.html#filter(java.util.List)" class="member-name-link">filter(List&lt;Detection&gt;)</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/DetectionFilter.html" title="class in com.nefrock.edgeocr.api">DetectionFilter</a></dt>
+<dt><a href="com/nefrock/edgeocr/api/DetectionFilter.html#filter(java.util.List)" class="member-name-link">filter(List&lt;Detection&lt;? extends ScanObject&gt;&gt;)</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/DetectionFilter.html" title="class in com.nefrock.edgeocr.api">DetectionFilter</a></dt>
 <dd>
 <div class="block">検出結果をフィルタリングします。<br/>
  このメソッドをオーバーライドして、フィルタリング処理を実装してください。Detectionの
@@ -469,18 +415,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">検出された各文字について、その他の文字候補とその信頼値を取得します。</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">定数の名称を取得します。</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/DetectionType.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/DetectionType.html" title="class in com.nefrock.edgeocr.api">DetectionType</a></dt>
-<dd>
-<div class="block">定数の名称を取得します。</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.api">ScanConfirmationStatus</a></dt>
-<dd>
-<div class="block">定数の名称を取得します。</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">定数の名称を取得します。</div>
@@ -500,10 +434,6 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a></dt>
 <dd>
 <div class="block">定数の名称を取得します。</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/Constants.html#getNSameRecognitionsToConfirm()" class="member-name-link">getNSameRecognitionsToConfirm()</a> - Static method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/Constants.html" title="class in com.nefrock.edgeocr.api">Constants</a></dt>
-<dd>
-<div class="block">文字列・バーコードの検出結果の確定に必要な同じ結果の読み込み回数</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanResult.html#getPreprocessingTime()" class="member-name-link">getPreprocessingTime()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></dt>
 <dd>
@@ -557,10 +487,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">OCRエンジンが使用可能かどうかを返します。</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#ITF" class="member-name-link">ITF</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">ITF (Interleaved Two of Five) バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#ITF" class="member-name-link">ITF</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">ITF (Interleaved Two of Five) バーコード</div>
@@ -576,10 +502,6 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/api/License.html#%3Cinit%3E()" class="member-name-link">License()</a> - Constructor for class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/License.html" title="class in com.nefrock.edgeocr.api">License</a></dt>
 <dd>&nbsp;</dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#LinearCodes" class="member-name-link">LinearCodes</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">線形バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#LinearCodes" class="member-name-link">LinearCodes</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">線形バーコード</div>
@@ -591,25 +513,13 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#MatrixCodes" class="member-name-link">MatrixCodes</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">2D マトリクスバーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#MatrixCodes" class="member-name-link">MatrixCodes</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">2D マトリクスバーコード</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#MaxiCode" class="member-name-link">MaxiCode</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">MaxiCode バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#MaxiCode" class="member-name-link">MaxiCode</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">MaxiCode バーコード</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#MicroQRCode" class="member-name-link">MicroQRCode</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">Micro QR コード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#MicroQRCode" class="member-name-link">MicroQRCode</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
@@ -650,17 +560,9 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">ライセンス認証APIのBuilderです</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#None" class="member-name-link">None</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">不明なバーコード、またはどのフォーマットも読み取らない</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#None" class="member-name-link">None</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">不明なバーコード、またはどのフォーマットも読み取らない</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html#NotYetRead" class="member-name-link">NotYetRead</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.api">ScanConfirmationStatus</a></dt>
-<dd>
-<div class="block">まだ一度も読み込まれていない</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html#NotYetRead" class="member-name-link">NotYetRead</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a></dt>
 <dd>
@@ -691,18 +593,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">定数の値を取得します。</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#ordinalToEnum(int)" class="member-name-link">ordinalToEnum(int)</a> - Static method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">値から定数を列挙型として取得します。</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/DetectionType.html#ordinalToEnum(int)" class="member-name-link">ordinalToEnum(int)</a> - Static method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/DetectionType.html" title="class in com.nefrock.edgeocr.api">DetectionType</a></dt>
-<dd>
-<div class="block">値から定数を列挙型として取得します。</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html#ordinalToEnum(int)" class="member-name-link">ordinalToEnum(int)</a> - Static method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.api">ScanConfirmationStatus</a></dt>
-<dd>
-<div class="block">値から定数を列挙型として取得します。</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#ordinalToEnum(int)" class="member-name-link">ordinalToEnum(int)</a> - Static method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">値から定数を列挙型として取得します。</div>
@@ -722,10 +612,6 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:P">P</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#PDF417" class="member-name-link">PDF417</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">PDF417 2D バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#PDF417" class="member-name-link">PDF417</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">PDF417 2D バーコード</div>
@@ -733,10 +619,6 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:Q">Q</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#QRCode" class="member-name-link">QRCode</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">QR コード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#QRCode" class="member-name-link">QRCode</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">QR コード</div>
@@ -804,10 +686,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">バーコードの読み取りを行います。
  <a href="com/nefrock/edgeocr/api/BarcodeScanOption.html" title="class in com.nefrock.edgeocr.api"><code>BarcodeScanOption</code></a>を用いて、読み取るバーコードの種類と読み取り範囲を指定することができます。</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html" class="type-name-link" title="class in com.nefrock.edgeocr.api">ScanConfirmationStatus</a> - Class in <a href="com/nefrock/edgeocr/api/package-summary.html">com.nefrock.edgeocr.api</a></dt>
-<dd>
-<div class="block">スキャン結果の確定状態を表す列挙型</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a> - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
 <dd>
@@ -925,6 +803,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">文字列を設定します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#setTextMapper(com.nefrock.edgeocr.api.TextMapper)" class="member-name-link">setTextMapper(TextMapper)</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
+<dd>
+<div class="block">現在使用しているOCRモデルにテキストマッパーを設定します。<br/>
+ 認識された文字列、及びその他の文字候補の信頼値を用いて、文字列の変更を行うことが
+ できます。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm(int)</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
 <div class="block">テキストの確定までの読み取り回数を設定します。
@@ -937,15 +821,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">検出対象が文字列の場合の検出結果を表すクラスです。</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/DetectionType.html#Text" class="member-name-link">Text</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/DetectionType.html" title="class in com.nefrock.edgeocr.api">DetectionType</a></dt>
-<dd>
-<div class="block">文字列</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/DetectionType.html#Text" class="member-name-link">Text</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/DetectionType.html" title="class in com.nefrock.edgeocr.model">DetectionType</a></dt>
 <dd>
 <div class="block">文字列</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/model/Text.html#%3Cinit%3E(com.nefrock.edgeocr.jni.Detection)" class="member-name-link">Text(Detection)</a> - Constructor for class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Text.html" title="class in com.nefrock.edgeocr.model">Text</a></dt>
+<dt><a href="com/nefrock/edgeocr/model/Text.html#%3Cinit%3E(com.nefrock.edgeocr.jni.Detection,boolean)" class="member-name-link">Text(Detection, boolean)</a> - Constructor for class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Text.html" title="class in com.nefrock.edgeocr.model">Text</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </dd>
@@ -953,28 +833,24 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">各文字の信頼値を表すクラスです。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/api/TextMapper.html" class="type-name-link" title="class in com.nefrock.edgeocr.api">TextMapper</a> - Class in <a href="com/nefrock/edgeocr/api/package-summary.html">com.nefrock.edgeocr.api</a></dt>
+<dd>
+<div class="block">テキスト検出結果を変更するためのクラスです。よくブレる文字の修正、または検出結果から不要な
+ 文字を削除するために使用します。<br/>
+ このクラスを継承して、applyメソッドを実装してください。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/api/TextMapper.html#%3Cinit%3E()" class="member-name-link">TextMapper()</a> - Constructor for class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:U">U</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html#Unconfirmed" class="member-name-link">Unconfirmed</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.api">ScanConfirmationStatus</a></dt>
-<dd>
-<div class="block">N回未満で同じ結果が読み込まれたので、まだ確定されていない</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html#Unconfirmed" class="member-name-link">Unconfirmed</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a></dt>
 <dd>
 <div class="block">N回未満で同じ結果が読み込まれたので、まだ確定されていない</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#UPCA" class="member-name-link">UPCA</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">UPC-A バーコード</div>
-</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#UPCA" class="member-name-link">UPCA</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">UPC-A バーコード</div>
-</dd>
-<dt><a href="com/nefrock/edgeocr/api/BarcodeFormat.html#UPCE" class="member-name-link">UPCE</a> - Static variable in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></dt>
-<dd>
-<div class="block">UPC-E バーコード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#UPCE" class="member-name-link">UPCE</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>

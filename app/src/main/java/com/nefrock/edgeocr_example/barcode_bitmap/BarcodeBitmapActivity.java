@@ -27,7 +27,7 @@ public class BarcodeBitmapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bitmap);
+        setContentView(R.layout.activity_barcode_bitmap);
         // Initialize EdgeOCR
         EdgeVisionAPI api;
         try {

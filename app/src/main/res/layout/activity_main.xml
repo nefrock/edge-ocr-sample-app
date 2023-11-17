@@ -70,31 +70,22 @@
                 app:layout_constraintTop_toBottomOf="@+id/simple_ocr_button" />
 
             <Button
-                android:id="@+id/whitelist_ocr_button"
+                android:id="@+id/detection_filter_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:width="240dp"
-                android:text="ホワイトリスト"
-                app:layout_constraintTop_toBottomOf="@+id/free_ocr_button" />
+                android:text="真ん中のテキストのみを読むOCR"
+                app:layout_constraintTop_toBottomOf="@+id/simple_ocr_button" />
 
             <Button
-                android:id="@+id/reg_ocr_button"
+                android:id="@+id/ntimes_scan_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:width="240dp"
-                android:text="正規表現"
+                android:text="複数回読み取りで確定"
                 app:layout_constraintTop_toBottomOf="@+id/whitelist_ocr_button" />
-
-            <Button
-                android:id="@+id/ed_ocr_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:width="240dp"
-                android:text="編集距離"
-                app:layout_constraintTop_toBottomOf="@+id/reg_ocr_button" />
 
             <Button
                 android:id="@+id/barcode_button"

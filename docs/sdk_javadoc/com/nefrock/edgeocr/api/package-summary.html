@@ -73,16 +73,10 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary" aria-labelledby="class-summary-tab0">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="BarcodeFormat.html" title="class in com.nefrock.edgeocr.api">BarcodeFormat</a></div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="BarcodeScanOption.html" title="class in com.nefrock.edgeocr.api">BarcodeScanOption</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
-<div class="block">バーコードの種類を表す列挙型</div>
-</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="BarcodeScanOption.html" title="class in com.nefrock.edgeocr.api">BarcodeScanOption</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">バーコードスキャンのオプションを表すクラスです。</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="Constants.html" title="class in com.nefrock.edgeocr.api">Constants</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
 <div class="col-first odd-row-color class-summary class-summary-tab2"><a href="CropRect.html" title="class in com.nefrock.edgeocr.api">CropRect</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">画像のスキャン範囲を表すデータクラスです。<br>
@@ -95,40 +89,32 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">検出結果のフィルタを表すクラスです。このクラスを継承して、filterメソッドを実装してください。</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="DetectionType.html" title="class in com.nefrock.edgeocr.api">DetectionType</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
-<div class="block">検出結果の種類を表す列挙型</div>
-</div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block">EdgeVisionAPIは、Edge OCR SDKのAPIです。
  Edge OCR SDKを使用する前に、ライセンス認証を行う必要があります。
  <a href="NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr.api"><code>NefrockLicenseAPI</code></a>を使用してライセンス認証を行ってください。</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="EdgeVisionAPI.Builder.html" title="class in com.nefrock.edgeocr.api">EdgeVisionAPI.Builder</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="EdgeVisionAPI.Builder.html" title="class in com.nefrock.edgeocr.api">EdgeVisionAPI.Builder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">OCRエンジンを初期化するためのビルダークラスです。
  OCRエンジンを初期化するには、このクラスのインスタンスを作成し、
  `fromAssets`または`fromPath`メソッドを呼び出して、
  OCRモデルを読み込む方法を指定した後に、`build`メソッドを呼び出してください。</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="License.html" title="class in com.nefrock.edgeocr.api">License</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr.api">NefrockLicenseAPI</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="License.html" title="class in com.nefrock.edgeocr.api">License</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab1"><a href="NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr.api">NefrockLicenseAPI</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab1">
 <div class="block">NefrockLicenseAPIは、Nefrock OCR SDKのライセンス認証を行うためのAPIです。
  Nefrock OCR SDKを使用する前に、ライセンス認証を行う必要があります。
  ライセンス認証は、`activate`メソッドを使用して行います。
  ライセンス認証が完了すると、`activate`メソッドのコールバックにライセンス情報が渡されます。
  ライセンス認証が完了していない場合、`activate`メソッドは`null`を返します。</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="NefrockLicenseAPI.Builder.html" title="class in com.nefrock.edgeocr.api">NefrockLicenseAPI.Builder</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
-<div class="block">ライセンス認証APIのBuilderです</div>
-</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.api">ScanConfirmationStatus</a></div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="NefrockLicenseAPI.Builder.html" title="class in com.nefrock.edgeocr.api">NefrockLicenseAPI.Builder</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
-<div class="block">スキャン結果の確定状態を表す列挙型</div>
+<div class="block">ライセンス認証APIのBuilderです</div>
 </div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="ScanOption.html" title="class in com.nefrock.edgeocr.api">ScanOption</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
@@ -157,6 +143,12 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color class-summary class-summary-tab3"><a href="ScanOption.ScanMode.html" title="enum class in com.nefrock.edgeocr.api">ScanOption.ScanMode</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab3">
 <div class="block">スキャンモードを表す列挙型です。</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">テキスト検出結果を変更するためのクラスです。よくブレる文字の修正、または検出結果から不要な
+ 文字を削除するために使用します。<br/>
+ このクラスを継承して、applyメソッドを実装してください。</div>
 </div>
 </div>
 </div>

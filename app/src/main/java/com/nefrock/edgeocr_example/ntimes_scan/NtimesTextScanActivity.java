@@ -1,4 +1,4 @@
-package com.nefrock.edgeocr_example.custom_analyzer;
+package com.nefrock.edgeocr_example.ntimes_scan;
 
 import android.app.AlertDialog;
 import android.content.pm.PackageManager;
@@ -7,7 +7,7 @@ import android.util.Log;
 import android.util.Rational;
 import android.util.Size;
 import android.view.Gravity;
-import android.view.WindowManager.LayoutParams;
+import android.view.WindowManager;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -33,40 +33,35 @@ import com.nefrock.edgeocr.error.EdgeError;
 import com.nefrock.edgeocr.model.Detection;
 import com.nefrock.edgeocr.model.Model;
 import com.nefrock.edgeocr.model.ModelInformation;
-import com.nefrock.edgeocr.model.ScanConfirmationStatus;
 import com.nefrock.edgeocr.model.Text;
 import com.nefrock.edgeocr.ui.CameraOverlay;
 import com.nefrock.edgeocr_example.R;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@ExperimentalCamera2Interop public class TextScannerActivity extends AppCompatActivity {
+@ExperimentalCamera2Interop public class NtimesTextScanActivity extends AppCompatActivity {
 
     private final ExecutorService analysisExecutor = Executors.newSingleThreadExecutor();
     private final ExecutorService focusExecutor = Executors.newSingleThreadExecutor();
-    private AnalyzerWithCallback imageAnalyzer;
+    private PostCodeRegexTextAnalyzer imageAnalyzer;
     private CameraOverlay cameraOverlay;
     private ImageAnalysis imageAnalysis;
     private ImageCapture imageCapture;
     private Camera camera;
     //ダイアログを表示するか（表示中はスキャンを辞める）
-    private boolean showDialog = false;
     EdgeVisionAPI api;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_text_scanner);
+        setContentView(R.layout.activity_ntimes_text_scanner);
         // Initialize EdgeOCR
         Model model = null;
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
-            showDialog = getIntent().getBooleanExtra("show_dialog", false);
-            String analyzerTypeFromMainIntent = getIntent().getStringExtra("analyser_type");
-            imageAnalyzer = buildAnalyser(analyzerTypeFromMainIntent, api);
+            imageAnalyzer = new PostCodeRegexTextAnalyzer(api);
             for (Model candidate : api.availableModels()) {
                 if (candidate.getUID().equals("model-large")) {
                     model = candidate;
@@ -83,28 +78,20 @@ import java.util.concurrent.Executors;
             return;
         }
 
-        cameraOverlay = findViewById(R.id.overlay);
+        cameraOverlay = findViewById(R.id.camera_overlay);
 
         api.useModel(model, (ModelInformation modelInformation) -> {
             cameraOverlay.setAspectRatio(modelInformation.getAspectRatio());
-            api.setTextNToConfirm(5);
-            imageAnalyzer.setCallback((filteredDetections, allDetections) -> {
-                runOnUiThread(() -> cameraOverlay.setBoxes(allDetections));
-                List<Detection<Text>> confirmedDetections = new ArrayList<>();
-                for(Detection<Text> detection: filteredDetections) {
-                    if (detection.getStatus() == ScanConfirmationStatus.Confirmed) {
-                        confirmedDetections.add(detection);
-                    }
-                }
-                if (!showDialog) {
-                    return;
-                }
-                if (confirmedDetections.size() == 0) {
+            api.setTextMapper(new PostCodeTextMapper());
+            api.setTextNToConfirm(100);
+            imageAnalyzer.setCallback((filteredDetections, notTargetDetection) -> {
+                runOnUiThread(() -> cameraOverlay.setBoxes(notTargetDetection));
+                if (filteredDetections.size() == 0) {
                     return;
                 }
                 // UIスレッドによるダイアログ表示前にスキャンを止める
                 imageAnalyzer.stop();
-                runOnUiThread(() -> showDialog(confirmedDetections));
+                runOnUiThread(() -> showDialog(filteredDetections));
             });
         }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
         if (cameraPermissionGranted()) {
@@ -143,6 +130,7 @@ import java.util.concurrent.Executors;
         super.onDestroy();
         analysisExecutor.shutdown();
         focusExecutor.shutdownNow();
+        api.clearTextMapper();
     }
 
     @Override
@@ -181,8 +169,8 @@ import java.util.concurrent.Executors;
                 return;
             }
             Preview preview = new Preview.Builder()
-                .setTargetResolution(targetResolution)
-                .build();
+                    .setTargetResolution(targetResolution)
+                    .build();
             PreviewView previewView = findViewById(R.id.previewView);
             preview.setSurfaceProvider(previewView.getSurfaceProvider());
             // Set up image analysis using EdgeOCR
@@ -222,20 +210,6 @@ import java.util.concurrent.Executors;
             }
         }, ContextCompat.getMainExecutor(this));
     }
-
-    private static AnalyzerWithCallback buildAnalyser(String typ, EdgeVisionAPI api) {
-        switch (typ) {
-            case "whitelist":
-                return new WhitelistTextAnalyzer(api);
-            case "regex":
-                return new RegexTextAnalyzer(api);
-            case "edit_distance":
-                return new EditDistanceTextAnalyzer(api);
-            default:
-                throw new IllegalArgumentException("undefined analyser type found:" + typ);
-        }
-    }
-
     private void showDialog(List<Detection<Text>> detections) {
         StringBuilder messageBuilder = new StringBuilder();
         for (Detection<Text> detection : detections) {
@@ -249,7 +223,7 @@ import java.util.concurrent.Executors;
                     api.resetScanningState();
                 })
                 .setPositiveButton("OK", null).create();
-        LayoutParams lp = alertDialog.getWindow().getAttributes();
+        WindowManager.LayoutParams lp = alertDialog.getWindow().getAttributes();
         lp.alpha = 0.9f;
         lp.gravity = Gravity.BOTTOM;
         alertDialog.show();

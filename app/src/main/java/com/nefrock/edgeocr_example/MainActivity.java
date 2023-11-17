@@ -14,12 +14,13 @@ import com.nefrock.edgeocr.api.NefrockLicenseAPI;
 import com.nefrock.edgeocr.error.EdgeError;
 import com.nefrock.edgeocr_example.barcode.BarcodeScannerActivity;
 import com.nefrock.edgeocr_example.barcode_bitmap.BarcodeBitmapActivity;
+import com.nefrock.edgeocr_example.detection_filter.DetectionFilterScannerActivity;
 import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
 import com.nefrock.edgeocr_example.camera_overlay.CameraOverlayTextScannerActivity;
 import com.nefrock.edgeocr_example.crop.CropTextScannerActivity;
-import com.nefrock.edgeocr_example.custom_analyzer.TextScannerActivity;
 import com.nefrock.edgeocr_example.report.ReportScannerActivity;
 import com.nefrock.edgeocr_example.simple_text.SimpleTextScannerActivity;
+import com.nefrock.edgeocr_example.ntimes_scan.NtimesTextScanActivity;
 
 @ExperimentalCamera2Interop public class MainActivity extends AppCompatActivity {
 
@@ -48,24 +49,13 @@ import com.nefrock.edgeocr_example.simple_text.SimpleTextScannerActivity;
             startActivity(intent);
         });
 
-        findViewById(R.id.whitelist_ocr_button).setOnClickListener(view -> {
-            Intent intent = new Intent(getApplication(), TextScannerActivity.class);
-            intent.putExtra("analyser_type", "whitelist");
-            intent.putExtra("show_dialog", true);
+        findViewById(R.id.detection_filter_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), DetectionFilterScannerActivity.class);
             startActivity(intent);
         });
 
-        findViewById(R.id.reg_ocr_button).setOnClickListener(view -> {
-            Intent intent = new Intent(getApplication(), TextScannerActivity.class);
-            intent.putExtra("analyser_type", "regex");
-            intent.putExtra("show_dialog", true);
-            startActivity(intent);
-        });
-
-        findViewById(R.id.ed_ocr_button).setOnClickListener(view -> {
-            Intent intent = new Intent(getApplication(), TextScannerActivity.class);
-            intent.putExtra("analyser_type", "edit_distance");
-            intent.putExtra("show_dialog", true);
+        findViewById(R.id.ntimes_scan_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), NtimesTextScanActivity.class);
             startActivity(intent);
         });
 
