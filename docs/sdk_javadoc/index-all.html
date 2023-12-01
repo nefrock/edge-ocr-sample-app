@@ -130,9 +130,13 @@ loadScripts(document, 'script');</script>
  読み取り範囲の指定方法は<a href="com/nefrock/edgeocr/api/CropRect.html" title="class in com.nefrock.edgeocr.api"><code>CropRect</code></a>を参照してください。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" class="type-name-link" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a> - Class in <a href="com/nefrock/edgeocr/ui/package-summary.html">com.nefrock.edgeocr.ui</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">検出結果を画像上に描画する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html#%3Cinit%3E(android.content.Context,android.util.AttributeSet)" class="member-name-link">BoxesOverlay(Context, AttributeSet)</a> - Constructor for class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a></dt>
-<dd>&nbsp;</dd>
+<dd>
+<div class="block">コンストラクタ</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.Builder.html#build()" class="member-name-link">build()</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.Builder.html" title="class in com.nefrock.edgeocr.api">EdgeVisionAPI.Builder</a></dt>
 <dd>
 <div class="block">OCRエンジンを初期化します。`fromAssets`または`fromPath`メソッドを呼び出して、
@@ -369,8 +373,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">検出された文字列のバウンディングボックスを取得します。</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html#getCenterText()" class="member-name-link">getCenterText()</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/model/Text.html#getConfidence()" class="member-name-link">getConfidence()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Text.html" title="class in com.nefrock.edgeocr.model">Text</a></dt>
 <dd>
 <div class="block">検出された文字列の信頼値を取得します。</div>
@@ -575,8 +577,6 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:O">O</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html#onDraw(android.graphics.Canvas)" class="member-name-link">onDraw(Canvas)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a></dt>
-<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#ordinal()" class="member-name-link">ordinal()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">定数の値を取得します。</div>
@@ -661,6 +661,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/model/Rotation.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">Rotation</a> - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
 <dd>
 <div class="block">画像の回転角度を表す列挙型</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html#run()" class="member-name-link">run()</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a></dt>
+<dd>
+<div class="block">検出結果を描画する</div>
 </dd>
 </dl>
 <h2 class="title" id="I:S">S</h2>
@@ -814,6 +818,16 @@ loadScripts(document, 'script');</script>
 <div class="block">テキストの確定までの読み取り回数を設定します。
  デフォルトは3回です。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#showBoxes(boolean)" class="member-name-link">showBoxes(boolean)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
+<dd>
+<div class="block">読み取り結果を表示するかどうかを設定する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html#surfaceChanged(android.view.SurfaceHolder,int,int,int)" class="member-name-link">surfaceChanged(SurfaceHolder, int, int, int)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html#surfaceCreated(android.view.SurfaceHolder)" class="member-name-link">surfaceCreated(SurfaceHolder)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html#surfaceDestroyed(android.view.SurfaceHolder)" class="member-name-link">surfaceDestroyed(SurfaceHolder)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:T">T</h2>
 <dl class="index">
