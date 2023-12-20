@@ -31,9 +31,6 @@ import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
 import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ModelInformation;
 import com.nefrock.edgeocr.ui.CameraOverlay;
 import com.nefrock.edgeocr_example.R;
 
@@ -47,7 +44,6 @@ import java.util.concurrent.TimeUnit;
     private final ExecutorService analysisExecutor = Executors.newSingleThreadExecutor();
     private final ExecutorService focusExecutor = Executors.newSingleThreadExecutor();
     private CropFreeStyleTextAnalyzer cropFreeStyleTextAnalyzer;
-    private float aspectRatio = 1.0f;
     private CameraOverlay cameraOverlay;
     private SeekBar hbCropBar, vbCropBar, hsCropBar, vsCropBar;
     private ImageAnalysis imageAnalysis;
@@ -62,23 +58,11 @@ import java.util.concurrent.TimeUnit;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_range_text_scanner);
         // Initialize EdgeOCR
-        Model model = null;
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
             cropFreeStyleTextAnalyzer = new CropFreeStyleTextAnalyzer(api);
-            for (Model candidate : api.availableModels()) {
-                if (candidate.getUID().equals("model-large")) {
-                    model = candidate;
-                    break;
-                }
-            }
         } catch (Exception e) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR", e);
-            return;
-        }
-
-        if (model == null) {
-            Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR");
             return;
         }
 
@@ -107,15 +91,13 @@ import java.util.concurrent.TimeUnit;
 
         cameraOverlay = findViewById(R.id.overlay);
 
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            aspectRatio = modelInformation.getAspectRatio();
-            hsCropBar.setProgress((int) (100 * Math.min(1.0f, aspectRatio)));
-            vsCropBar.setProgress((int) (100 * Math.min(1.0f, 1.0f / aspectRatio)));
-            adaptOverlayWeights();
-            cropFreeStyleTextAnalyzer.setCallback((allDetections) -> {
-                runOnUiThread(() -> cameraOverlay.setBoxes(allDetections));
-            });
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
+        float aspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
+        hsCropBar.setProgress((int) (100 * Math.min(1.0f, aspectRatio)));
+        vsCropBar.setProgress((int) (100 * Math.min(1.0f, 1.0f / aspectRatio)));
+        adaptOverlayWeights();
+        cropFreeStyleTextAnalyzer.setCallback((allDetections) -> {
+            runOnUiThread(() -> cameraOverlay.setBoxes(allDetections));
+        });
         if (cameraPermissionGranted()) {
             startCamera();
         } else {

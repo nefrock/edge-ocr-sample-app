@@ -10,17 +10,22 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.camera2.interop.ExperimentalCamera2Interop;
 
+import com.nefrock.edgeocr.api.EdgeVisionAPI;
 import com.nefrock.edgeocr.api.NefrockLicenseAPI;
 import com.nefrock.edgeocr.error.EdgeError;
+import com.nefrock.edgeocr.model.Model;
+import com.nefrock.edgeocr.model.ModelSettings;
 import com.nefrock.edgeocr_example.barcode.BarcodeScannerActivity;
 import com.nefrock.edgeocr_example.barcode_bitmap.BarcodeBitmapActivity;
-import com.nefrock.edgeocr_example.detection_filter.DetectionFilterScannerActivity;
-import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
 import com.nefrock.edgeocr_example.camera_overlay.CameraOverlayTextScannerActivity;
 import com.nefrock.edgeocr_example.crop.CropTextScannerActivity;
+import com.nefrock.edgeocr_example.detection_filter.DetectionFilterScannerActivity;
+import com.nefrock.edgeocr_example.detection_filter.GetCenterDetectionFilter;
+import com.nefrock.edgeocr_example.ntimes_scan.NtimesTextScanActivity;
+import com.nefrock.edgeocr_example.ntimes_scan.PostCodeTextMapper;
 import com.nefrock.edgeocr_example.report.ReportScannerActivity;
 import com.nefrock.edgeocr_example.simple_text.SimpleTextScannerActivity;
-import com.nefrock.edgeocr_example.ntimes_scan.NtimesTextScanActivity;
+import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
 
 @ExperimentalCamera2Interop public class MainActivity extends AppCompatActivity {
 
@@ -31,32 +36,37 @@ import com.nefrock.edgeocr_example.ntimes_scan.NtimesTextScanActivity;
 
         findViewById(R.id.simple_ocr_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), SimpleTextScannerActivity.class);
-            startActivity(intent);
+            loadModelAndStartActivity(intent);
         });
 
         findViewById(R.id.camera_overlay_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), CameraOverlayTextScannerActivity.class);
-            startActivity(intent);
+            loadModelAndStartActivity(intent);
         });
 
         findViewById(R.id.report_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), ReportScannerActivity.class);
-            startActivity(intent);
+            loadModelAndStartActivity(intent);
         });
 
         findViewById(R.id.free_ocr_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), CropTextScannerActivity.class);
-            startActivity(intent);
+            loadModelAndStartActivity(intent);
         });
 
         findViewById(R.id.detection_filter_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), DetectionFilterScannerActivity.class);
-            startActivity(intent);
+            ModelSettings modelSettings = new ModelSettings();
+            modelSettings.setDetectionFilter(new GetCenterDetectionFilter());
+            loadModelAndStartActivity(intent, modelSettings);
         });
 
         findViewById(R.id.ntimes_scan_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), NtimesTextScanActivity.class);
-            startActivity(intent);
+            ModelSettings settings = new ModelSettings();
+            settings.setNToConfirm(5);
+            settings.setTextMapper(new PostCodeTextMapper());
+            loadModelAndStartActivity(intent, settings);
         });
 
         findViewById(R.id.barcode_button).setOnClickListener(view -> {
@@ -67,7 +77,7 @@ import com.nefrock.edgeocr_example.ntimes_scan.NtimesTextScanActivity;
 
         findViewById(R.id.text_bitmap_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), TextBitmapActivity.class);
-            startActivity(intent);
+            loadModelAndStartActivity(intent);
         });
 
         findViewById(R.id.barcode_bitmap_button).setOnClickListener(view -> {
@@ -115,5 +125,44 @@ import com.nefrock.edgeocr_example.ntimes_scan.NtimesTextScanActivity;
                     getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG).show());
             }
         ));
+    }
+
+    private void loadModelAndStartActivity(Intent intent) {
+        loadModelAndStartActivity(intent, new ModelSettings());
+    }
+
+    private void loadModelAndStartActivity(Intent intent, ModelSettings modelSettings) {
+        runOnUiThread(()->findViewById(R.id.progressLayout).setVisibility(android.view.View.VISIBLE));
+        EdgeVisionAPI api;
+        try {
+            api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
+        } catch (EdgeError e) {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        Model model = null;
+
+        for (Model candidate : api.availableModels()) {
+            if (candidate.getUID().equals("model-large")) {
+                model = candidate;
+                break;
+            }
+        }
+        if (model == null) {
+            Toast.makeText(getApplicationContext(), "モデルが見つかりません", Toast.LENGTH_LONG).show();
+            return;
+        }
+        api.useModel(model, modelSettings, modelInformation -> {
+            intent.putExtra("model_aspect_ratio", modelInformation.getAspectRatio());
+            startActivity(intent);
+        }, edgeError -> Toast.makeText(getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG)
+            .show());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        findViewById(R.id.progressLayout).setVisibility(android.view.View.GONE);
     }
 }

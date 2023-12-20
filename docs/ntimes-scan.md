@@ -1,32 +1,43 @@
 ## textの複数回読み取りで精度を上げる
 
-EdgeOCRではOCRの精度を上げるために、同じテキストを複数回読み込んだ結果を採用するような機能を提供しています。  
-`app/src/main/java/com/nefrock/edgeocr_example/ntimes_scan` に実装例がありますので、ご参考にしてください。  
-このサンプルでは、123-4567のような郵便番号を読み取り対象としています。  
+EdgeOCRではOCRの精度を上げるために、同じテキストを複数回読み込んだ結果を採用するような機能を提供しています。
+`app/src/main/java/com/nefrock/edgeocr_example/ntimes_scan` に実装例がありますので、ご参考にしてください。
+このサンプルでは、123-4567のような郵便番号を読み取り対象としています。
 
-`app/src/main/java/com/nefrock/edgeocr_example/ntimes_scan/NtimesTextScanActivity.java` において、複数回読みの回数設定を行っています。  
-読み込み回数の設定は `EdgeOCR#setTextNToConfirm` メソッドで行います。  
-5回同じ内容を読み取った場合にテキストを確定するように設定しています。  
-デフォルトのテキスト読み取り確定までの回数は3回です。  
+`app/src/main/java/com/nefrock/edgeocr_example/MainActivity.java` で読み取り回数の設定を行っています。
+読み取り回数の設定は `ModelSettings#setNToConfirm` メソッドで行います。
+読み取り回数を設定した `ModelSettings` オブジェクトを `EdgeVisionAPI` の `useModel` メソッドの引数として渡すことで、読み取り回数を設定したOCRを行うことができます。
+5回同じ内容を読み取った場合にテキストを確定するように設定しています。
+デフォルトのテキスト読み取り確定までの回数は3回です。
 ```Java
-@ExperimentalCamera2Interop public class NtimesTextScanActivity extends AppCompatActivity {
+@ExperimentalCamera2Interop public class MainActivity extends AppCompatActivity {
     ...
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         ...
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            ...
-            api.setTextNToConfirm(5);
-            ...
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
+        findViewById(R.id.ntimes_scan_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), NtimesTextScanActivity.class);
+            ModelSettings settings = new ModelSettings();
+            settings.setNToConfirm(5);
+            settings.setTextMapper(new PostCodeTextMapper());
+            loadModelAndStartActivity(intent, settings);
+        });
         ...
     }
     ...
+    private void loadModelAndStartActivity(Intent intent, ModelSettings modelSettings) {
+        ...
+        api.useModel(model, modelSettings, modelInformation -> {
+            intent.putExtra("model_aspect_ratio", modelInformation.getAspectRatio());
+            startActivity(intent);
+        }, edgeError -> Toast.makeText(getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG)
+            .show());
+    }
 }
 ```
 
-`app/src/main/java/com/nefrock/edgeocr_example/ntimes_scan/PostCodeRegexTextAnalyzer.java` において、読み取り結果のフィルタリングを行っています。  
-`Detection.getStatus` メソッドの返り値が、`ScanConfirmationStatus.Confirmed` かどうかで読み取り結果が確定しているかどうかを判定しています。  
+`app/src/main/java/com/nefrock/edgeocr_example/ntimes_scan/PostCodeRegexTextAnalyzer.java` において、読み取り結果のフィルタリングを行っています。
+`Detection.getStatus` メソッドの返り値が、`ScanConfirmationStatus.Confirmed` かどうかで読み取り結果が確定しているかどうかを判定しています。
 ```Java
 class PostCodeRegexTextAnalyzer implements ImageAnalysis.Analyzer {
     ...
@@ -73,11 +84,11 @@ class PostCodeRegexTextAnalyzer implements ImageAnalysis.Analyzer {
 
 
 ### TextMapper
-複数回読み取りを行う間に、手ブレやカメラの移動などによって読み取り範囲が変化してしまうと、読み取り結果が異なってしまい、読み取り回数のカウントがリセットされてしまいます。  
-そこで、以前の結果と読み取り結果を比較する前に `TextMapper` を用いて読み取り結果を正規化することで、読み取り範囲の変化による影響を軽減することができます。  
-`TextMapper` クラスを継承し、`apply` メソッドを実装することで、TextMapperを作成します。  
-読み取り対象が郵便番号なので、英字や記号を数字に変換する処理を実装しています。  
-また、郵便番号のみを抽出するための正規表現も実装しています。  
+複数回読み取りを行う間に、手ブレやカメラの移動などによって読み取り範囲が変化してしまうと、読み取り結果が異なってしまい、読み取り回数のカウントがリセットされてしまいます。
+そこで、以前の結果と読み取り結果を比較する前に `TextMapper` を用いて読み取り結果を正規化することで、読み取り範囲の変化による影響を軽減することができます。
+`TextMapper` クラスを継承し、`apply` メソッドを実装することで、TextMapperを作成します。
+読み取り対象が郵便番号なので、英字や記号を数字に変換する処理を実装しています。
+また、郵便番号のみを抽出するための正規表現も実装しています。
 ```Java
 ```Java
 public class PostCodeTextMapper extends TextMapper {
@@ -120,31 +131,32 @@ public class PostCodeTextMapper extends TextMapper {
 }
 ```
 
-作成した `TextMapper` を `EdgeOCR#setTextMapper` メソッドで設定します。  
-`app/src/main/java/com/nefrock/edgeocr_example/ntimes_scan/NtimesTextScanActivity.java`で実装しています。  
-apiは内部で状態を保持しているため、スキャンを終了する際は `EdgeOCR#clearTextMapper` メソッドを使用してTextMapperをクリアしてください。
+作成した `TextMapper` を `ModelSettings` クラスの `setTextMapper` メソッドを用いて設定します。
+`app/src/main/java/com/nefrock/edgeocr_example/MainActivity.java`で実装しています。
+
 ```Java
-@ExperimentalCamera2Interop public class NtimesTextScanActivity extends AppCompatActivity {
+@ExperimentalCamera2Interop public class MainActivity extends AppCompatActivity {
     ...
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         ...
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            ...
-            api.setTextMapper(new PostCodeTextMapper());
-            ...
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
+        findViewById(R.id.ntimes_scan_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), NtimesTextScanActivity.class);
+            ModelSettings settings = new ModelSettings();
+            settings.setNToConfirm(5);
+            settings.setTextMapper(new PostCodeTextMapper());
+            loadModelAndStartActivity(intent, settings);
+        });
         ...
     }
     ...
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        ... 
-        api.clearTextMapper();
+    private void loadModelAndStartActivity(Intent intent, ModelSettings modelSettings) {
+        ...
+        api.useModel(model, modelSettings, modelInformation -> {
+            intent.putExtra("model_aspect_ratio", modelInformation.getAspectRatio());
+            startActivity(intent);
+        }, edgeError -> Toast.makeText(getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG)
+            .show());
     }
-    ...
 }
-
 ```

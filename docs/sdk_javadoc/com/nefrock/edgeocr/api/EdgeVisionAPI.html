@@ -105,7 +105,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
@@ -117,15 +117,15 @@ loadScripts(document, 'script');</script>
 <div class="block">利用可能なOCRモデルのリストを返します。`useModel`メソッドを使用してモデルを使用する前に、
  このメソッドを使用して利用可能なモデルを確認することをお勧めします。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#clearDetectionFilter()" class="member-name-link">clearDetectionFilter</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">現在使用しているOCRモデルに設定されている検出結果のフィルタをクリアします。</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#clearDetectionFilter()" class="member-name-link">clearDetectionFilter</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#clearTextMapper()" class="member-name-link">clearTextMapper</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">現在使用しているOCRモデルに設定されているテキストマッパーをクリアします。</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#clearTextMapper()" class="member-name-link">clearTextMapper</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isReady()" class="member-name-link">isReady</a>()</code></div>
@@ -197,25 +197,20 @@ loadScripts(document, 'script');</script>
  <a href="../model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model"><code>BarcodeFormat</code></a>を用いて利用したいバーコードフォーマット毎に読み取り内容確定までの読み取り回数を設定します。
  デフォルト値はすべてのフォーマットについて3回です。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setDetectionFilter(com.nefrock.edgeocr.api.DetectionFilter)" class="member-name-link">setDetectionFilter</a><wbr>(<a href="DetectionFilter.html" title="class in com.nefrock.edgeocr.api">DetectionFilter</a>&nbsp;detectionFilter)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">現在使用しているOCRモデルに検出結果のフィルタを設定します。<br/>
- フィルターによって除外された検出結果は無視され、認識の処理が発生しないので、
- 負荷を軽減することができます。</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setDetectionFilter(com.nefrock.edgeocr.api.DetectionFilter)" class="member-name-link">setDetectionFilter</a><wbr>(<a href="DetectionFilter.html" title="class in com.nefrock.edgeocr.api">DetectionFilter</a>&nbsp;detectionFilter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setTextMapper(com.nefrock.edgeocr.api.TextMapper)" class="member-name-link">setTextMapper</a><wbr>(<a href="TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a>&nbsp;textMapper)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">現在使用しているOCRモデルにテキストマッパーを設定します。<br/>
- 認識された文字列、及びその他の文字候補の信頼値を用いて、文字列の変更を行うことが
- できます。</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setTextMapper(com.nefrock.edgeocr.api.TextMapper)" class="member-name-link">setTextMapper</a><wbr>(<a href="TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a>&nbsp;textMapper)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm</a><wbr>(int&nbsp;nToConfirm)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">テキストの確定までの読み取り回数を設定します。
- デフォルトは3回です。</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm</a><wbr>(int&nbsp;nToConfirm)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="../model/ModelInformation.html" title="class in com.nefrock.edgeocr.model">ModelInformation</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)" class="member-name-link">useModel</a><wbr>(<a href="../model/Model.html" title="class in com.nefrock.edgeocr.model">Model</a>&nbsp;model,
@@ -224,7 +219,20 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">OCRモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`メソッドは
  非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
- モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。</div>
+ モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
+ 規定の設定が使用されます。モデルの設定を変更したい場合は、
+ <a href="#useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.model.ModelSettings,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)"><code>useModel(Model, ModelSettings, LoadingCallback, ErrorCallback)</code></a>を使用してください。</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="../model/ModelInformation.html" title="class in com.nefrock.edgeocr.model">ModelInformation</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.model.ModelSettings,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)" class="member-name-link">useModel</a><wbr>(<a href="../model/Model.html" title="class in com.nefrock.edgeocr.model">Model</a>&nbsp;model,
+ <a href="../model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a>&nbsp;settings,
+ <a href="../callback/LoadingCallback.html" title="interface in com.nefrock.edgeocr.callback">LoadingCallback</a>&nbsp;callback,
+ <a href="../callback/ErrorCallback.html" title="interface in com.nefrock.edgeocr.callback">ErrorCallback</a>&nbsp;errorCallback)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">OCRモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`メソッドは
+ 非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
+ モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
+ settingsには、モデルの読み込み時に使用する設定を指定することができます。</div>
 </div>
 </div>
 </div>
@@ -271,6 +279,32 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.model.ModelSettings,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)">
+<h3>useModel</h3>
+<div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="../model/ModelInformation.html" title="class in com.nefrock.edgeocr.model">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useModel</span><wbr><span class="parameters">(@NonNull
+ <a href="../model/Model.html" title="class in com.nefrock.edgeocr.model">Model</a>&nbsp;model,
+ @NonNull
+ <a href="../model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a>&nbsp;settings,
+ @Nullable
+ <a href="../callback/LoadingCallback.html" title="interface in com.nefrock.edgeocr.callback">LoadingCallback</a>&nbsp;callback,
+ @Nullable
+ <a href="../callback/ErrorCallback.html" title="interface in com.nefrock.edgeocr.callback">ErrorCallback</a>&nbsp;errorCallback)</span></div>
+<div class="block">OCRモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`メソッドは
+ 非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
+ モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
+ settingsには、モデルの読み込み時に使用する設定を指定することができます。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>model</code> - OCRモデル</dd>
+<dd><code>callback</code> - モデルの読み込みが完了したときに呼び出されるコールバック</dd>
+<dd><code>errorCallback</code> - モデルの読み込み中にエラーが発生したときに呼び出されるコールバック</dd>
+<dd><code>settings</code> - モデルの設定</dd>
+<dt>Returns:</dt>
+<dd>読み込まれたモデルの情報のfuture</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)">
 <h3>useModel</h3>
 <div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="../model/ModelInformation.html" title="class in com.nefrock.edgeocr.model">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useModel</span><wbr><span class="parameters">(@NonNull
@@ -281,7 +315,9 @@ loadScripts(document, 'script');</script>
  <a href="../callback/ErrorCallback.html" title="interface in com.nefrock.edgeocr.callback">ErrorCallback</a>&nbsp;errorCallback)</span></div>
 <div class="block">OCRモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`メソッドは
  非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
- モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。</div>
+ モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
+ 規定の設定が使用されます。モデルの設定を変更したい場合は、
+ <a href="#useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.model.ModelSettings,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)"><code>useModel(Model, ModelSettings, LoadingCallback, ErrorCallback)</code></a>を使用してください。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>model</code> - OCRモデル</dd>
@@ -397,9 +433,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setTextNToConfirm(int)">
 <h3>setTextNToConfirm</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setTextNToConfirm</span><wbr><span class="parameters">(int&nbsp;nToConfirm)</span></div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type">void</span>&nbsp;<span class="element-name">setTextNToConfirm</span><wbr><span class="parameters">(int&nbsp;nToConfirm)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">テキストの確定までの読み取り回数を設定します。
- デフォルトは3回です。</div>
+ デフォルトは3回です。<p>
+ この関数は非推奨です。代わりにuseModelにModelSettingsを経由して設定してください。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>nToConfirm</code> - 確定までの読み取り回数</dd>
@@ -503,11 +542,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setDetectionFilter(com.nefrock.edgeocr.api.DetectionFilter)">
 <h3>setDetectionFilter</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setDetectionFilter</span><wbr><span class="parameters">(@NonNull
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type">void</span>&nbsp;<span class="element-name">setDetectionFilter</span><wbr><span class="parameters">(@NonNull
  <a href="DetectionFilter.html" title="class in com.nefrock.edgeocr.api">DetectionFilter</a>&nbsp;detectionFilter)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">現在使用しているOCRモデルに検出結果のフィルタを設定します。<br/>
  フィルターによって除外された検出結果は無視され、認識の処理が発生しないので、
- 負荷を軽減することができます。</div>
+ 負荷を軽減することができます。<p>
+ この関数は非推奨です。代わりにuseModelにModelSettingsを経由して設定してください。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>detectionFilter</code> - 検出結果のフィルタ</dd>
@@ -517,18 +559,24 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="clearDetectionFilter()">
 <h3>clearDetectionFilter</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">clearDetectionFilter</span>()</div>
-<div class="block">現在使用しているOCRモデルに設定されている検出結果のフィルタをクリアします。</div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type">void</span>&nbsp;<span class="element-name">clearDetectionFilter</span>()</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block">現在使用しているOCRモデルに設定されている検出結果のフィルタをクリアします。<p>
+ この関数は非推奨です。代わりにuseModelにModelSettingsを経由して設定してください。</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setTextMapper(com.nefrock.edgeocr.api.TextMapper)">
 <h3>setTextMapper</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setTextMapper</span><wbr><span class="parameters">(@NonNull
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type">void</span>&nbsp;<span class="element-name">setTextMapper</span><wbr><span class="parameters">(@NonNull
  <a href="TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a>&nbsp;textMapper)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">現在使用しているOCRモデルにテキストマッパーを設定します。<br/>
  認識された文字列、及びその他の文字候補の信頼値を用いて、文字列の変更を行うことが
- できます。</div>
+ できます。<p>
+ この関数は非推奨です。代わりにuseModelにModelSettingsを経由して設定してください。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>textMapper</code> - テキストマッパー</dd>
@@ -538,8 +586,11 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="clearTextMapper()">
 <h3>clearTextMapper</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">clearTextMapper</span>()</div>
-<div class="block">現在使用しているOCRモデルに設定されているテキストマッパーをクリアします。</div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type">void</span>&nbsp;<span class="element-name">clearTextMapper</span>()</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block">現在使用しているOCRモデルに設定されているテキストマッパーをクリアします。<p>
+ この関数は非推奨です。代わりにuseModelにModelSettingsを経由して設定してください。</div>
 </section>
 </li>
 </ul>

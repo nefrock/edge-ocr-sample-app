@@ -23,7 +23,6 @@ import com.nefrock.edgeocr.api.EdgeVisionAPI;
 import com.nefrock.edgeocr.error.EdgeError;
 import com.nefrock.edgeocr.model.Detection;
 import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ModelInformation;
 import com.nefrock.edgeocr.model.ScanResult;
 import com.nefrock.edgeocr.model.Text;
 import com.nefrock.edgeocr_example.R;
@@ -48,25 +47,10 @@ public class SimpleTextScannerActivity extends AppCompatActivity {
         Model model = null;
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
-            for (Model candidate : api.availableModels()) {
-                if (candidate.getUID().equals("model-large")) {
-                    model = candidate;
-                    break;
-                }
-            }
         } catch (Exception e) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR", e);
             return;
         }
-
-        if (model == null || api == null) {
-            Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR");
-            return;
-        }
-
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            //モデルがロードされた時の処理を定義
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
         if (cameraPermissionGranted()) {
             startCamera();
         } else {

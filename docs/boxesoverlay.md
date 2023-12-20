@@ -52,12 +52,22 @@ SDKに含まれている `CameraOverlay` を用いることで簡単に OCR 結�
 SDKのスキャン範囲外をホワイトアウトするためには、`CameraOverlay` にモデルのアスペクト比を設定する必要があります。
 
 アスペクト比は、使用するモデルを指定した時の `ModelInformation` オブジェクトの `getAspectRatio` メソッドを用いて取得できます。
-取得したアスペクト比を `CameraOverlay` に設定します。
-`app/src/main/java/com/nefrock/edgeocr_example/camera_overlay/CameraOverlayTextScannerActivity.java` を参照してください。
+`MainActivity.java` でモデルロード時に取得したアスペクト比をインテントを通して、 `CameraOverlayTextScannerActivity.java` に渡しています。
+また、取得したモデルアスペクト比を `CameraOverlay` に設定しています。
+`app/src/main/java/com/nefrock/edgeocr_example/MainActivity.java`と`app/src/main/java/com/nefrock/edgeocr_example/camera_overlay/CameraOverlayTextScannerActivity.java` を参照してください。
+
 ```Java
-api.useModel(model, (ModelInformation modelInformation) -> {
-    cameraOverlay.setAspectRatio(modelInformation.getAspectRatio());
-}
+api.useModel(model, modelSettings, modelInformation -> {
+    intent.putExtra("model_aspect_ratio", modelInformation.getAspectRatio());
+    startActivity(intent);
+}, edgeError -> Toast.makeText(getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG)
+    .show());
+```
+
+```Java
+float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
+cameraOverlay = findViewById(R.id.camera_overlay);
+cameraOverlay.setAspectRatio(modelAspectRatio);
 ```
 
 #### OCR 結果の表示

@@ -191,11 +191,11 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#clearDetectionFilter()" class="member-name-link">clearDetectionFilter()</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">現在使用しているOCRモデルに設定されている検出結果のフィルタをクリアします。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#clearTextMapper()" class="member-name-link">clearTextMapper()</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">現在使用しているOCRモデルに設定されているテキストマッパーをクリアします。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#Codabar" class="member-name-link">Codabar</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
@@ -231,6 +231,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">N回連続で同じ結果が読み込まれたので、確定された</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionDevice.html#CPU" class="member-name-link">CPU</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionDevice.html" title="class in com.nefrock.edgeocr.model">ExecutionDevice</a></dt>
+<dd>
+<div class="block">CPU</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/api/CropRect.html" class="type-name-link" title="class in com.nefrock.edgeocr.api">CropRect</a> - Class in <a href="com/nefrock/edgeocr/api/package-summary.html">com.nefrock.edgeocr.api</a></dt>
 <dd>
 <div class="block">画像のスキャン範囲を表すデータクラスです。<br>
@@ -264,6 +268,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Data Matrix 2D バーコード</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#delete()" class="member-name-link">delete()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#delete()" class="member-name-link">delete()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/model/Detection.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">Detection</a>&lt;<a href="com/nefrock/edgeocr/model/Detection.html" title="type parameter in Detection">T</a> extends <a href="com/nefrock/edgeocr/model/ScanObject.html" title="interface in com.nefrock.edgeocr.model">ScanObject</a>&gt; - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
 <dd>
 <div class="block">OCRエンジンの検出箇所を表すクラスです。</div>
@@ -337,6 +345,16 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">モデルロードに失敗した場合に呼び出されるコールバックを定義します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionDevice.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">ExecutionDevice</a> - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
+<dd>
+<div class="block">検出・認識モデルの実行に使用するデバイスを表す列挙型</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a> - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
+<dd>
+<div class="block">モデルの実行設定を表す構造体</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#%3Cinit%3E()" class="member-name-link">ExecutionSettings()</a> - Constructor for class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:F">F</h2>
 <dl class="index">
@@ -357,9 +375,17 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:G">G</h2>
 <dl class="index">
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#getAllowPrecisionLoss()" class="member-name-link">getAllowPrecisionLoss()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
+<dd>
+<div class="block">モデルのGPUデリゲートによる精度低下を許可するかどうか</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanResult.html#getAnalysisTime()" class="member-name-link">getAnalysisTime()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></dt>
 <dd>
 <div class="block">解析にかかった時間を返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getAreaThreshold()" class="member-name-link">getAreaThreshold()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出の最小面積（画像の面積に対する割合）</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ModelInformation.html#getAspectRatio()" class="member-name-link">getAspectRatio()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelInformation.html" title="class in com.nefrock.edgeocr.model">ModelInformation</a></dt>
 <dd>
@@ -373,10 +399,20 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">検出された文字列のバウンディングボックスを取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getCheckAfterFrames()" class="member-name-link">getCheckAfterFrames()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">確定された結果を再度確認するまでのフレーム数</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/Text.html#getConfidence()" class="member-name-link">getConfidence()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Text.html" title="class in com.nefrock.edgeocr.model">Text</a></dt>
 <dd>
 <div class="block">検出された文字列の信頼値を取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getConfidenceThreshold()" class="member-name-link">getConfidenceThreshold()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出の最小信頼度</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getCPtr(com.nefrock.edgeocr.model.ModelSettings)" class="member-name-link">getCPtr(ModelSettings)</a> - Static method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/api/BarcodeScanOption.html#getCropRect()" class="member-name-link">getCropRect()</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/BarcodeScanOption.html" title="class in com.nefrock.edgeocr.api">BarcodeScanOption</a></dt>
 <dd>
 <div class="block">指定した読み取り範囲を返します。</div>
@@ -384,6 +420,22 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/api/ScanOption.html#getCropRect()" class="member-name-link">getCropRect()</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/ScanOption.html" title="class in com.nefrock.edgeocr.api">ScanOption</a></dt>
 <dd>
 <div class="block">設定したスキャン範囲を返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDbBinaryThreshold()" class="member-name-link">getDbBinaryThreshold()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">DB検出モデルにおける二値化の閾値</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDbHeightFactor()" class="member-name-link">getDbHeightFactor()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">DB検出モデルにおける縦方向の拡大率</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDbOpeningClosing()" class="member-name-link">getDbOpeningClosing()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">DB検出モデルにおけるオープニング・クロージングの適用</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDbWidthFactor()" class="member-name-link">getDbWidthFactor()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">DB検出モデルにおける横方向の拡大率</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/Barcode.html#getDetection()" class="member-name-link">getDetection()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Barcode.html" title="class in com.nefrock.edgeocr.model">Barcode</a></dt>
 <dd>
@@ -400,6 +452,14 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/model/Detection.html#getDetectionScore()" class="member-name-link">getDetectionScore()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Detection.html" title="class in com.nefrock.edgeocr.model">Detection</a></dt>
 <dd>
 <div class="block">検出箇所の信頼値を取得します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDetectorExecutionSettings()" class="member-name-link">getDetectorExecutionSettings()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出モデルの実行デバイス</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#getDevice()" class="member-name-link">getDevice()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
+<dd>
+<div class="block">モデルの実行デバイス</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/api/NefrockLicenseAPI.html#getDeviceId()" class="member-name-link">getDeviceId()</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr.api">NefrockLicenseAPI</a></dt>
 <dd>
@@ -425,6 +485,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">定数の名称を取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionDevice.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionDevice.html" title="class in com.nefrock.edgeocr.model">ExecutionDevice</a></dt>
+<dd>
+<div class="block">定数の名称を取得します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/Model.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Model.html" title="class in com.nefrock.edgeocr.model">Model</a></dt>
 <dd>
 <div class="block">モデルファイルの名前を取得します。</div>
@@ -437,9 +501,29 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">定数の名称を取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getNmsThreshold()" class="member-name-link">getNmsThreshold()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出のNMSの閾値</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#getNThreads()" class="member-name-link">getNThreads()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
+<dd>
+<div class="block">モデルの実行に使用するスレッド数</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getNToConfirm()" class="member-name-link">getNToConfirm()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出結果の確定に必要な同じ結果の読み込み回数</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getParallelRecognizers()" class="member-name-link">getParallelRecognizers()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">認識モデルの並列実行数</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanResult.html#getPreprocessingTime()" class="member-name-link">getPreprocessingTime()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></dt>
 <dd>
 <div class="block">前処理にかかった時間を返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getRecognizerExecutionSettings()" class="member-name-link">getRecognizerExecutionSettings()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">認識モデルの実行設定</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/api/ScanOption.html#getScanMode()" class="member-name-link">getScanMode()</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/ScanOption.html" title="class in com.nefrock.edgeocr.api">ScanOption</a></dt>
 <dd>
@@ -477,6 +561,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/model/Model.html#getUID()" class="member-name-link">getUID()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Model.html" title="class in com.nefrock.edgeocr.model">Model</a></dt>
 <dd>
 <div class="block">モデルファイルのUIDを取得します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionDevice.html#GPU" class="member-name-link">GPU</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionDevice.html" title="class in com.nefrock.edgeocr.model">ExecutionDevice</a></dt>
+<dd>
+<div class="block">GPU</div>
 </dd>
 </dl>
 <h2 class="title" id="I:I">I</h2>
@@ -543,6 +631,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">モデル情報を作成します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">ModelSettings</a> - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
+<dd>
+<div class="block">AIモデルの設定を表す構造体</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#%3Cinit%3E()" class="member-name-link">ModelSettings()</a> - Constructor for class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>&nbsp;</dd>
 </dl>
 <h2 class="title" id="I:N">N</h2>
 <dl class="index">
@@ -561,6 +655,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/api/NefrockLicenseAPI.Builder.html" class="type-name-link" title="class in com.nefrock.edgeocr.api">NefrockLicenseAPI.Builder</a> - Class in <a href="com/nefrock/edgeocr/api/package-summary.html">com.nefrock.edgeocr.api</a></dt>
 <dd>
 <div class="block">ライセンス認証APIのBuilderです</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionDevice.html#NNAPI" class="member-name-link">NNAPI</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionDevice.html" title="class in com.nefrock.edgeocr.model">ExecutionDevice</a></dt>
+<dd>
+<div class="block">NNAPI (Android 8.1以降)</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#None" class="member-name-link">None</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
@@ -585,6 +683,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">定数の値を取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionDevice.html#ordinal()" class="member-name-link">ordinal()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionDevice.html" title="class in com.nefrock.edgeocr.model">ExecutionDevice</a></dt>
+<dd>
+<div class="block">定数の値を取得します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/Rotation.html#ordinal()" class="member-name-link">ordinal()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Rotation.html" title="class in com.nefrock.edgeocr.model">Rotation</a></dt>
 <dd>
 <div class="block">定数の値を取得します。</div>
@@ -598,6 +700,10 @@ loadScripts(document, 'script');</script>
 <div class="block">値から定数を列挙型として取得します。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/DetectionType.html#ordinalToEnum(int)" class="member-name-link">ordinalToEnum(int)</a> - Static method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/DetectionType.html" title="class in com.nefrock.edgeocr.model">DetectionType</a></dt>
+<dd>
+<div class="block">値から定数を列挙型として取得します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionDevice.html#ordinalToEnum(int)" class="member-name-link">ordinalToEnum(int)</a> - Static method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionDevice.html" title="class in com.nefrock.edgeocr.model">ExecutionDevice</a></dt>
 <dd>
 <div class="block">値から定数を列挙型として取得します。</div>
 </dd>
@@ -641,6 +747,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#resetScanningState()" class="member-name-link">resetScanningState()</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
 <div class="block">スキャン状態をリセットします。検出・認識の履歴がクリアされます。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#RMQRCode" class="member-name-link">RMQRCode</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
+<dd>
+<div class="block">長方形の Micro QR コード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/Rotation.html#Rotate0" class="member-name-link">Rotate0</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Rotation.html" title="class in com.nefrock.edgeocr.model">Rotation</a></dt>
 <dd>
@@ -761,9 +871,17 @@ loadScripts(document, 'script');</script>
 
  scanOptionを用いて、クロップサイズとスキャンモードの設定を行います。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#setAllowPrecisionLoss(boolean)" class="member-name-link">setAllowPrecisionLoss(boolean)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
+<dd>
+<div class="block">モデルのGPUデリゲートによる精度低下を許可するかどうか</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanResult.html#setAnalysisTime(float)" class="member-name-link">setAnalysisTime(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></dt>
 <dd>
 <div class="block">解析にかかった時間を設定します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setAreaThreshold(float)" class="member-name-link">setAreaThreshold(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出の最小面積（画像の面積に対する割合）</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#setAspectRatio(float)" class="member-name-link">setAspectRatio(float)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
 <dd>
@@ -780,6 +898,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">読み取り結果を画面に表示する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setCheckAfterFrames(int)" class="member-name-link">setCheckAfterFrames(int)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">確定された結果を再度確認するまでのフレーム数</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setConfidenceThreshold(float)" class="member-name-link">setConfidenceThreshold(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出の最小信頼度</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#setCrop(float,float,float,float)" class="member-name-link">setCrop(float, float, float, float)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
 <dd>
 <div class="block">画面に表示する読み取り範囲の位置とサイズを設定する
@@ -789,15 +915,62 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">スキャン範囲を設定します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDbBinaryThreshold(float)" class="member-name-link">setDbBinaryThreshold(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">DB検出モデルにおける二値化の閾値</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDbHeightFactor(float)" class="member-name-link">setDbHeightFactor(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">DB検出モデルにおける縦方向の拡大率</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDbOpeningClosing(boolean)" class="member-name-link">setDbOpeningClosing(boolean)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">DB検出モデルにおけるオープニング・クロージングの適用</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDbWidthFactor(float)" class="member-name-link">setDbWidthFactor(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">DB検出モデルにおける横方向の拡大率</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#setDetectionFilter(com.nefrock.edgeocr.api.DetectionFilter)" class="member-name-link">setDetectionFilter(DetectionFilter)</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">現在使用しているOCRモデルに検出結果のフィルタを設定します。<br/>
- フィルターによって除外された検出結果は無視され、認識の処理が発生しないので、
- 負荷を軽減することができます。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDetectionFilter(com.nefrock.edgeocr.jni.DetectionFilterBase)" class="member-name-link">setDetectionFilter(DetectionFilterBase)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">OCRモデルに検出結果のフィルタを設定します。<br>
+  フィルターによって除外された検出結果は無視され、認識の処理が発生しないので、負荷を軽減することができます。<br></div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDetectorExecutionSettings(com.nefrock.edgeocr.model.ExecutionSettings)" class="member-name-link">setDetectorExecutionSettings(ExecutionSettings)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出モデルの実行デバイス</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#setDevice(com.nefrock.edgeocr.model.ExecutionDevice)" class="member-name-link">setDevice(ExecutionDevice)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
+<dd>
+<div class="block">モデルの実行デバイス</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setNmsThreshold(float)" class="member-name-link">setNmsThreshold(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出のNMSの閾値</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#setNThreads(int)" class="member-name-link">setNThreads(int)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
+<dd>
+<div class="block">モデルの実行に使用するスレッド数</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setNToConfirm(int)" class="member-name-link">setNToConfirm(int)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">検出結果の確定に必要な同じ結果の読み込み回数</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setParallelRecognizers(int)" class="member-name-link">setParallelRecognizers(int)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">認識モデルの並列実行数</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanResult.html#setPreprocessingTime(float)" class="member-name-link">setPreprocessingTime(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></dt>
 <dd>
 <div class="block">前処理にかかった時間を設定します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setRecognizerExecutionSettings(com.nefrock.edgeocr.model.ExecutionSettings)" class="member-name-link">setRecognizerExecutionSettings(ExecutionSettings)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">認識モデルの実行設定</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/Barcode.html#setText(java.lang.String)" class="member-name-link">setText(String)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Barcode.html" title="class in com.nefrock.edgeocr.model">Barcode</a></dt>
 <dd>
@@ -809,14 +982,16 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#setTextMapper(com.nefrock.edgeocr.api.TextMapper)" class="member-name-link">setTextMapper(TextMapper)</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">現在使用しているOCRモデルにテキストマッパーを設定します。<br/>
- 認識された文字列、及びその他の文字候補の信頼値を用いて、文字列の変更を行うことが
- できます。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setTextMapper(com.nefrock.edgeocr.jni.TextMapperBase)" class="member-name-link">setTextMapper(TextMapperBase)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">OCRモデルにテキストマッパーを設定します。<br>
+  認識された文字列、及びその他の文字候補の信頼値を用いて、文字列の変更を行うことができます。<br></div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm(int)</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">テキストの確定までの読み取り回数を設定します。
- デフォルトは3回です。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#showBoxes(boolean)" class="member-name-link">showBoxes(boolean)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
 <dd>
@@ -874,7 +1049,16 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">OCRモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`メソッドは
  非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
- モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。</div>
+ モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
+ 規定の設定が使用されます。モデルの設定を変更したい場合は、
+ <a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.model.ModelSettings,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)"><code>EdgeVisionAPI.useModel(Model, ModelSettings, LoadingCallback, ErrorCallback)</code></a>を使用してください。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.model.ModelSettings,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)" class="member-name-link">useModel(Model, ModelSettings, LoadingCallback, ErrorCallback)</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
+<dd>
+<div class="block">OCRモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`メソッドは
+ 非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
+ モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
+ settingsには、モデルの読み込み時に使用する設定を指定することができます。</div>
 </dd>
 </dl>
 <h2 class="title" id="I:V">V</h2>

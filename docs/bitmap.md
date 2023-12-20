@@ -14,6 +14,8 @@ public class TextBitmapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // ...
 
+        CameraOverlay overlay = findViewById(R.id.camera_overlay);
+        ImageView imageView = findViewById(R.id.bitmap_image_view);
         try{
             AssetManager assetManager = getAssets();
             this.bitmap = BitmapFactory.decodeStream(assetManager.open("images/sample.bmp"));
@@ -22,30 +24,27 @@ public class TextBitmapActivity extends AppCompatActivity {
             Log.e("EdgeOCRExample", "[onCreate] Failed to load image", e);
         }
 
+        ScanResult scanResult;
+        try {
+            scanResult = api.scanTexts(bitmap);
+        } catch (EdgeError edgeError) {
+            Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);
+            return;
+        }
 
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            ScanResult scanResult;
-            try {
-                scanResult = api.scanTexts(bitmap);
-            } catch (EdgeError edgeError) {
-                Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);
-                return;
-            }
-
-            ConstraintLayout.LayoutParams imageViewLayoutParams = (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
-            // Set aspect ratio of imageview to match the image
-            imageViewLayoutParams.dimensionRatio = String.format("%d:%d", bitmap.getWidth(), bitmap.getHeight());
-            runOnUiThread(() -> {
-                imageView.setLayoutParams(imageViewLayoutParams);
-                float modelAspectRatio = modelInformation.getAspectRatio();
-                float imageAspectRatio = (float) imageView.getWidth() / (float) imageView.getHeight();
-                overlay.setCrop(
-                    0.5f, 0.5f,
-                    Math.min(1, modelAspectRatio / imageAspectRatio),
-                    Math.min(1, imageAspectRatio / modelAspectRatio));
-                overlay.setBoxes(scanResult.getTextDetections());
-            });
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
+        ConstraintLayout.LayoutParams imageViewLayoutParams = (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
+        // Set aspect ratio of imageview to match the image
+        imageViewLayoutParams.dimensionRatio = String.format("%d:%d", bitmap.getWidth(), bitmap.getHeight());
+        float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
+        imageView.post(() -> {
+            imageView.setLayoutParams(imageViewLayoutParams);
+            float imageAspectRatio = (float) imageView.getWidth() / (float) imageView.getHeight();
+            overlay.setCrop(
+                0.5f, 0.5f,
+                Math.min(1, modelAspectRatio / imageAspectRatio),
+                Math.min(1, imageAspectRatio / modelAspectRatio));
+            overlay.setBoxes(scanResult.getTextDetections());
+        });
     }
 
     // ...
@@ -57,7 +56,7 @@ Bitmap画像からバーコードを読み取るサンプルが `app/src/main/ja
 
 AssetManager を用いて、`assets/images/sample_barcode.bmp` を読み出し API に渡しています。
 
-bitmap を引数に `api.scanBarcode` 呼び出した場合、同期的にOCR結果が返却されます。  
+bitmap を引数に `api.scanBarcode` 呼び出した場合、同期的にOCR結果が返却されます。
 Textの場合と異なりモデルのロードが必要ない点に注意してください。
 
 ```Java
@@ -88,6 +87,8 @@ public class BarcodeBitmapActivity extends AppCompatActivity {
 
         ScanResult scanResult;
         try {
+            api.resetScanningState();
+            api.setBarcodesNToConfirm(Collections.singletonList(new Pair(BarcodeFormat.Any, 1)));
             scanResult = api.scanBarcodes(bitmap, new BarcodeScanOption(Collections.singletonList(BarcodeFormat.Any)));
         } catch (EdgeError edgeError) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);

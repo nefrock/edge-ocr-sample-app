@@ -13,7 +13,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.nefrock.edgeocr.api.EdgeVisionAPI;
 import com.nefrock.edgeocr.error.EdgeError;
 import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ModelInformation;
 import com.nefrock.edgeocr.model.ScanResult;
 import com.nefrock.edgeocr.ui.CameraOverlay;
 import com.nefrock.edgeocr_example.R;
@@ -32,11 +31,6 @@ public class TextBitmapActivity extends AppCompatActivity {
         EdgeVisionAPI api;
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
-            api.availableModels().stream()
-                .filter(m -> m.getUID().equals("model-large"))
-                .findAny()
-                .map(m -> model = m)
-                .orElseThrow(() -> new Exception("Failed to find model"));
         } catch (Exception e) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR", e);
             return;
@@ -52,28 +46,26 @@ public class TextBitmapActivity extends AppCompatActivity {
             Log.e("EdgeOCRExample", "[onCreate] Failed to load image", e);
         }
 
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            ScanResult scanResult;
-            try {
-                scanResult = api.scanTexts(bitmap);
-            } catch (EdgeError edgeError) {
-                Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);
-                return;
-            }
+        ScanResult scanResult;
+        try {
+            scanResult = api.scanTexts(bitmap);
+        } catch (EdgeError edgeError) {
+            Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);
+            return;
+        }
 
-            ConstraintLayout.LayoutParams imageViewLayoutParams = (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
-            // Set aspect ratio of imageview to match the image
-            imageViewLayoutParams.dimensionRatio = String.format("%d:%d", bitmap.getWidth(), bitmap.getHeight());
-            runOnUiThread(() -> {
-                imageView.setLayoutParams(imageViewLayoutParams);
-                float modelAspectRatio = modelInformation.getAspectRatio();
-                float imageAspectRatio = (float) imageView.getWidth() / (float) imageView.getHeight();
-                overlay.setCrop(
-                    0.5f, 0.5f,
-                    Math.min(1, modelAspectRatio / imageAspectRatio),
-                    Math.min(1, imageAspectRatio / modelAspectRatio));
-                overlay.setBoxes(scanResult.getTextDetections());
-            });
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
+        ConstraintLayout.LayoutParams imageViewLayoutParams = (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
+        // Set aspect ratio of imageview to match the image
+        imageViewLayoutParams.dimensionRatio = String.format("%d:%d", bitmap.getWidth(), bitmap.getHeight());
+        float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
+        imageView.post(() -> {
+            imageView.setLayoutParams(imageViewLayoutParams);
+            float imageAspectRatio = (float) imageView.getWidth() / (float) imageView.getHeight();
+            overlay.setCrop(
+                0.5f, 0.5f,
+                Math.min(1, modelAspectRatio / imageAspectRatio),
+                Math.min(1, imageAspectRatio / modelAspectRatio));
+            overlay.setBoxes(scanResult.getTextDetections());
+        });
     }
 }

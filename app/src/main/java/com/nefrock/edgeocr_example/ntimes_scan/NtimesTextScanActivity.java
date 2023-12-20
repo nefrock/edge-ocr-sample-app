@@ -29,10 +29,8 @@ import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
 import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
 import com.nefrock.edgeocr.model.Detection;
 import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ModelInformation;
 import com.nefrock.edgeocr.model.Text;
 import com.nefrock.edgeocr.ui.CameraOverlay;
 import com.nefrock.edgeocr_example.R;
@@ -50,7 +48,6 @@ import java.util.concurrent.Executors;
     private ImageAnalysis imageAnalysis;
     private ImageCapture imageCapture;
     private Camera camera;
-    //ダイアログを表示するか（表示中はスキャンを辞める）
     EdgeVisionAPI api;
 
     @Override
@@ -80,20 +77,17 @@ import java.util.concurrent.Executors;
 
         cameraOverlay = findViewById(R.id.camera_overlay);
 
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            cameraOverlay.setAspectRatio(modelInformation.getAspectRatio());
-            api.setTextMapper(new PostCodeTextMapper());
-            api.setTextNToConfirm(100);
-            imageAnalyzer.setCallback((filteredDetections, notTargetDetection) -> {
-                runOnUiThread(() -> cameraOverlay.setBoxes(notTargetDetection));
-                if (filteredDetections.size() == 0) {
-                    return;
-                }
-                // UIスレッドによるダイアログ表示前にスキャンを止める
-                imageAnalyzer.stop();
-                runOnUiThread(() -> showDialog(filteredDetections));
-            });
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
+        float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
+        cameraOverlay.setAspectRatio(modelAspectRatio);
+        imageAnalyzer.setCallback((filteredDetections, notTargetDetection) -> {
+            runOnUiThread(() -> cameraOverlay.setBoxes(notTargetDetection));
+            if (filteredDetections.size() == 0) {
+                return;
+            }
+            // UIスレッドによるダイアログ表示前にスキャンを止める
+            imageAnalyzer.stop();
+            runOnUiThread(() -> showDialog(filteredDetections));
+        });
         if (cameraPermissionGranted()) {
             startCamera();
         } else {
@@ -130,7 +124,6 @@ import java.util.concurrent.Executors;
         super.onDestroy();
         analysisExecutor.shutdown();
         focusExecutor.shutdownNow();
-        api.clearTextMapper();
     }
 
     @Override

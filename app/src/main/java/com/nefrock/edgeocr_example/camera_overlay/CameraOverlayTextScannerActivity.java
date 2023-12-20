@@ -22,8 +22,6 @@ import com.google.common.util.concurrent.ListenableFuture;
 import com.nefrock.edgeocr.api.EdgeVisionAPI;
 import com.nefrock.edgeocr.error.EdgeError;
 import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ModelInformation;
 import com.nefrock.edgeocr.model.ScanResult;
 import com.nefrock.edgeocr.model.Text;
 import com.nefrock.edgeocr.ui.CameraOverlay;
@@ -47,30 +45,16 @@ public class CameraOverlayTextScannerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_overlay_text_scanner);
         // Initialize EdgeOCR
-        Model model = null;
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
-            for (Model candidate : api.availableModels()) {
-                if (candidate.getUID().equals("model-large")) {
-                    model = candidate;
-                    break;
-                }
-            }
         } catch (Exception e) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR", e);
             return;
         }
-
-        if (model == null || api == null) {
-            Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR");
-            return;
-        }
-
+        float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
         cameraOverlay = findViewById(R.id.camera_overlay);
+        cameraOverlay.setAspectRatio(modelAspectRatio);
 
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            cameraOverlay.setAspectRatio(modelInformation.getAspectRatio());
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
         if (cameraPermissionGranted()) {
             startCamera();
         } else {

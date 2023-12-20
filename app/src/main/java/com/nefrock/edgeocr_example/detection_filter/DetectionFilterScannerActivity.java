@@ -1,7 +1,6 @@
 package com.nefrock.edgeocr_example.detection_filter;
 
 import android.content.pm.PackageManager;
-import android.graphics.RectF;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Rational;
@@ -20,19 +19,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.nefrock.edgeocr.api.DetectionFilter;
 import com.nefrock.edgeocr.api.EdgeVisionAPI;
 import com.nefrock.edgeocr.error.EdgeError;
 import com.nefrock.edgeocr.model.Detection;
 import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ModelInformation;
-import com.nefrock.edgeocr.model.ScanObject;
 import com.nefrock.edgeocr.model.ScanResult;
 import com.nefrock.edgeocr.model.Text;
 import com.nefrock.edgeocr.ui.CameraOverlay;
 import com.nefrock.edgeocr_example.R;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -49,31 +44,15 @@ public class DetectionFilterScannerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera_overlay_text_scanner);
         // Initialize EdgeOCR
-        Model model = null;
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
-            for (Model candidate : api.availableModels()) {
-                if (candidate.getUID().equals("model-large")) {
-                    model = candidate;
-                    break;
-                }
-            }
         } catch (Exception e) {
-            Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR", e);
-            return;
-        }
-
-        if (model == null || api == null) {
-            Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR");
             return;
         }
 
         cameraOverlay = findViewById(R.id.camera_overlay);
-
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            cameraOverlay.setAspectRatio(modelInformation.getAspectRatio());
-            api.setDetectionFilter(new GetCenterDetectionFilter());
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
+        float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
+        cameraOverlay.setAspectRatio(modelAspectRatio);
         if (cameraPermissionGranted()) {
             startCamera();
         } else {
@@ -82,32 +61,10 @@ public class DetectionFilterScannerActivity extends AppCompatActivity {
         }
     }
 
-    static class GetCenterDetectionFilter extends DetectionFilter {
-        @Override
-        public List<Detection<? extends ScanObject>> filter(List<Detection<? extends ScanObject>> list) {
-            Detection<? extends ScanObject> mostLikelyBox = null;
-            double minDistance = Double.MAX_VALUE;
-            for (Detection<? extends ScanObject> detection: list) {
-                RectF box = detection.getBoundingBox();
-                double distance = Math.pow(box.centerX()-0.5, 2) + Math.pow(box.centerY()-0.5, 2);
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    mostLikelyBox = detection;
-                }
-            }
-            if ( mostLikelyBox != null) {
-                return Collections.singletonList(mostLikelyBox);
-            } else {
-                return Collections.emptyList();
-            }
-        }
-    }
-
     @Override
     public void onDestroy() {
         super.onDestroy();
         analysisExecutor.shutdown();
-        api.clearDetectionFilter();
     }
 
     @Override
