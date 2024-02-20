@@ -137,6 +137,22 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">コンストラクタ</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/ui/BoxParams.html" class="type-name-link" title="class in com.nefrock.edgeocr.ui">BoxParams</a> - Class in <a href="com/nefrock/edgeocr/ui/package-summary.html">com.nefrock.edgeocr.ui</a></dt>
+<dd>
+<div class="block">バウンディングボックスを描画するためのパラメータ</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ui/BoxParams.html#%3Cinit%3E(int,int,int)" class="member-name-link">BoxParams(int, int, int)</a> - Constructor for class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a></dt>
+<dd>
+<div class="block">コンストラクタ</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ui/BoxParams.html#%3Cinit%3E(int,int,int,int,int)" class="member-name-link">BoxParams(int, int, int, int, int)</a> - Constructor for class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a></dt>
+<dd>
+<div class="block">コンストラクタ</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ui/BoxParams.html#%3Cinit%3E(int,int,int,int,int,int)" class="member-name-link">BoxParams(int, int, int, int, int, int)</a> - Constructor for class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a></dt>
+<dd>
+<div class="block">コンストラクタ</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.Builder.html#build()" class="member-name-link">build()</a> - Method in class com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.Builder.html" title="class in com.nefrock.edgeocr.api">EdgeVisionAPI.Builder</a></dt>
 <dd>
 <div class="block">OCRエンジンを初期化します。`fromAssets`または`fromPath`メソッドを呼び出して、
@@ -267,6 +283,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#DataMatrix" class="member-name-link">DataMatrix</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
 <dd>
 <div class="block">Data Matrix 2D バーコード</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/DBPostProcessing.html" class="type-name-link" title="class in com.nefrock.edgeocr.model">DBPostProcessing</a> - Class in <a href="com/nefrock/edgeocr/model/package-summary.html">com.nefrock.edgeocr.model</a></dt>
+<dd>
+<div class="block">DB検出モデルにおけるポストプロセスを表す列挙型</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ExecutionSettings.html#delete()" class="member-name-link">delete()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></dt>
 <dd>&nbsp;</dd>
@@ -431,7 +451,14 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDbOpeningClosing()" class="member-name-link">getDbOpeningClosing()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
 <dd>
-<div class="block">DB検出モデルにおけるオープニング・クロージングの適用</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment"><br>
+ このフィールドは非推奨です。代わりにdbPostProcessingを使用してください。</div>
+</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDbPostProcessing()" class="member-name-link">getDbPostProcessing()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">内部使用（実験的）：db検出モデルの出力のポストプロセス</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDbWidthFactor()" class="member-name-link">getDbWidthFactor()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
 <dd>
@@ -473,11 +500,19 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">バーコードのフォーマットを取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#getLatestError()" class="member-name-link">getLatestError()</a> - Method in interface com.nefrock.edgeocr.api.<a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr.api">EdgeVisionAPI</a></dt>
+<dd>
+<div class="block">最後に発生したエラーを返します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/Text.html#getLetterCandidates()" class="member-name-link">getLetterCandidates()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/Text.html" title="class in com.nefrock.edgeocr.model">Text</a></dt>
 <dd>
 <div class="block">検出された各文字について、その他の文字候補とその信頼値を取得します。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
+<dd>
+<div class="block">定数の名称を取得します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/DBPostProcessing.html#getName()" class="member-name-link">getName()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/DBPostProcessing.html" title="class in com.nefrock.edgeocr.model">DBPostProcessing</a></dt>
 <dd>
 <div class="block">定数の名称を取得します。</div>
 </dd>
@@ -664,6 +699,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">不明なバーコード、またはどのフォーマットも読み取らない</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/model/DBPostProcessing.html#None" class="member-name-link">None</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/DBPostProcessing.html" title="class in com.nefrock.edgeocr.model">DBPostProcessing</a></dt>
+<dd>
+<div class="block">なし</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html#NotYetRead" class="member-name-link">NotYetRead</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a></dt>
 <dd>
 <div class="block">まだ一度も読み込まれていない</div>
@@ -675,7 +714,15 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:O">O</h2>
 <dl class="index">
+<dt><a href="com/nefrock/edgeocr/model/DBPostProcessing.html#OpeningClosing" class="member-name-link">OpeningClosing</a> - Static variable in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/DBPostProcessing.html" title="class in com.nefrock.edgeocr.model">DBPostProcessing</a></dt>
+<dd>
+<div class="block">オープニング・クロージング</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#ordinal()" class="member-name-link">ordinal()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
+<dd>
+<div class="block">定数の値を取得します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/DBPostProcessing.html#ordinal()" class="member-name-link">ordinal()</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/DBPostProcessing.html" title="class in com.nefrock.edgeocr.model">DBPostProcessing</a></dt>
 <dd>
 <div class="block">定数の値を取得します。</div>
 </dd>
@@ -696,6 +743,10 @@ loadScripts(document, 'script');</script>
 <div class="block">定数の値を取得します。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/BarcodeFormat.html#ordinalToEnum(int)" class="member-name-link">ordinalToEnum(int)</a> - Static method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a></dt>
+<dd>
+<div class="block">値から定数を列挙型として取得します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/DBPostProcessing.html#ordinalToEnum(int)" class="member-name-link">ordinalToEnum(int)</a> - Static method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/DBPostProcessing.html" title="class in com.nefrock.edgeocr.model">DBPostProcessing</a></dt>
 <dd>
 <div class="block">値から定数を列挙型として取得します。</div>
 </dd>
@@ -898,6 +949,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">読み取り結果を画面に表示する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#setBoxesAndLayouts(java.util.List)" class="member-name-link">setBoxesAndLayouts(List&lt;Pair&lt;? extends Detection&lt;? extends ScanObject&gt;, BoxParams&gt;&gt;)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
+<dd>
+<div class="block">読み取り結果を、表示形式を指定して画面に表示する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setCheckAfterFrames(int)" class="member-name-link">setCheckAfterFrames(int)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
 <dd>
 <div class="block">確定された結果を再度確認するまでのフレーム数</div>
@@ -925,7 +980,14 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDbOpeningClosing(boolean)" class="member-name-link">setDbOpeningClosing(boolean)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
 <dd>
-<div class="block">DB検出モデルにおけるオープニング・クロージングの適用</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span>
+<div class="deprecation-comment"><br>
+ このフィールドは非推奨です。代わりにdbPostProcessingを使用してください。</div>
+</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDbPostProcessing(com.nefrock.edgeocr.model.DBPostProcessing)" class="member-name-link">setDbPostProcessing(DBPostProcessing)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
+<dd>
+<div class="block">内部使用（実験的）：db検出モデルの出力のポストプロセス</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/model/ModelSettings.html#setDbWidthFactor(float)" class="member-name-link">setDbWidthFactor(float)</a> - Method in class com.nefrock.edgeocr.model.<a href="com/nefrock/edgeocr/model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a></dt>
 <dd>
@@ -996,6 +1058,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#showBoxes(boolean)" class="member-name-link">showBoxes(boolean)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
 <dd>
 <div class="block">読み取り結果を表示するかどうかを設定する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#showEmptyBoxes(boolean)" class="member-name-link">showEmptyBoxes(boolean)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
+<dd>
+<div class="block">読み取り結果がない場合に空の枠を表示するかどうかを設定する。規定値はfalse</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ui/BoxesOverlay.html#surfaceChanged(android.view.SurfaceHolder,int,int,int)" class="member-name-link">surfaceChanged(SurfaceHolder, int, int, int)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/BoxesOverlay.html" title="class in com.nefrock.edgeocr.ui">BoxesOverlay</a></dt>
 <dd>&nbsp;</dd>

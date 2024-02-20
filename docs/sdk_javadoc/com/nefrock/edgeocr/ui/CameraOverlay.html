@@ -171,18 +171,28 @@ loadScripts(document, 'script');</script>
 <div class="block">読み取り結果を画面に表示する</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCrop(float,float,float,float)" class="member-name-link">setCrop</a><wbr>(float&nbsp;horizontalBias,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBoxesAndLayouts(java.util.List)" class="member-name-link">setBoxesAndLayouts</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;androidx.core.util.Pair&lt;? extends <a href="../model/Detection.html" title="class in com.nefrock.edgeocr.model">Detection</a>&lt;? extends <a href="../model/ScanObject.html" title="interface in com.nefrock.edgeocr.model">ScanObject</a>&gt;,<wbr><a href="BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a>&gt;&gt;&nbsp;detectionLayoutPairs)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">読み取り結果を、表示形式を指定して画面に表示する</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCrop(float,float,float,float)" class="member-name-link">setCrop</a><wbr>(float&nbsp;horizontalBias,
  float&nbsp;verticalBias,
  float&nbsp;widthPercent,
  float&nbsp;heightPercent)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">画面に表示する読み取り範囲の位置とサイズを設定する
  <a href="../api/ScanOption.html" title="class in com.nefrock.edgeocr.api"><code>ScanOption</code></a>で読み取り範囲を変更する場合に呼び出す</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showBoxes(boolean)" class="member-name-link">showBoxes</a><wbr>(boolean&nbsp;show)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showBoxes(boolean)" class="member-name-link">showBoxes</a><wbr>(boolean&nbsp;show)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">読み取り結果を表示するかどうかを設定する</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showEmptyBoxes(boolean)" class="member-name-link">showEmptyBoxes</a><wbr>(boolean&nbsp;show)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">読み取り結果がない場合に空の枠を表示するかどうかを設定する。規定値はfalse</div>
 </div>
 </div>
 </div>
@@ -272,6 +282,17 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="showEmptyBoxes(boolean)">
+<h3>showEmptyBoxes</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">showEmptyBoxes</span><wbr><span class="parameters">(boolean&nbsp;show)</span></div>
+<div class="block">読み取り結果がない場合に空の枠を表示するかどうかを設定する。規定値はfalse</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>show</code> - 表示する場合はtrue</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="setAspectRatio(float)">
 <h3>setAspectRatio</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setAspectRatio</span><wbr><span class="parameters">(float&nbsp;aspectRatio)</span></div>
@@ -309,6 +330,17 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>detections</code> - 読み取り結果</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setBoxesAndLayouts(java.util.List)">
+<h3>setBoxesAndLayouts</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBoxesAndLayouts</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;androidx.core.util.Pair&lt;? extends <a href="../model/Detection.html" title="class in com.nefrock.edgeocr.model">Detection</a>&lt;? extends <a href="../model/ScanObject.html" title="interface in com.nefrock.edgeocr.model">ScanObject</a>&gt;,<wbr><a href="BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a>&gt;&gt;&nbsp;detectionLayoutPairs)</span></div>
+<div class="block">読み取り結果を、表示形式を指定して画面に表示する</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>detectionLayoutPairs</code> - 読み取り結果と表示形式</dd>
 </dl>
 </section>
 </li>
