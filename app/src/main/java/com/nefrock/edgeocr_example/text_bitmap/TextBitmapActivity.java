@@ -58,13 +58,9 @@ public class TextBitmapActivity extends AppCompatActivity {
         // Set aspect ratio of imageview to match the image
         imageViewLayoutParams.dimensionRatio = String.format("%d:%d", bitmap.getWidth(), bitmap.getHeight());
         float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
-        imageView.post(() -> {
-            imageView.setLayoutParams(imageViewLayoutParams);
-            float imageAspectRatio = (float) imageView.getWidth() / (float) imageView.getHeight();
-            overlay.setCrop(
-                0.5f, 0.5f,
-                Math.min(1, modelAspectRatio / imageAspectRatio),
-                Math.min(1, imageAspectRatio / modelAspectRatio));
+        overlay.setAspectRatio(modelAspectRatio);
+        imageView.setLayoutParams(imageViewLayoutParams);
+        overlay.post(() -> {
             overlay.setBoxes(scanResult.getTextDetections());
         });
     }

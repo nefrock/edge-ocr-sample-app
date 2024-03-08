@@ -31,7 +31,7 @@ imageAnalysis = new ImageAnalysis.Builder()
         .build();
 ```
 
-YUV_420_888 形式で画像を取得するようにしている点と、`STRATEGY_KEEP_ONLY_LATEST` を使って[ノンブロッキング](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis?hl=ja#STRATEGY_KEEP_ONLY_LATEST)で解析を行って行っている点に注意してください。
+YUV_420_888 形式で画像を取得するようにしている点と、`STRATEGY_KEEP_ONLY_LATEST` を使って[ノンブロッキング](https://developer.android.com/reference/androidx/camera/core/ImageAnalysis?hl=ja#STRATEGY_KEEP_ONLY_LATEST)で解析を行っている点に注意してください。
 
 次に ImageAnalysis に OCR の処理を記述します。
 

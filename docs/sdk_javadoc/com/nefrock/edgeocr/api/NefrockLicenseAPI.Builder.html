@@ -118,8 +118,16 @@ loadScripts(document, 'script');</script>
 <div class="block">NefrockLicenseAPIを構築します。</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="NefrockLicenseAPI.Builder.html" title="class in com.nefrock.edgeocr.api">NefrockLicenseAPI.Builder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withLicenseKey(java.lang.String)" class="member-name-link">withLicenseKey</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;licenseKey)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withGroupLicenseFile(java.lang.String)" class="member-name-link">withGroupLicenseFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;groupLicensePath)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">複数のデバイスのアクティベーションに使えるグループライセンスファイルを設定します。
+
+ このメソッドを使用する場合、ライセンスキーを設定する必要はありません。
+ groupLicensePathで指定されたファイルは、アクセス権限があることを確認してください。</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="NefrockLicenseAPI.Builder.html" title="class in com.nefrock.edgeocr.api">NefrockLicenseAPI.Builder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withLicenseKey(java.lang.String)" class="member-name-link">withLicenseKey</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;licenseKey)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">ライセンスキーを設定します。</div>
 </div>
 </div>
@@ -168,6 +176,23 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>licenseKey</code> - ライセンスキー</dd>
+<dt>Returns:</dt>
+<dd>Builder</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withGroupLicenseFile(java.lang.String)">
+<h3>withGroupLicenseFile</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="NefrockLicenseAPI.Builder.html" title="class in com.nefrock.edgeocr.api">NefrockLicenseAPI.Builder</a></span>&nbsp;<span class="element-name">withGroupLicenseFile</span><wbr><span class="parameters">(@NonNull
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;groupLicensePath)</span></div>
+<div class="block">複数のデバイスのアクティベーションに使えるグループライセンスファイルを設定します。
+
+ このメソッドを使用する場合、ライセンスキーを設定する必要はありません。
+ groupLicensePathで指定されたファイルは、アクセス権限があることを確認してください。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>groupLicensePath</code> - グループライセンスファイルのパス</dd>
 <dt>Returns:</dt>
 <dd>Builder</dd>
 </dl>

@@ -94,7 +94,7 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color"></div>
 <div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/api/EdgeVisionAPI.html#setTextNToConfirm(int)">com.nefrock.edgeocr.api.EdgeVisionAPI.setTextNToConfirm<wbr>(int)</a></div>
 <div class="col-last even-row-color"></div>
-<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/Barcode.html#getDetection()">com.nefrock.edgeocr.model.Barcode.getDetection()</a></div>
+<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/Detection.html#getDetection()">com.nefrock.edgeocr.model.Detection.getDetection()</a></div>
 <div class="col-last odd-row-color"></div>
 <div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/model/ModelSettings.html#getDbOpeningClosing()">com.nefrock.edgeocr.model.ModelSettings.getDbOpeningClosing()</a></div>
 <div class="col-last even-row-color">
@@ -106,13 +106,9 @@ loadScripts(document, 'script');</script>
 <div class="deprecation-comment"><br>
  このフィールドは非推奨です。代わりにdbPostProcessingを使用してください。</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/model/ScanObject.html#getDetection()">com.nefrock.edgeocr.model.ScanObject.getDetection()</a></div>
+<div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/model/ScanResult.html#addBarcodeDetection(com.nefrock.edgeocr.model.Detection)">com.nefrock.edgeocr.model.ScanResult.addBarcodeDetection<wbr>(Detection&lt;Barcode&gt;)</a></div>
 <div class="col-last even-row-color"></div>
-<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/ScanResult.html#addBarcodeDetection(com.nefrock.edgeocr.model.Detection)">com.nefrock.edgeocr.model.ScanResult.addBarcodeDetection<wbr>(Detection&lt;Barcode&gt;)</a></div>
-<div class="col-last odd-row-color"></div>
-<div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/model/ScanResult.html#addTextDetection(com.nefrock.edgeocr.model.Detection)">com.nefrock.edgeocr.model.ScanResult.addTextDetection<wbr>(Detection&lt;Text&gt;)</a></div>
-<div class="col-last even-row-color"></div>
-<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/Text.html#getDetection()">com.nefrock.edgeocr.model.Text.getDetection()</a></div>
+<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/ScanResult.html#addTextDetection(com.nefrock.edgeocr.model.Detection)">com.nefrock.edgeocr.model.ScanResult.addTextDetection<wbr>(Detection&lt;Text&gt;)</a></div>
 <div class="col-last odd-row-color"></div>
 </div>
 </div>
@@ -127,11 +123,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/api/CropRect.html#%3Cinit%3E(java.lang.Float,java.lang.Float,java.lang.Float)">com.nefrock.edgeocr.api.CropRect<wbr>(Float, Float, Float)</a></div>
 <div class="col-last even-row-color"></div>
-<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/Barcode.html#%3Cinit%3E(com.nefrock.edgeocr.jni.Detection)">com.nefrock.edgeocr.model.Barcode<wbr>(Detection)</a></div>
+<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/Barcode.html#%3Cinit%3E(com.nefrock.edgeocr.jni.Recognition)">com.nefrock.edgeocr.model.Barcode<wbr>(Recognition)</a></div>
 <div class="col-last odd-row-color"></div>
-<div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/model/Detection.html#%3Cinit%3E(android.graphics.RectF,float,T,com.nefrock.edgeocr.model.ScanConfirmationStatus)">com.nefrock.edgeocr.model.Detection<wbr>(RectF, float, T, ScanConfirmationStatus)</a></div>
+<div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/model/Detection.html#%3Cinit%3E(com.nefrock.edgeocr.jni.Detection,T)">com.nefrock.edgeocr.model.Detection<wbr>(Detection, T)</a></div>
 <div class="col-last even-row-color"></div>
-<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/Text.html#%3Cinit%3E(com.nefrock.edgeocr.jni.Detection,boolean)">com.nefrock.edgeocr.model.Text<wbr>(Detection, boolean)</a></div>
+<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/model/Text.html#%3Cinit%3E(com.nefrock.edgeocr.jni.Recognition)">com.nefrock.edgeocr.model.Text<wbr>(Recognition)</a></div>
 <div class="col-last odd-row-color"></div>
 </div>
 </div>

@@ -59,9 +59,11 @@ public class BarcodeBitmapActivity extends AppCompatActivity {
 
         ConstraintLayout.LayoutParams imageViewLayoutParams = (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
         // Set aspect ratio of imageview to match the image
-        imageViewLayoutParams.dimensionRatio = String.format("%d:%d", bitmap.getWidth(), bitmap.getHeight());
-        runOnUiThread(() -> {
-            imageView.setLayoutParams(imageViewLayoutParams);
+        overlay.setCrop(
+                0.5f, 0.5f,
+                1.0f, 1.0f);
+        imageView.setLayoutParams(imageViewLayoutParams);
+        overlay.post(() -> {
             overlay.setBoxes(scanResult.getBarcodeDetections());
         });
     }

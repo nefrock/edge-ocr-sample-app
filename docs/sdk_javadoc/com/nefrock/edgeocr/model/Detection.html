@@ -90,10 +90,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(android.graphics.RectF,float,T,com.nefrock.edgeocr.model.ScanConfirmationStatus)" class="member-name-link">Detection</a><wbr>(android.graphics.RectF&nbsp;boundingBox,
- float&nbsp;detectionScore,
- <a href="Detection.html" title="type parameter in Detection">T</a>&nbsp;scanObject,
- <a href="ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a>&nbsp;status)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.jni.Detection,T)" class="member-name-link">Detection</a><wbr>(com.nefrock.edgeocr.jni.Detection&nbsp;detection,
+ <a href="Detection.html" title="type parameter in Detection">T</a>&nbsp;scanObject)</code></div>
 <div class="col-last even-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
@@ -105,7 +103,7 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
@@ -116,20 +114,25 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出された文字列のバウンディングボックスを取得します。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDetectionScore()" class="member-name-link">getDetectionScore</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code>com.nefrock.edgeocr.jni.Detection</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getDetection()" class="member-name-link">getDetection</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDetectionScore()" class="member-name-link">getDetectionScore</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出箇所の信頼値を取得します。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Detection.html" title="type parameter in Detection">T</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScanObject()" class="member-name-link">getScanObject</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Detection.html" title="type parameter in Detection">T</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScanObject()" class="member-name-link">getScanObject</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出された対象の種類を取得します。
  例えば、文字列の場合は<a href="Text.html" title="class in com.nefrock.edgeocr.model"><code>Text</code></a>、バーコードの場合は<a href="Barcode.html" title="class in com.nefrock.edgeocr.model"><code>Barcode</code></a>が返ります。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStatus()" class="member-name-link">getStatus</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStatus()" class="member-name-link">getStatus</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出結果の確定状態を取得します。</div>
 </div>
 </div>
@@ -150,21 +153,17 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(android.graphics.RectF,float,T,com.nefrock.edgeocr.model.ScanConfirmationStatus)">
-<h3 id="&lt;init&gt;(android.graphics.RectF,float,com.nefrock.edgeocr.model.ScanObject,com.nefrock.edgeocr.model.ScanConfirmationStatus)">Detection</h3>
+<section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.jni.Detection,T)">
+<h3 id="&lt;init&gt;(com.nefrock.edgeocr.jni.Detection,com.nefrock.edgeocr.model.ScanObject)">Detection</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
-</span><span class="modifiers">public</span>&nbsp;<span class="element-name">Detection</span><wbr><span class="parameters">(android.graphics.RectF&nbsp;boundingBox,
- float&nbsp;detectionScore,
- <a href="Detection.html" title="type parameter in Detection">T</a>&nbsp;scanObject,
- <a href="ScanConfirmationStatus.html" title="class in com.nefrock.edgeocr.model">ScanConfirmationStatus</a>&nbsp;status)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name">Detection</span><wbr><span class="parameters">(com.nefrock.edgeocr.jni.Detection&nbsp;detection,
+ <a href="Detection.html" title="type parameter in Detection">T</a>&nbsp;scanObject)</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">内部使用のコンストラクタです。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>boundingBox</code> - 検出された文字列のバウンディングボックス</dd>
-<dd><code>detectionScore</code> - 検出箇所の信頼値</dd>
+<dd><code>detection</code> - 内部使用の検出結果</dd>
 <dd><code>scanObject</code> - 検出された対象</dd>
-<dd><code>status</code> - 検出結果の確定状態</dd>
 </dl>
 </section>
 </li>
@@ -176,6 +175,19 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="getDetection()">
+<h3>getDetection</h3>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">com.nefrock.edgeocr.jni.Detection</span>&nbsp;<span class="element-name">getDetection</span>()</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block">内部使用の検出結果を取得します。</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>内部使用の検出結果</dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="getScanObject()">
 <h3>getScanObject</h3>
