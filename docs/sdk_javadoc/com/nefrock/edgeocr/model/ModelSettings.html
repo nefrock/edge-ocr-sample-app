@@ -161,24 +161,34 @@ loadScripts(document, 'script');</script>
 <div class="block">検出モデルの実行デバイス</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNmsThreshold()" class="member-name-link">getNmsThreshold</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHighConfidenceThreshold()" class="member-name-link">getHighConfidenceThreshold</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">検出における高信頼度の閾値（トラッキングに影響する）</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNmsThreshold()" class="member-name-link">getNmsThreshold</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出のNMSの閾値</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNToConfirm()" class="member-name-link">getNToConfirm</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNToConfirm()" class="member-name-link">getNToConfirm</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出結果の確定に必要な同じ結果の読み込み回数</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParallelRecognizers()" class="member-name-link">getParallelRecognizers</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParallelRecognizers()" class="member-name-link">getParallelRecognizers</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">認識モデルの並列実行数</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRecognizerExecutionSettings()" class="member-name-link">getRecognizerExecutionSettings</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRecognizerExecutionSettings()" class="member-name-link">getRecognizerExecutionSettings</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">認識モデルの実行設定</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getZeroConfidenceThreshold()" class="member-name-link">getZeroConfidenceThreshold</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAreaThreshold(float)" class="member-name-link">setAreaThreshold</a><wbr>(float&nbsp;value)</code></div>
@@ -235,30 +245,40 @@ loadScripts(document, 'script');</script>
 <div class="block">検出モデルの実行デバイス</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNmsThreshold(float)" class="member-name-link">setNmsThreshold</a><wbr>(float&nbsp;value)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHighConfidenceThreshold(float)" class="member-name-link">setHighConfidenceThreshold</a><wbr>(float&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">検出における高信頼度の閾値（トラッキングに影響する）</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNmsThreshold(float)" class="member-name-link">setNmsThreshold</a><wbr>(float&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出のNMSの閾値</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNToConfirm(int)" class="member-name-link">setNToConfirm</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNToConfirm(int)" class="member-name-link">setNToConfirm</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出結果の確定に必要な同じ結果の読み込み回数</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParallelRecognizers(int)" class="member-name-link">setParallelRecognizers</a><wbr>(int&nbsp;value)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParallelRecognizers(int)" class="member-name-link">setParallelRecognizers</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">認識モデルの並列実行数</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRecognizerExecutionSettings(com.nefrock.edgeocr.model.ExecutionSettings)" class="member-name-link">setRecognizerExecutionSettings</a><wbr>(<a href="ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a>&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRecognizerExecutionSettings(com.nefrock.edgeocr.model.ExecutionSettings)" class="member-name-link">setRecognizerExecutionSettings</a><wbr>(<a href="ExecutionSettings.html" title="class in com.nefrock.edgeocr.model">ExecutionSettings</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">認識モデルの実行設定</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextMapper(com.nefrock.edgeocr.jni.TextMapperBase)" class="member-name-link">setTextMapper</a><wbr>(com.nefrock.edgeocr.jni.TextMapperBase&nbsp;mapper)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextMapper(com.nefrock.edgeocr.jni.TextMapperBase)" class="member-name-link">setTextMapper</a><wbr>(com.nefrock.edgeocr.jni.TextMapperBase&nbsp;mapper)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">OCRモデルにテキストマッパーを設定します。<br>
   認識された文字列、及びその他の文字候補の信頼値を用いて、文字列の変更を行うことができます。<br></div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setZeroConfidenceThreshold(float)" class="member-name-link">setZeroConfidenceThreshold</a><wbr>(float&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）</div>
 </div>
 </div>
 </div>
@@ -346,6 +366,20 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="setZeroConfidenceThreshold(float)">
+<h3>setZeroConfidenceThreshold</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setZeroConfidenceThreshold</span><wbr><span class="parameters">(float&nbsp;value)</span></div>
+<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getZeroConfidenceThreshold()">
+<h3>getZeroConfidenceThreshold</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getZeroConfidenceThreshold</span>()</div>
+<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）</div>
+</section>
+</li>
+<li>
 <section class="detail" id="setConfidenceThreshold(float)">
 <h3>setConfidenceThreshold</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setConfidenceThreshold</span><wbr><span class="parameters">(float&nbsp;value)</span></div>
@@ -357,6 +391,20 @@ loadScripts(document, 'script');</script>
 <h3>getConfidenceThreshold</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getConfidenceThreshold</span>()</div>
 <div class="block">検出の最小信頼度</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setHighConfidenceThreshold(float)">
+<h3>setHighConfidenceThreshold</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setHighConfidenceThreshold</span><wbr><span class="parameters">(float&nbsp;value)</span></div>
+<div class="block">検出における高信頼度の閾値（トラッキングに影響する）</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getHighConfidenceThreshold()">
+<h3>getHighConfidenceThreshold</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getHighConfidenceThreshold</span>()</div>
+<div class="block">検出における高信頼度の閾値（トラッキングに影響する）</div>
 </section>
 </li>
 <li>

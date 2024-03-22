@@ -55,23 +55,11 @@ import java.util.concurrent.Executors;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ntimes_text_scanner);
         // Initialize EdgeOCR
-        Model model = null;
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
             imageAnalyzer = new PostCodeRegexTextAnalyzer(api);
-            for (Model candidate : api.availableModels()) {
-                if (candidate.getUID().equals("model-large")) {
-                    model = candidate;
-                    break;
-                }
-            }
         } catch (Exception e) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR", e);
-            return;
-        }
-
-        if (model == null) {
-            Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR");
             return;
         }
 
@@ -80,7 +68,7 @@ import java.util.concurrent.Executors;
         float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
         cameraOverlay.setAspectRatio(modelAspectRatio);
         imageAnalyzer.setCallback((filteredDetections, notTargetDetection) -> {
-            runOnUiThread(() -> cameraOverlay.setBoxes(notTargetDetection));
+            runOnUiThread(() -> cameraOverlay.setBoxes(filteredDetections));
             if (filteredDetections.size() == 0) {
                 return;
             }

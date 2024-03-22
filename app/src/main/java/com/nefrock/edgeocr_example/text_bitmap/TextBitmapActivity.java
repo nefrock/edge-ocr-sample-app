@@ -60,8 +60,6 @@ public class TextBitmapActivity extends AppCompatActivity {
         float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
         overlay.setAspectRatio(modelAspectRatio);
         imageView.setLayoutParams(imageViewLayoutParams);
-        overlay.post(() -> {
-            overlay.setBoxes(scanResult.getTextDetections());
-        });
+        overlay.setBoxes(scanResult.getTextDetections());
     }
 }

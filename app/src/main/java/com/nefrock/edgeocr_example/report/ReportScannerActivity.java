@@ -55,29 +55,12 @@ public class ReportScannerActivity extends AppCompatActivity {
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
             freeStyleTextAnalyzer = new FreeStyleTextAnalyzer(api);
-            for (Model candidate : api.availableModels()) {
-                if (candidate.getUID().equals("model-large")) {
-                    model = candidate;
-                    break;
-                }
-            }
         } catch (Exception e) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR", e);
             return;
         }
 
-        if (model == null || api == null) {
-            Log.e("EdgeOCRExample", "[onCreate] Failed to initialize EdgeOCR");
-            return;
-        }
-
         cameraOverlay = findViewById(R.id.camera_overlay);
-
-        api.useModel(model, (ModelInformation modelInformation) -> {
-            freeStyleTextAnalyzer.setCallback((allDetections) -> {
-                runOnUiThread(() -> cameraOverlay.setBoxes(allDetections));
-            });
-        }, (EdgeError e) -> Log.e("EdgeOCRExample", "[onCreate] Failed to load model", e));
         if (cameraPermissionGranted()) {
             startCamera();
         } else {

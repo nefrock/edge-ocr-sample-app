@@ -144,7 +144,7 @@ import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
         Model model = null;
 
         for (Model candidate : api.availableModels()) {
-            if (candidate.getUID().equals("model-large")) {
+            if (candidate.getUID().equals("model-d320x320")) {
                 model = candidate;
                 break;
             }
