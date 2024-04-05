@@ -172,49 +172,59 @@ loadScripts(document, 'script');</script>
  <a href="BarcodeScanOption.html" title="class in com.nefrock.edgeocr.api"><code>BarcodeScanOption</code></a>を用いて、読み取るバーコードの種類と読み取り範囲を指定することができます。</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scanTexts(android.graphics.Bitmap)" class="member-name-link">scanTexts</a><wbr>(android.graphics.Bitmap&nbsp;image)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scanBarcodesAi(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.api.BarcodeScanOption)" class="member-name-link">scanBarcodesAi</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image,
+ <a href="BarcodeScanOption.html" title="class in com.nefrock.edgeocr.api">BarcodeScanOption</a>&nbsp;barcodeScanOption)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scanTexts(android.graphics.Bitmap)" class="member-name-link">scanTexts</a><wbr>(android.graphics.Bitmap&nbsp;image)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">入力画像の中心部分からモデルのアスペクト比を保ったまま切り出せる最大のサイズに対して、
  文字を検出・認識（OCR）を行います。この関数を呼び出す前に、useModelが成功したことを確認ください。
  動画に対してではなく、静止画像に対しての利用を想定しているため同期的にOCRを行います。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scanTexts(androidx.camera.core.ImageProxy)" class="member-name-link">scanTexts</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scanTexts(androidx.camera.core.ImageProxy)" class="member-name-link">scanTexts</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">入力画像の中心部分からモデルのアスペクト比を保ったまま切り出せる最大のサイズに対して、
  文字を検出・認識（OCR）を行います。この関数を呼び出す前に、useModelが成功したことを確認ください。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scanTexts(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.api.ScanOption)" class="member-name-link">scanTexts</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scanTexts(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.api.ScanOption)" class="member-name-link">scanTexts</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image,
  <a href="ScanOption.html" title="class in com.nefrock.edgeocr.api">ScanOption</a>&nbsp;scanOption)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">入力画像のクロップに写っている文字を検出・認識（OCR）します。この関数を呼び出す前に、
  useModelが成功したことを確認ください。
 
  scanOptionを用いて、クロップサイズとスキャンモードの設定を行います。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setBarcodesNToConfirm(java.util.List)" class="member-name-link">setBarcodesNToConfirm</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;androidx.core.util.Pair&lt;<a href="../model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&gt;&nbsp;barcodesNToConfirm)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setBarcodesNToConfirm(java.util.List)" class="member-name-link">setBarcodesNToConfirm</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;androidx.core.util.Pair&lt;<a href="../model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model">BarcodeFormat</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&gt;&nbsp;barcodesNToConfirm)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">バーコードの確定までの読み取り回数を設定します。
  <a href="../model/BarcodeFormat.html" title="class in com.nefrock.edgeocr.model"><code>BarcodeFormat</code></a>を用いて利用したいバーコードフォーマット毎に読み取り内容確定までの読み取り回数を設定します。
  デフォルト値はすべてのフォーマットについて3回です。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setDetectionFilter(com.nefrock.edgeocr.api.DetectionFilter)" class="member-name-link">setDetectionFilter</a><wbr>(<a href="DetectionFilter.html" title="class in com.nefrock.edgeocr.api">DetectionFilter</a>&nbsp;detectionFilter)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
-</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setTextMapper(com.nefrock.edgeocr.api.TextMapper)" class="member-name-link">setTextMapper</a><wbr>(<a href="TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a>&nbsp;textMapper)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setDetectionFilter(com.nefrock.edgeocr.api.DetectionFilter)" class="member-name-link">setDetectionFilter</a><wbr>(<a href="DetectionFilter.html" title="class in com.nefrock.edgeocr.api">DetectionFilter</a>&nbsp;detectionFilter)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm</a><wbr>(int&nbsp;nToConfirm)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setTextMapper(com.nefrock.edgeocr.api.TextMapper)" class="member-name-link">setTextMapper</a><wbr>(<a href="TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a>&nbsp;textMapper)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm</a><wbr>(int&nbsp;nToConfirm)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="../model/ModelInformation.html" title="class in com.nefrock.edgeocr.model">ModelInformation</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#useBarcodeModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.model.ModelSettings,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)" class="member-name-link">useBarcodeModel</a><wbr>(<a href="../model/Model.html" title="class in com.nefrock.edgeocr.model">Model</a>&nbsp;model,
+ <a href="../model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a>&nbsp;settings,
+ <a href="../callback/LoadingCallback.html" title="interface in com.nefrock.edgeocr.callback">LoadingCallback</a>&nbsp;callback,
+ <a href="../callback/ErrorCallback.html" title="interface in com.nefrock.edgeocr.callback">ErrorCallback</a>&nbsp;errorCallback)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="../model/ModelInformation.html" title="class in com.nefrock.edgeocr.model">ModelInformation</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#useModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)" class="member-name-link">useModel</a><wbr>(<a href="../model/Model.html" title="class in com.nefrock.edgeocr.model">Model</a>&nbsp;model,
  <a href="../callback/LoadingCallback.html" title="interface in com.nefrock.edgeocr.callback">LoadingCallback</a>&nbsp;callback,
@@ -594,6 +604,33 @@ loadScripts(document, 'script');</script>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 <div class="block">現在使用しているOCRモデルに設定されているテキストマッパーをクリアします。<p>
  この関数は非推奨です。代わりにuseModelにModelSettingsを経由して設定してください。</div>
+</section>
+</li>
+<li>
+<section class="detail" id="useBarcodeModel(com.nefrock.edgeocr.model.Model,com.nefrock.edgeocr.model.ModelSettings,com.nefrock.edgeocr.callback.LoadingCallback,com.nefrock.edgeocr.callback.ErrorCallback)">
+<h3>useBarcodeModel</h3>
+<div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="../model/ModelInformation.html" title="class in com.nefrock.edgeocr.model">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useBarcodeModel</span><wbr><span class="parameters">(@NonNull
+ <a href="../model/Model.html" title="class in com.nefrock.edgeocr.model">Model</a>&nbsp;model,
+ @NonNull
+ <a href="../model/ModelSettings.html" title="class in com.nefrock.edgeocr.model">ModelSettings</a>&nbsp;settings,
+ @Nullable
+ <a href="../callback/LoadingCallback.html" title="interface in com.nefrock.edgeocr.callback">LoadingCallback</a>&nbsp;callback,
+ @Nullable
+ <a href="../callback/ErrorCallback.html" title="interface in com.nefrock.edgeocr.callback">ErrorCallback</a>&nbsp;errorCallback)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="scanBarcodesAi(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.api.BarcodeScanOption)">
+<h3>scanBarcodesAi</h3>
+<div class="member-signature"><span class="return-type"><a href="../model/ScanResult.html" title="class in com.nefrock.edgeocr.model">ScanResult</a></span>&nbsp;<span class="element-name">scanBarcodesAi</span><wbr><span class="parameters">(@NonNull
+ androidx.camera.core.ImageProxy&nbsp;image,
+ @NonNull
+ <a href="BarcodeScanOption.html" title="class in com.nefrock.edgeocr.api">BarcodeScanOption</a>&nbsp;barcodeScanOption)</span>
+                   throws <span class="exceptions"><a href="../error/EdgeError.html" title="class in com.nefrock.edgeocr.error">EdgeError</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="../error/EdgeError.html" title="class in com.nefrock.edgeocr.error">EdgeError</a></code></dd>
+</dl>
 </section>
 </li>
 <li>

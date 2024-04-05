@@ -68,7 +68,7 @@ loadScripts(document, 'script');</script>
 <ul class="summary-list">
 <li>
 <div id="class-summary">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="class-summary-tab0" role="tab" aria-selected="true" aria-controls="class-summary.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="class-summary-tab1" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab1', 2)" class="table-tab">Interfaces</button><button id="class-summary-tab2" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab2', 2)" class="table-tab">Classes</button><button id="class-summary-tab3" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab3', 2)" class="table-tab">Enum Classes</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="class-summary-tab0" role="tab" aria-selected="true" aria-controls="class-summary.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="class-summary-tab1" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab1', 2)" class="table-tab">Interfaces</button><button id="class-summary-tab2" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab2', 2)" class="table-tab">Classes</button><button id="class-summary-tab3" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab3', 2)" class="table-tab">Enum Classes</button><button id="class-summary-tab7" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab7', 2)" class="table-tab">Annotation Interfaces</button></div>
 <div id="class-summary.tabpanel" role="tabpanel">
 <div class="summary-table two-column-summary" aria-labelledby="class-summary-tab0">
 <div class="table-header col-first">Class</div>
@@ -102,22 +102,24 @@ loadScripts(document, 'script');</script>
  `fromAssets`または`fromPath`メソッドを呼び出して、
  OCRモデルを読み込む方法を指定した後に、`build`メソッドを呼び出してください。</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="License.html" title="class in com.nefrock.edgeocr.api">License</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">&nbsp;</div>
-<div class="col-first even-row-color class-summary class-summary-tab1"><a href="NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr.api">NefrockLicenseAPI</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab1">
+<div class="col-first odd-row-color class-summary class-summary-tab7"><a href="ExperimentalEdgeVisionAPI.html" title="annotation interface in com.nefrock.edgeocr.api">ExperimentalEdgeVisionAPI</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab7">&nbsp;</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="License.html" title="class in com.nefrock.edgeocr.api">License</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
+<div class="col-first odd-row-color class-summary class-summary-tab1"><a href="NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr.api">NefrockLicenseAPI</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab1">
 <div class="block">NefrockLicenseAPIは、Nefrock OCR SDKのライセンス認証を行うためのAPIです。
  Nefrock OCR SDKを使用する前に、ライセンス認証を行う必要があります。
  ライセンス認証は、`activate`メソッドを使用して行います。
  ライセンス認証が完了すると、`activate`メソッドのコールバックにライセンス情報が渡されます。
  ライセンス認証が完了していない場合、`activate`メソッドは`null`を返します。</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="NefrockLicenseAPI.Builder.html" title="class in com.nefrock.edgeocr.api">NefrockLicenseAPI.Builder</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="NefrockLicenseAPI.Builder.html" title="class in com.nefrock.edgeocr.api">NefrockLicenseAPI.Builder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">ライセンス認証APIのBuilderです</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ScanOption.html" title="class in com.nefrock.edgeocr.api">ScanOption</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ScanOption.html" title="class in com.nefrock.edgeocr.api">ScanOption</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">スキャンオプションを表すクラスです。
  スキャンモードと切り取り範囲を指定できます。
  <a href="ScanOption.ScanMode.html" title="enum class in com.nefrock.edgeocr.api"><code>ScanOption.ScanMode</code></a> 列挙型を利用してスキャンのモードを指定します。<br>
@@ -140,12 +142,12 @@ loadScripts(document, 'script');</script>
  
  </div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab3"><a href="ScanOption.ScanMode.html" title="enum class in com.nefrock.edgeocr.api">ScanOption.ScanMode</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab3">
+<div class="col-first even-row-color class-summary class-summary-tab3"><a href="ScanOption.ScanMode.html" title="enum class in com.nefrock.edgeocr.api">ScanOption.ScanMode</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab3">
 <div class="block">スキャンモードを表す列挙型です。</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TextMapper.html" title="class in com.nefrock.edgeocr.api">TextMapper</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">テキスト検出結果を変更するためのクラスです。よくブレる文字の修正、または検出結果から不要な
  文字を削除するために使用します。<br/>
  このクラスを継承して、applyメソッドを実装してください。</div>
