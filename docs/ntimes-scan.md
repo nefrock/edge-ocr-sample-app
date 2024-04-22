@@ -8,7 +8,7 @@ EdgeOCRではOCRの精度を上げるために、同じテキストを複数回�
 読み取り回数の設定は `ModelSettings#setNToConfirm` メソッドで行います。
 読み取り回数を設定した `ModelSettings` オブジェクトを `EdgeVisionAPI` の `useModel` メソッドの引数として渡すことで、読み取り回数を設定したOCRを行うことができます。
 5回同じ内容を読み取った場合にテキストを確定するように設定しています。
-デフォルトのテキスト読み取り確定までの回数は3回です。
+デフォルトのテキスト読み取り確定までの回数は1回です。
 ```Java
 @ExperimentalCamera2Interop public class MainActivity extends AppCompatActivity {
     ...
@@ -89,7 +89,6 @@ class PostCodeRegexTextAnalyzer implements ImageAnalysis.Analyzer {
 `TextMapper` クラスを継承し、`apply` メソッドを実装することで、TextMapperを作成します。
 読み取り対象が郵便番号なので、英字や記号を数字に変換する処理を実装しています。
 また、郵便番号のみを抽出するための正規表現も実装しています。
-```Java
 ```Java
 public class PostCodeTextMapper extends TextMapper {
     private final Pattern regexPattern;

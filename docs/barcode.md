@@ -6,7 +6,7 @@ EdgeOCR ではバーコードのスキャンも可能です。
 
 `app/src/main/java/com/nefrock/edgeocr_example/barcode/BarcodeScannerActivity.java`でapiの初期化とバーコードフォーマット毎の確定までの読み取り回数を設定しています。
 サンプルではQRコードのみ5回読み取った後、結果を確定するように設定しています。
-それ以外のバーコードフォーマットは読み取り回数を指定していないため、デフォルトである3回の読み取り後に結果を確定します。
+それ以外のバーコードフォーマットは読み取り回数を指定していないため、デフォルトである1回の読み取り後に結果を確定します。
 
 ```Java
 public class BarcodeScannerActivity extends AppCompatActivity {
