@@ -10,11 +10,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.camera2.interop.ExperimentalCamera2Interop;
 
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.api.NefrockLicenseAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ModelSettings;
+import com.nefrock.edgeocr.BarcodeFormat;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.Model;
+import com.nefrock.edgeocr.ModelSettings;
+import com.nefrock.edgeocr.NefrockLicenseAPI;
+
 import com.nefrock.edgeocr_example.barcode.BarcodeScannerActivity;
 import com.nefrock.edgeocr_example.barcode_bitmap.BarcodeBitmapActivity;
 import com.nefrock.edgeocr_example.camera_overlay.CameraOverlayTextScannerActivity;
@@ -27,6 +29,8 @@ import com.nefrock.edgeocr_example.report.ReportScannerActivity;
 import com.nefrock.edgeocr_example.simple_text.SimpleTextScannerActivity;
 import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
 
+import java.util.Collections;
+
 @ExperimentalCamera2Interop public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -36,53 +40,57 @@ import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
 
         findViewById(R.id.simple_ocr_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), SimpleTextScannerActivity.class);
-            loadModelAndStartActivity(intent);
+            loadModelAndStartActivity(intent, "model-d320x320");
         });
 
         findViewById(R.id.camera_overlay_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), CameraOverlayTextScannerActivity.class);
-            loadModelAndStartActivity(intent);
+            loadModelAndStartActivity(intent, "model-d320x320_with_barcode");
         });
 
         findViewById(R.id.report_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), ReportScannerActivity.class);
-            loadModelAndStartActivity(intent);
+            loadModelAndStartActivity(intent, "model-d320x320");
         });
 
         findViewById(R.id.free_ocr_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), CropTextScannerActivity.class);
-            loadModelAndStartActivity(intent);
+            loadModelAndStartActivity(intent, "model-d320x320");
         });
 
         findViewById(R.id.detection_filter_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), DetectionFilterScannerActivity.class);
             ModelSettings modelSettings = new ModelSettings();
             modelSettings.setDetectionFilter(new GetCenterDetectionFilter());
-            loadModelAndStartActivity(intent, modelSettings);
+            loadModelAndStartActivity(intent, "model-d320x320", modelSettings);
         });
 
         findViewById(R.id.ntimes_scan_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), NtimesTextScanActivity.class);
             ModelSettings settings = new ModelSettings();
-            settings.setNToConfirm(5);
+            settings.setTextNToConfirm(5);
             settings.setTextMapper(new PostCodeTextMapper());
-            loadModelAndStartActivity(intent, settings);
+            loadModelAndStartActivity(intent, "model-d320x320", settings);
         });
 
         findViewById(R.id.barcode_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), BarcodeScannerActivity.class);
             intent.putExtra("show_dialog", true);
-            startActivity(intent);
+            ModelSettings modelSettings = new ModelSettings();
+            modelSettings.setBarcodeNToConfirm(Collections.singletonMap(BarcodeFormat.QRCode, 5));
+            loadModelAndStartActivity(intent, "edgeocr_barcode_default", modelSettings);
         });
 
         findViewById(R.id.text_bitmap_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), TextBitmapActivity.class);
-            loadModelAndStartActivity(intent);
+            loadModelAndStartActivity(intent, "model-d320x320");
         });
 
         findViewById(R.id.barcode_bitmap_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), BarcodeBitmapActivity.class);
-            startActivity(intent);
+            ModelSettings modelSettings = new ModelSettings();
+            modelSettings.setBarcodeNToConfirm(Collections.singletonMap(BarcodeFormat.Any, 1));
+            loadModelAndStartActivity(intent, "edgeocr_barcode_default", modelSettings);
         });
 
         // TODO:ライセンスキー部分のコメントアウト
@@ -127,11 +135,11 @@ import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
         ));
     }
 
-    private void loadModelAndStartActivity(Intent intent) {
-        loadModelAndStartActivity(intent, new ModelSettings());
+    private void loadModelAndStartActivity(Intent intent, String modelUid) {
+        loadModelAndStartActivity(intent, modelUid, new ModelSettings());
     }
 
-    private void loadModelAndStartActivity(Intent intent, ModelSettings modelSettings) {
+    private void loadModelAndStartActivity(Intent intent, String modelUid, ModelSettings modelSettings) {
         runOnUiThread(()->findViewById(R.id.progressLayout).setVisibility(android.view.View.VISIBLE));
         EdgeVisionAPI api;
         try {
@@ -144,7 +152,7 @@ import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
         Model model = null;
 
         for (Model candidate : api.availableModels()) {
-            if (candidate.getUID().equals("model-d320x320")) {
+            if (candidate.getUID().equals(modelUid)) {
                 model = candidate;
                 break;
             }

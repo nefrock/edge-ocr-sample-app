@@ -19,17 +19,16 @@ import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.util.Pair;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.model.Barcode;
-import com.nefrock.edgeocr.model.BarcodeFormat;
-import com.nefrock.edgeocr.model.Detection;
+
+import com.nefrock.edgeocr.Barcode;
+import com.nefrock.edgeocr.BarcodeFormat;
+import com.nefrock.edgeocr.EdgeVisionAPI;
 import com.nefrock.edgeocr.ui.CameraOverlay;
+
 import com.nefrock.edgeocr_example.R;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -50,7 +49,6 @@ public class BarcodeScannerActivity extends AppCompatActivity {
         // Initialize EdgeOCR
         try {
             api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
-            api.setBarcodesNToConfirm(Collections.singletonList(new Pair<>(BarcodeFormat.QRCode, 5)));
             showDialog = getIntent().getBooleanExtra("show_dialog", false);
             barcodeAnalyzer = new BarcodeAnalyzer(api);
         } catch (Exception e) {
@@ -152,11 +150,11 @@ public class BarcodeScannerActivity extends AppCompatActivity {
         }, ContextCompat.getMainExecutor(this));
     }
 
-    private void showDialog(List<Detection<Barcode>> detections) {
+    private void showDialog(List<Barcode> detections) {
         barcodeAnalyzer.stop();
         StringBuilder messageBuilder = new StringBuilder();
-        for (Detection<Barcode> detection : detections) {
-            messageBuilder.append(detection.getScanObject().getText()).append("\n");
+        for (Barcode detection : detections) {
+            messageBuilder.append(detection.getText()).append("\n");
         }
         new AlertDialog.Builder(this)
                 .setTitle("検出")

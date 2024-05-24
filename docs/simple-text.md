@@ -42,12 +42,12 @@ imageAnalysis.setAnalyzer(analysisExecutor, image -> {
         return;
     }
     try {
-        ScanResult scanResult = api.scanTexts(image);
-        List<Detection<Text>> detections = scanResult.getTextDetections();
-        for(Detection<Text> detection: detections) {
-            String text = detection.getScanObject().getText();
+        ScanResult scanResult = api.scan(image);
+        List<Text> detections = scanResult.getTextDetections();
+        for(Text detection: detections) {
+            String text = detection.getText();
             if(!text.isEmpty()) {
-                Log.d("EDGE_OCR_FIRST_EXAMPLE", "detected: " + detection.getScanObject().getText());
+                Log.d("EDGE_OCR_FIRST_EXAMPLE", "detected: " + text);
             }
         }
     } catch (EdgeError e) {
@@ -61,13 +61,14 @@ imageAnalysis.setAnalyzer(analysisExecutor, image -> {
 `ImageAnalysis.setAnalyzer` の第二引数でAnalyzerを定義しており、Analyzerの `analyze` メソッドで処理を記述しています。
 このサンプルでは簡単のためAnalyzerは無名クラスで定義しています。
 
-`api.scanTexts` メソッドの戻り値は `ScanResult` オブジェクトです。
+`api.scan` メソッドの戻り値は `ScanResult` オブジェクトです。
 このオブジェクトから `getDetections` メソッドで OCR 結果である `Detection` オブジェクトが取得できます。
-スキャン範囲内のテキストのすべてをスキャンするので、複数の `Detection` オブジェクトが返されます。
+スキャン範囲内の対象物トのすべてをスキャンするので、複数の `Detection` オブジェクトが返されます。
+また、対象物は `useModel` で選択したモデルによってテキスト、バーコード、またはその両方です。
+`getDetections` の返す `Detection` オブジェクトを `Text` または `Barcode` にキャストして、それぞれの情報を取得できます。
+文字列、またはバーコードのみを取得したい場合は、`getTextDetections` （または `getBarcodeDetections`）を使用してください．
 
 また、カメラの解像度とスキャン範囲は異なっています。
 詳しくは[SDK が解析する画像の範囲について](boxesoverlay.md#sdk-が解析する画像の範囲について)で解説を行います。
 
-`Detection` オブジェクトでは読み取り対象ごとに対応する `ScanObject` オブジェクトが返されます。
-`Text` の `ScanObject` から、読み取り結果のテキストを取得できます。
 こちらのサンプルでは、`Detection` オブジェクトの中からテキストが空でないものをログに出力しています。

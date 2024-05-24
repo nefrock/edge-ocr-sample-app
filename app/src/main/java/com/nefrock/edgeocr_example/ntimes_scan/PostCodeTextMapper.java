@@ -1,7 +1,7 @@
 package com.nefrock.edgeocr_example.ntimes_scan;
 
-import com.nefrock.edgeocr.api.TextMapper;
-import com.nefrock.edgeocr.model.Text;
+import com.nefrock.edgeocr.Text;
+import com.nefrock.edgeocr.TextMapper;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

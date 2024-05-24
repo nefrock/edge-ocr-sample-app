@@ -9,14 +9,14 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.util.Pair;
 
-import com.nefrock.edgeocr.api.BarcodeScanOption;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.BarcodeFormat;
-import com.nefrock.edgeocr.model.ScanResult;
+import com.nefrock.edgeocr.BarcodeFormat;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.ScanOptions;
+import com.nefrock.edgeocr.ScanResult;
 import com.nefrock.edgeocr.ui.CameraOverlay;
+
 import com.nefrock.edgeocr_example.R;
 
 import java.io.IOException;
@@ -50,8 +50,10 @@ public class BarcodeBitmapActivity extends AppCompatActivity {
         ScanResult scanResult;
         try {
             api.resetScanningState();
-            api.setBarcodesNToConfirm(Collections.singletonList(new Pair(BarcodeFormat.Any, 1)));
-            scanResult = api.scanBarcodes(bitmap, new BarcodeScanOption(Collections.singletonList(BarcodeFormat.Any)));
+            ScanOptions scanOptions = new ScanOptions();
+            scanOptions.setScanMode(ScanOptions.ScanMode.ONE_SHOT);
+            scanOptions.setBarcodeFormats(Collections.singletonList(BarcodeFormat.Any));
+            scanResult = api.scan(bitmap, scanOptions);
         } catch (EdgeError edgeError) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);
             return;
@@ -59,9 +61,7 @@ public class BarcodeBitmapActivity extends AppCompatActivity {
 
         ConstraintLayout.LayoutParams imageViewLayoutParams = (ConstraintLayout.LayoutParams) imageView.getLayoutParams();
         // Set aspect ratio of imageview to match the image
-        overlay.setCrop(
-                0.5f, 0.5f,
-                1.0f, 1.0f);
+        overlay.setCrop(0.5f, 0.5f, 1.0f, 1.0f);
         imageView.setLayoutParams(imageViewLayoutParams);
         overlay.setBoxes(scanResult.getBarcodeDetections());
     }

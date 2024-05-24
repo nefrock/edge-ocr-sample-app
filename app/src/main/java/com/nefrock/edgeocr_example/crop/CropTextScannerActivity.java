@@ -30,8 +30,10 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
+
+import com.nefrock.edgeocr.EdgeVisionAPI;
 import com.nefrock.edgeocr.ui.CameraOverlay;
+
 import com.nefrock.edgeocr_example.R;
 
 import java.util.concurrent.ExecutionException;

@@ -35,7 +35,6 @@ loadScripts(document, 'script');</script>
 <li><a href="package-summary.html">Package</a></li>
 <li class="nav-bar-cell1-rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
-<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../../../index-all.html">Index</a></li>
 <li><a href="../../../../help-doc.html#class">Help</a></li>
 </ul>
@@ -166,12 +165,12 @@ loadScripts(document, 'script');</script>
  クロップを行わない場合の読み取り範囲の表示に使用する</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBoxes(java.util.List)" class="member-name-link">setBoxes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="../model/Detection.html" title="class in com.nefrock.edgeocr.model">Detection</a>&lt;? extends <a href="../model/ScanObject.html" title="interface in com.nefrock.edgeocr.model">ScanObject</a>&gt;&gt;&nbsp;detections)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBoxes(java.util.List)" class="member-name-link">setBoxes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="../Detection.html" title="class in com.nefrock.edgeocr">Detection</a>&gt;&nbsp;detections)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">読み取り結果を画面に表示する</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBoxesAndLayouts(java.util.List)" class="member-name-link">setBoxesAndLayouts</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;androidx.core.util.Pair&lt;? extends <a href="../model/Detection.html" title="class in com.nefrock.edgeocr.model">Detection</a>&lt;? extends <a href="../model/ScanObject.html" title="interface in com.nefrock.edgeocr.model">ScanObject</a>&gt;,<wbr><a href="BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a>&gt;&gt;&nbsp;detectionLayoutPairs)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBoxesAndLayouts(java.util.List)" class="member-name-link">setBoxesAndLayouts</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;androidx.core.util.Pair&lt;? extends <a href="../Detection.html" title="class in com.nefrock.edgeocr">Detection</a>,<wbr><a href="BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a>&gt;&gt;&nbsp;detectionLayoutPairs)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">読み取り結果を、表示形式を指定して画面に表示する</div>
 </div>
@@ -182,7 +181,7 @@ loadScripts(document, 'script');</script>
  float&nbsp;heightPercent)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">画面に表示する読み取り範囲の位置とサイズを設定する
- <a href="../api/ScanOption.html" title="class in com.nefrock.edgeocr.api"><code>ScanOption</code></a>で読み取り範囲を変更する場合に呼び出す</div>
+ <a href="../ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>で読み取り範囲を変更する場合に呼び出す</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showBoxes(boolean)" class="member-name-link">showBoxes</a><wbr>(boolean&nbsp;show)</code></div>
@@ -312,7 +311,7 @@ loadScripts(document, 'script');</script>
  float&nbsp;widthPercent,
  float&nbsp;heightPercent)</span></div>
 <div class="block">画面に表示する読み取り範囲の位置とサイズを設定する
- <a href="../api/ScanOption.html" title="class in com.nefrock.edgeocr.api"><code>ScanOption</code></a>で読み取り範囲を変更する場合に呼び出す</div>
+ <a href="../ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>で読み取り範囲を変更する場合に呼び出す</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>horizontalBias</code> - 画面の左端からの相対位置</dd>
@@ -325,7 +324,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setBoxes(java.util.List)">
 <h3>setBoxes</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBoxes</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="../model/Detection.html" title="class in com.nefrock.edgeocr.model">Detection</a>&lt;? extends <a href="../model/ScanObject.html" title="interface in com.nefrock.edgeocr.model">ScanObject</a>&gt;&gt;&nbsp;detections)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBoxes</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;? extends <a href="../Detection.html" title="class in com.nefrock.edgeocr">Detection</a>&gt;&nbsp;detections)</span></div>
 <div class="block">読み取り結果を画面に表示する</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -336,7 +335,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setBoxesAndLayouts(java.util.List)">
 <h3>setBoxesAndLayouts</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBoxesAndLayouts</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;androidx.core.util.Pair&lt;? extends <a href="../model/Detection.html" title="class in com.nefrock.edgeocr.model">Detection</a>&lt;? extends <a href="../model/ScanObject.html" title="interface in com.nefrock.edgeocr.model">ScanObject</a>&gt;,<wbr><a href="BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a>&gt;&gt;&nbsp;detectionLayoutPairs)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBoxesAndLayouts</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;androidx.core.util.Pair&lt;? extends <a href="../Detection.html" title="class in com.nefrock.edgeocr">Detection</a>,<wbr><a href="BoxParams.html" title="class in com.nefrock.edgeocr.ui">BoxParams</a>&gt;&gt;&nbsp;detectionLayoutPairs)</span></div>
 <div class="block">読み取り結果を、表示形式を指定して画面に表示する</div>
 <dl class="notes">
 <dt>Parameters:</dt>

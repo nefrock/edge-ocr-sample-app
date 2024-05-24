@@ -6,12 +6,11 @@ import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
 
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.ScanConfirmationStatus;
-import com.nefrock.edgeocr.model.ScanResult;
-import com.nefrock.edgeocr.model.Text;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.ScanConfirmationStatus;
+import com.nefrock.edgeocr.ScanResult;
+import com.nefrock.edgeocr.Text;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,12 +35,11 @@ class PostCodeRegexTextAnalyzer implements ImageAnalysis.Analyzer {
             if (callback == null) return;
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
 
-            ScanResult scanResult = api.scanTexts(image);
-            List<Detection<Text>> filteredDetections = new ArrayList<>();
-            List<Detection<Text>> notTargetDetections = new ArrayList<>();
-            for (Detection<Text> detection : scanResult.getTextDetections()) {
-                String text = detection.getScanObject().getText();
-                Matcher matcher = regexPattern.matcher(text);
+            ScanResult scanResult = api.scan(image);
+            List<Text> filteredDetections = new ArrayList<>();
+            List<Text> notTargetDetections = new ArrayList<>();
+            for (Text detection : scanResult.getTextDetections()) {
+                Matcher matcher = regexPattern.matcher(detection.getText());
                 if(matcher.find()) {
                     if (detection.getStatus() == ScanConfirmationStatus.Confirmed) {
                         filteredDetections.add(detection);

@@ -4,7 +4,7 @@ APIへの入力画像として、ImageProxyではなくBitmapを用いた実装�
 
 AssetManager を用いて、`assets/images/sample.bmp` を読み出し API に渡しています。
 
-bitmap を引数に `api.scanTexts` 呼び出した場合、同期的にOCR結果が返却されます。
+bitmap を引数に `api.scan` 呼び出した場合、同期的にOCR結果が返却されます。
 
 ```Java
 public class TextBitmapActivity extends AppCompatActivity {
@@ -26,7 +26,7 @@ public class TextBitmapActivity extends AppCompatActivity {
 
         ScanResult scanResult;
         try {
-            scanResult = api.scanTexts(bitmap);
+            scanResult = api.scan(bitmap);
         } catch (EdgeError edgeError) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);
             return;
@@ -36,15 +36,9 @@ public class TextBitmapActivity extends AppCompatActivity {
         // Set aspect ratio of imageview to match the image
         imageViewLayoutParams.dimensionRatio = String.format("%d:%d", bitmap.getWidth(), bitmap.getHeight());
         float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
-        imageView.post(() -> {
-            imageView.setLayoutParams(imageViewLayoutParams);
-            float imageAspectRatio = (float) imageView.getWidth() / (float) imageView.getHeight();
-            overlay.setCrop(
-                0.5f, 0.5f,
-                Math.min(1, modelAspectRatio / imageAspectRatio),
-                Math.min(1, imageAspectRatio / modelAspectRatio));
-            overlay.setBoxes(scanResult.getTextDetections());
-        });
+        overlay.setAspectRatio(modelAspectRatio);
+        imageView.setLayoutParams(imageViewLayoutParams);
+        overlay.setBoxes(scanResult.getTextDetections());
     }
 
     // ...
@@ -56,8 +50,8 @@ Bitmap画像からバーコードを読み取るサンプルが `app/src/main/ja
 
 AssetManager を用いて、`assets/images/sample_barcode.bmp` を読み出し API に渡しています。
 
-bitmap を引数に `api.scanBarcode` 呼び出した場合、同期的にOCR結果が返却されます。
-Textの場合と異なりモデルのロードが必要ない点に注意してください。
+bitmap を引数に `api.scan` 呼び出した場合、同期的にOCR結果が返却されます。ただ、
+`useModel`でバーコードの読めるモデルを指定する必要があります。
 
 ```Java
 public class BarcodeBitmapActivity extends AppCompatActivity {
@@ -88,8 +82,7 @@ public class BarcodeBitmapActivity extends AppCompatActivity {
         ScanResult scanResult;
         try {
             api.resetScanningState();
-            api.setBarcodesNToConfirm(Collections.singletonList(new Pair(BarcodeFormat.Any, 1)));
-            scanResult = api.scanBarcodes(bitmap, new BarcodeScanOption(Collections.singletonList(BarcodeFormat.Any)));
+            scanResult = api.scan(bitmap);
         } catch (EdgeError edgeError) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);
             return;

@@ -15,11 +15,11 @@
 
 ### SDK が解析する画像の範囲について
 実装方法について説明を行う前に、SDK が解析する画像の範囲について説明を行います。
-`api.scanTexts` が解析する範囲は、指定したモデルに依存します。
-ここではデフォルトで提供されている `model-large` を例に説明を行っていきます。
+`api.scan` が解析する範囲は、指定したモデルに依存します。
+ここでは `model-d256x128` を例に説明を行っていきます。
 
 モデルはインプットとして取れる画像のアスペクト比を持っており、
-`model-large` では`256x128（width x height）` のアスペクト比の画像をインプットの画像として受け取ることを想定しています。
+`model-d256x128` では`256x128（width x height）` のアスペクト比の画像をインプットの画像として受け取ることを想定しています。
 
 インプットの画像として、モデルが想定しているアスペクト比とは異なる画像が渡された場合は、SDK は画像をそのアスペクト比になるように、画像の一部（デフォルトの場合は中心部分）を切り取った後、モデルに渡します。
 
@@ -83,8 +83,8 @@ imageAnalysis.setAnalyzer(analysisExecutor, image -> {
         return;
     }
     try {
-        ScanResult scanResult = api.scanTexts(image);
-        List<Detection<Text>> detections = scanResult.getTextDetections();
+        ScanResult scanResult = api.scan(image);
+        List<Text> detections = scanResult.getTextDetections();
         cameraOverlay.setBoxes(detections);
     } catch (EdgeError e) {
         Log.e("EdgeOCRExample", "[startCamera] Failed to analyze image", e);

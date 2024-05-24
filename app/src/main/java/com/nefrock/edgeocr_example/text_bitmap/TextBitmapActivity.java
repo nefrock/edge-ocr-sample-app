@@ -10,11 +10,12 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ScanResult;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.Model;
+import com.nefrock.edgeocr.ScanResult;
 import com.nefrock.edgeocr.ui.CameraOverlay;
+
 import com.nefrock.edgeocr_example.R;
 
 import java.io.IOException;
@@ -48,7 +49,7 @@ public class TextBitmapActivity extends AppCompatActivity {
 
         ScanResult scanResult;
         try {
-            scanResult = api.scanTexts(bitmap);
+            scanResult = api.scan(bitmap);
         } catch (EdgeError edgeError) {
             Log.e("EdgeOCRExample", "[onCreate] Failed to scan image", edgeError);
             return;

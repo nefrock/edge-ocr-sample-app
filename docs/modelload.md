@@ -73,15 +73,15 @@ private void loadModelAndStartActivity(Intent intent) {
 遷移前にOCRの結果表示に用いるモデルのアスペクト比をintentにセットしています。
 
 `api.useModel`の第1引数には、`Model`を指定します。
-SDK のデフォルトでは `model-small`、 `model-large` が指定できます。
-`model-large` は`model-small`に比べて高精度のモデルで、OCRに時間がかかります。
+使用可能なモデルはモデルフォルダーにある`models.json`をご参考にしてください。
+SDK のデフォルトでは `model-d256x64`、 `model-d256x128`、 `model-d320x160`、 `model-d320x320`、 `model-d640x640` が指定できます。
+モデルの解像度が高いほど、精度が向上しますが、処理速度が低下します。
 ユースケースやデバイスのスペックに合わせてどのモデルを使うかを選択していただけます。
 また、カスタマイズしたモデルを利用する場合もこちらで指定を行います。
+バーコードモデルとしては、 `edgeocr_barcode_default` を指定してください．
 
 また`api.useModel`の第2引数には、`ModelSettings`を指定することができます。
 `ModelSettings`では、モデルパラメータの設定や、検出結果のフィルタ設定、`TextMapper`の設定を行うことができます。
-
-バーコード読み取りのみを利用する場合は、モデルロードの必要はありません。
 
 ### GPU を使用するモデルのロードにかかる時間について
 

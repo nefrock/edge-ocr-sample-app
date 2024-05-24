@@ -6,11 +6,10 @@ import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
 
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.ScanResult;
-import com.nefrock.edgeocr.model.Text;
+import com.nefrock.edgeocr.Detection;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.ScanResult;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ class FreeStyleTextAnalyzer implements ImageAnalysis.Analyzer {
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
 
             ScanResult scanResult;
-            scanResult = api.scanTexts(image);
+            scanResult = api.scan(image);
             callback.call(scanResult.getTextDetections());
         } catch (EdgeError e) {
             Log.e("EdgeOCRExample", Log.getStackTraceString(e));
@@ -55,6 +54,6 @@ class FreeStyleTextAnalyzer implements ImageAnalysis.Analyzer {
     }
 
     interface FreeStyleTextAnalyzerCallback {
-        void call(List<Detection<Text>> allDetections);
+        void call(List<? extends Detection> allDetections);
     }
 }

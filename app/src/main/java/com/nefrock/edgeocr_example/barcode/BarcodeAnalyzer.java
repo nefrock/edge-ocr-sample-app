@@ -6,14 +6,13 @@ import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
 
-import com.nefrock.edgeocr.api.BarcodeScanOption;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Barcode;
-import com.nefrock.edgeocr.model.BarcodeFormat;
-import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.ScanConfirmationStatus;
-import com.nefrock.edgeocr.model.ScanResult;
+import com.nefrock.edgeocr.Barcode;
+import com.nefrock.edgeocr.BarcodeFormat;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.ScanConfirmationStatus;
+import com.nefrock.edgeocr.ScanOptions;
+import com.nefrock.edgeocr.ScanResult;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,13 +21,14 @@ import java.util.List;
 class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
 
     private final EdgeVisionAPI api;
-    private final BarcodeScanOption scanOption;
+    private final ScanOptions scanOptions;
     private volatile boolean isActive;
     private BarcodeAnalyzerCallBack callback;
 
     public BarcodeAnalyzer(EdgeVisionAPI api) {
         this.api = api;
-        this.scanOption = new BarcodeScanOption(Collections.singletonList(BarcodeFormat.Any));
+        this.scanOptions = new ScanOptions();
+        this.scanOptions.setBarcodeFormats(Collections.singletonList(BarcodeFormat.Any));
         this.isActive = true;
     }
 
@@ -37,9 +37,9 @@ class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
         try {
             if (!isActive) return;
             if (callback == null) return;
-            ScanResult scanResult = api.scanBarcodes(image, scanOption);
-            List<Detection<Barcode>> targetDetections = new ArrayList<>();
-            for (Detection<Barcode> detection : scanResult.getBarcodeDetections()) {
+            ScanResult scanResult = api.scan(image, scanOptions);
+            List<Barcode> targetDetections = new ArrayList<>();
+            for (Barcode detection : scanResult.getBarcodeDetections()) {
                 if (detection.getStatus() == ScanConfirmationStatus.Confirmed) {
                     targetDetections.add(detection);
                 }
@@ -65,6 +65,6 @@ class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
     }
 
     interface BarcodeAnalyzerCallBack {
-        void call(List<Detection<Barcode>> allDetections);
+        void call(List<Barcode> allDetections);
     }
 }

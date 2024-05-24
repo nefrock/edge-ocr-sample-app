@@ -19,13 +19,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ScanResult;
-import com.nefrock.edgeocr.model.Text;
+
+import com.nefrock.edgeocr.Detection;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.Model;
+import com.nefrock.edgeocr.ScanResult;
 import com.nefrock.edgeocr.ui.CameraOverlay;
+
 import com.nefrock.edgeocr_example.R;
 
 import java.util.List;
@@ -113,8 +114,8 @@ public class DetectionFilterScannerActivity extends AppCompatActivity {
                     return;
                 }
                 try {
-                    ScanResult scanResult = api.scanTexts(image);
-                    List<Detection<Text>> detections = scanResult.getTextDetections();
+                    ScanResult scanResult = api.scan(image);
+                    List<Detection> detections = scanResult.getDetections();
                     cameraOverlay.setBoxes(detections);
                 } catch (EdgeError e) {
                     Log.e("EdgeOCRExample", "[startCamera] Failed to analyze image", e);

@@ -6,13 +6,12 @@ import androidx.annotation.NonNull;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.ImageProxy;
 
-import com.nefrock.edgeocr.api.CropRect;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.api.ScanOption;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.ScanResult;
-import com.nefrock.edgeocr.model.Text;
+import com.nefrock.edgeocr.CropRect;
+import com.nefrock.edgeocr.Detection;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.ScanOptions;
+import com.nefrock.edgeocr.ScanResult;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ class CropFreeStyleTextAnalyzer implements ImageAnalysis.Analyzer {
 
     private final EdgeVisionAPI api;
     private volatile boolean isActive;
-    public Float cropLeft, cropTop, cropWidth, cropHeight;
+    public Float cropHorizontalBias, cropVerticalBias, cropWidth, cropHeight;
     private FreeStyleTextAnalyzerCallback callback;
 
     public CropFreeStyleTextAnalyzer(EdgeVisionAPI api) {
@@ -28,9 +27,9 @@ class CropFreeStyleTextAnalyzer implements ImageAnalysis.Analyzer {
         this.isActive = true;
     }
 
-    synchronized void setCrop(float left, float top, float width, float height) {
-        cropLeft = left;
-        cropTop = top;
+    synchronized void setCrop(float horizontalBias, float verticalBias, float width, float height) {
+        cropHorizontalBias = horizontalBias;
+        cropVerticalBias = verticalBias;
         cropWidth = width;
         cropHeight = height;
     }
@@ -44,19 +43,11 @@ class CropFreeStyleTextAnalyzer implements ImageAnalysis.Analyzer {
 
             ScanResult scanResult;
             synchronized (this) {
-                scanResult = api.scanTexts(
-                        image,
-                        new ScanOption(
-                                ScanOption.ScanMode.SCAN_MODE_TEXTS,
-                                new CropRect(
-                                        cropLeft,
-                                        cropTop,
-                                        cropWidth,
-                                        cropHeight)
-                        )
-                );
+                ScanOptions scanOptions = new ScanOptions();
+                scanOptions.setCropRect(new CropRect(cropHorizontalBias, cropVerticalBias, cropWidth, cropHeight));
+                scanResult = api.scan(image, scanOptions);
             }
-            callback.call(scanResult.getTextDetections());
+            callback.call(scanResult.getDetections());
         } catch (EdgeError e) {
             Log.e("EdgeOCRExample", Log.getStackTraceString(e));
         } finally {
@@ -69,6 +60,6 @@ class CropFreeStyleTextAnalyzer implements ImageAnalysis.Analyzer {
     }
 
     interface FreeStyleTextAnalyzerCallback {
-        void call(List<Detection<Text>> allDetections);
+        void call(List<Detection> allDetections);
     }
 }

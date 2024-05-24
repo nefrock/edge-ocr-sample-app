@@ -28,11 +28,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.Text;
+
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.Model;
+import com.nefrock.edgeocr.Text;
 import com.nefrock.edgeocr.ui.CameraOverlay;
+
 import com.nefrock.edgeocr_example.R;
 
 import java.util.List;
@@ -191,10 +192,10 @@ import java.util.concurrent.Executors;
             }
         }, ContextCompat.getMainExecutor(this));
     }
-    private void showDialog(List<Detection<Text>> detections) {
+    private void showDialog(List<Text> detections) {
         StringBuilder messageBuilder = new StringBuilder();
-        for (Detection<Text> detection : detections) {
-            messageBuilder.append(detection.getScanObject().getText()).append("\n");
+        for (Text detection : detections) {
+            messageBuilder.append(detection.getText()).append("\n");
         }
         AlertDialog alertDialog = new AlertDialog.Builder(this)
                 .setTitle("検出")

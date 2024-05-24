@@ -19,12 +19,14 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ScanResult;
-import com.nefrock.edgeocr.model.Text;
+
+import com.nefrock.edgeocr.Detection;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.Model;
+import com.nefrock.edgeocr.ScanResult;
+import com.nefrock.edgeocr.Text;
+
 import com.nefrock.edgeocr_example.R;
 
 import java.util.List;
@@ -111,12 +113,12 @@ public class SimpleTextScannerActivity extends AppCompatActivity {
                     return;
                 }
                 try {
-                    ScanResult scanResult = api.scanTexts(image);
-                    List<Detection<Text>> detections = scanResult.getTextDetections();
-                    for(Detection<Text> detection: detections) {
-                        String text = detection.getScanObject().getText();
+                    ScanResult scanResult = api.scan(image);
+                    List<Text> detections = scanResult.getTextDetections();
+                    for(Text detection: detections) {
+                        String text = detection.getText();
                         if(!text.isEmpty()) {
-                            Log.d("EDGE_OCR_FIRST_EXAMPLE", "detected: " + detection.getScanObject().getText());
+                            Log.d("EDGE_OCR_FIRST_EXAMPLE", "detected: " + text);
                         }
                     }
                 } catch (EdgeError e) {

@@ -1,9 +1,11 @@
 package com.nefrock.edgeocr_example.camera_overlay;
 
 import android.content.pm.PackageManager;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Rational;
+import android.util.Size;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -19,12 +21,15 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Detection;
-import com.nefrock.edgeocr.model.ScanResult;
-import com.nefrock.edgeocr.model.Text;
+
+import com.nefrock.edgeocr.CropRect;
+import com.nefrock.edgeocr.Detection;
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.ScanOptions;
+import com.nefrock.edgeocr.ScanResult;
 import com.nefrock.edgeocr.ui.CameraOverlay;
+
 import com.nefrock.edgeocr_example.R;
 
 import java.util.List;
@@ -93,6 +98,7 @@ public class CameraOverlayTextScannerActivity extends AppCompatActivity {
         ListenableFuture<ProcessCameraProvider> cameraProviderFuture
                 = ProcessCameraProvider.getInstance(this);
         cameraProviderFuture.addListener(() -> {
+            Size targetResolution = new Size(1080, 1080);
             // Acquire camera and set up preview
             ProcessCameraProvider cameraProvider;
             try {
@@ -108,6 +114,7 @@ public class CameraOverlayTextScannerActivity extends AppCompatActivity {
             imageAnalysis = new ImageAnalysis.Builder()
                     .setOutputImageFormat(ImageAnalysis.OUTPUT_IMAGE_FORMAT_YUV_420_888)
                     .setBackpressureStrategy(ImageAnalysis.STRATEGY_KEEP_ONLY_LATEST)
+                    .setTargetResolution(targetResolution)
                     .build();
             imageAnalysis.setAnalyzer(analysisExecutor, image -> {
                 if (!api.isReady()) {
@@ -115,8 +122,8 @@ public class CameraOverlayTextScannerActivity extends AppCompatActivity {
                     return;
                 }
                 try {
-                    ScanResult scanResult = api.scanTexts(image);
-                    List<Detection<Text>> detections = scanResult.getTextDetections();
+                    ScanResult scanResult = api.scan(image);
+                    List<Detection> detections = scanResult.getDetections();
                     cameraOverlay.setBoxes(detections);
                 } catch (EdgeError e) {
                     Log.e("EdgeOCRExample", "[startCamera] Failed to analyze image", e);

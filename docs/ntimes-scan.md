@@ -1,14 +1,14 @@
-## textの複数回読み取りで精度を上げる
+## text の複数回読み取りで精度を上げる
 
-EdgeOCRではOCRの精度を上げるために、同じテキストを複数回読み込んだ結果を採用するような機能を提供しています。
+EdgeOCR では OCR の精度を上げるために、同じテキストを複数回読み込んだ結果を採用するような機能を提供しています。
 `app/src/main/java/com/nefrock/edgeocr_example/ntimes_scan` に実装例がありますので、ご参考にしてください。
-このサンプルでは、123-4567のような郵便番号を読み取り対象としています。
+このサンプルでは、123-4567 のような郵便番号を読み取り対象としています。
 
 `app/src/main/java/com/nefrock/edgeocr_example/MainActivity.java` で読み取り回数の設定を行っています。
 読み取り回数の設定は `ModelSettings#setNToConfirm` メソッドで行います。
-読み取り回数を設定した `ModelSettings` オブジェクトを `EdgeVisionAPI` の `useModel` メソッドの引数として渡すことで、読み取り回数を設定したOCRを行うことができます。
-5回同じ内容を読み取った場合にテキストを確定するように設定しています。
-デフォルトのテキスト読み取り確定までの回数は1回です。
+読み取り回数を設定した `ModelSettings` オブジェクトを `EdgeVisionAPI` の `useModel` メソッドの引数として渡すことで、読み取り回数を設定した OCR を行うことができます。
+5 回同じ内容を読み取った場合にテキストを確定するように設定しています。
+デフォルトのテキスト読み取り確定までの回数は 1 回です。
 ```Java
 @ExperimentalCamera2Interop public class MainActivity extends AppCompatActivity {
     ...
@@ -55,11 +55,11 @@ class PostCodeRegexTextAnalyzer implements ImageAnalysis.Analyzer {
             if (callback == null) return;
             if (!api.isReady()) throw new RuntimeException("Model not loaded!");
 
-            ScanResult scanResult = api.scanTexts(image);
-            List<Detection<Text>> filteredDetections = new ArrayList<>();
-            List<Detection<Text>> notTargetDetections = new ArrayList<>();
-            for (Detection<Text> detection : scanResult.getTextDetections()) {
-                String text = detection.getScanObject().getText();
+            ScanResult scanResult = api.scan(image);
+            List<Text> filteredDetections = new ArrayList<>();
+            List<Text> notTargetDetections = new ArrayList<>();
+            for (Text detection : scanResult.getTextDetections()) {
+                String text = detection.getText();
                 Matcher matcher = regexPattern.matcher(text);
                 if(matcher.find()) {
                     if (detection.getStatus() == ScanConfirmationStatus.Confirmed) {
@@ -86,7 +86,7 @@ class PostCodeRegexTextAnalyzer implements ImageAnalysis.Analyzer {
 ### TextMapper
 複数回読み取りを行う間に、手ブレやカメラの移動などによって読み取り範囲が変化してしまうと、読み取り結果が異なってしまい、読み取り回数のカウントがリセットされてしまいます。
 そこで、以前の結果と読み取り結果を比較する前に `TextMapper` を用いて読み取り結果を正規化することで、読み取り範囲の変化による影響を軽減することができます。
-`TextMapper` クラスを継承し、`apply` メソッドを実装することで、TextMapperを作成します。
+`TextMapper` クラスを継承し、`apply` メソッドを実装することで、TextMapper を作成します。
 読み取り対象が郵便番号なので、英字や記号を数字に変換する処理を実装しています。
 また、郵便番号のみを抽出するための正規表現も実装しています。
 ```Java

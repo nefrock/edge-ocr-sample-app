@@ -25,11 +25,13 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.nefrock.edgeocr.api.EdgeVisionAPI;
-import com.nefrock.edgeocr.error.EdgeError;
-import com.nefrock.edgeocr.model.Model;
-import com.nefrock.edgeocr.model.ModelInformation;
+
+import com.nefrock.edgeocr.EdgeError;
+import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.Model;
+import com.nefrock.edgeocr.ModelInformation;
 import com.nefrock.edgeocr.ui.CameraOverlay;
+
 import com.nefrock.edgeocr_example.R;
 
 import java.util.concurrent.ExecutorService;
@@ -61,6 +63,11 @@ public class ReportScannerActivity extends AppCompatActivity {
         }
 
         cameraOverlay = findViewById(R.id.camera_overlay);
+        float modelAspectRatio = getIntent().getFloatExtra("model_aspect_ratio", 1.0f);
+        cameraOverlay.setAspectRatio(modelAspectRatio);
+        freeStyleTextAnalyzer.setCallback((allDetections) -> {
+            runOnUiThread(() -> cameraOverlay.setBoxes(allDetections));
+        });
         if (cameraPermissionGranted()) {
             startCamera();
         } else {

@@ -9,10 +9,10 @@ EdgeOCRでは、テキスト範囲の検出 -> テキスト認識の流れでOCR
 ```Java
 public class GetCenterDetectionFilter extends DetectionFilter {
     @Override
-    public List<Detection<? extends ScanObject>> filter(List<Detection<? extends ScanObject>> list) {
-        Detection<? extends ScanObject> mostLikelyBox = null;
+    public List<Detection> filter(List<Detection> list) {
+        Detection mostLikelyBox = null;
         double minDistance = Double.MAX_VALUE;
-        for (Detection<? extends ScanObject> detection: list) {
+        for (Detection detection: list) {
             RectF box = detection.getBoundingBox();
             double distance = Math.pow(box.centerX()-0.5, 2) + Math.pow(box.centerY()-0.5, 2);
             if (distance < minDistance) {
@@ -32,7 +32,7 @@ public class GetCenterDetectionFilter extends DetectionFilter {
 `DetectionFilter` クラスを継承し、`filter`メソッドをオーバーライドすることでDetectionFilterを作成します。
 画像内に対して検出されたテキストの範囲のリストが引数として渡されるので、このリストを加工して返すことでフィルタを実現します。
 テキストの範囲を `RectF` として取得しフィルタの実装を行います。
-文字情報の読み取りはまだ行われていないので、`ScanObject` の情報は利用できない点にご注意ください。
+文字情報の読み取りはまだ行われていないので、`Text` または `Barcode` にキャストすることはできません。
 このサンプルでは、画像の中心に最も近いテキストのみを返すフィルタを作成しています。
 
 
