@@ -240,7 +240,11 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#DataBarExpanded" class="member-name-link">DataBarExpanded</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
-<div class="block">GS1 DataBar 拡張バーコード</div>
+<div class="block">GS1 DataBar Expanded バーコード</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#DataBarLimited" class="member-name-link">DataBarLimited</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
+<dd>
+<div class="block">GS1 DataBar Limited バーコード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#DataMatrix" class="member-name-link">DataMatrix</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
@@ -275,6 +279,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/DetectionType.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">DetectionType</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
 <div class="block">検出結果の種類を表す列挙型</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#DXFilmEdge" class="member-name-link">DXFilmEdge</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
+<dd>
+<div class="block">DX フィルムエッジバーコード</div>
 </dd>
 </dl>
 <h2 class="title" id="I:E">E</h2>
@@ -375,8 +383,9 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/Detection.html#getBoundingBox()" class="member-name-link">getBoundingBox()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Detection.html" title="class in com.nefrock.edgeocr">Detection</a></dt>
 <dd>
 <div class="block">検出された文字列のバウンディングボックスを取得します。
- バウンディングボックスの座標は入力画像の左上を原点とした座標系になります。
- <a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>において、<a href="com/nefrock/edgeocr/CropRect.html" title="class in com.nefrock.edgeocr"><code>CropRect</code></a>が指定されている場合でも、バウンディングボックスの座標は元画像の左上を原点とした座標系になります。</div>
+ バウンディングボックスの座標は入力画像の左上を原点とした相対座標系になります。
+ <a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>において、<a href="com/nefrock/edgeocr/CropRect.html" title="class in com.nefrock.edgeocr"><code>CropRect</code></a>が指定されている場合でも、バウンディングボックスの座標は元画像の左上を原点とした相対座標系になります。
+ 上記の「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#getCheckAfterFrames()" class="member-name-link">getCheckAfterFrames()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>&nbsp;</dd>
@@ -385,6 +394,10 @@ loadScripts(document, 'script');</script>
 <div class="block">検出された文字列の信頼値を取得します。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#getConfidenceThreshold()" class="member-name-link">getConfidenceThreshold()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#getConfidenceThresholdOne()" class="member-name-link">getConfidenceThresholdOne()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#getConfidenceThresholdTwo()" class="member-name-link">getConfidenceThresholdTwo()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.html#getCropRect()" class="member-name-link">getCropRect()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
 <dd>
@@ -410,6 +423,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">エラーコードを返します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/ScanOptions.html#getFlipHorizontal()" class="member-name-link">getFlipHorizontal()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
+<dd>
+<div class="block">画像を水平方向に反転するかどうかを返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ScanOptions.html#getFlipVertical()" class="member-name-link">getFlipVertical()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
+<dd>
+<div class="block">画像を垂直方向に反転するかどうかを返します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/Barcode.html#getFormat()" class="member-name-link">getFormat()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.html" title="class in com.nefrock.edgeocr">Barcode</a></dt>
 <dd>
 <div class="block">バーコードのフォーマットを取得します。</div>
@@ -422,6 +443,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">検出された各文字について、その他の文字候補とその信頼値を取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#getMaxCandidates()" class="member-name-link">getMaxCandidates()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/BBoxTextDetectorSettings.html#getNmsThreshold()" class="member-name-link">getNmsThreshold()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BBoxTextDetectorSettings.html" title="class in com.nefrock.edgeocr">BBoxTextDetectorSettings</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ExecutionSettings.html#getNThreads()" class="member-name-link">getNThreads()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ExecutionSettings.html" title="class in com.nefrock.edgeocr">ExecutionSettings</a></dt>
@@ -464,6 +487,8 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#getTextRecognizerExecutionSettings()" class="member-name-link">getTextRecognizerExecutionSettings()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/ModelSettings.html#getTextRecognizerSettings()" class="member-name-link">getTextRecognizerSettings()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/Detection.html#getType()" class="member-name-link">getType()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Detection.html" title="class in com.nefrock.edgeocr">Detection</a></dt>
 <dd>
 <div class="block">検出箇所の種類を取得します。</div>
@@ -490,6 +515,14 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:I">I</h2>
 <dl class="index">
+<dt><a href="com/nefrock/edgeocr/DetectionFilter.html#imageHeight" class="member-name-link">imageHeight</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/DetectionFilter.html" title="class in com.nefrock.edgeocr">DetectionFilter</a></dt>
+<dd>
+<div class="block">元画像の高さ（ピクセル）。「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/DetectionFilter.html#imageWidth" class="member-name-link">imageWidth</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/DetectionFilter.html" title="class in com.nefrock.edgeocr">DetectionFilter</a></dt>
+<dd>
+<div class="block">元画像の幅（ピクセル）。「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#isActivated(com.nefrock.edgeocr.ActivationCallback,com.nefrock.edgeocr.ActivationErrorCallback)" class="member-name-link">isActivated(ActivationCallback, ActivationErrorCallback)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
 <dd>
 <div class="block">ライセンス認証が完了しているかどうかを返します。</div>
@@ -533,6 +566,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#MaxiCode" class="member-name-link">MaxiCode</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
 <div class="block">MaxiCode バーコード</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#MicroPDF417" class="member-name-link">MicroPDF417</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
+<dd>
+<div class="block">MicroPDF417 2D バーコード</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#MicroQRCode" class="member-name-link">MicroQRCode</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
@@ -703,6 +740,11 @@ loadScripts(document, 'script');</script>
  scanOptionを用いて、スキャンの動作をカスタマイズすることができます。詳細は、
  <a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>を参照してください。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/DetectionFilter.html#scanArea" class="member-name-link">scanArea</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/DetectionFilter.html" title="class in com.nefrock.edgeocr">DetectionFilter</a></dt>
+<dd>
+<div class="block">読み取り範囲。
+ この範囲は、元画像の左上を原点とした相対座標系になります。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ScanConfirmationStatus.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">ScanConfirmationStatus</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
 <div class="block">スキャン結果の確定状態を表す列挙型</div>
@@ -768,7 +810,8 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setBarcodeNToConfirm(java.util.Map)" class="member-name-link">setBarcodeNToConfirm(Map&lt;BarcodeFormat, Integer&gt;)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
-<div class="block">バーコードフォーマット毎の検出結果の確定に必要な同じ結果の読み込み回数を設定する</div>
+<div class="block">バーコードフォーマット毎の検出結果の確定に必要な同じ結果の読み込み回数を設定する。
+ この設定は<a href="com/nefrock/edgeocr/ScanOptions.ScanMode.html#DEFAULT"><code>ScanOptions.ScanMode.DEFAULT</code></a>の場合のみ有効です。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setBarcodeRecognizerExecutionSettings(com.nefrock.edgeocr.ExecutionSettings)" class="member-name-link">setBarcodeRecognizerExecutionSettings(ExecutionSettings)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
@@ -798,6 +841,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">検出の最小信頼度を設定する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#setConfidenceThresholdOne(float)" class="member-name-link">setConfidenceThresholdOne(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dd>
+<div class="block">文字認識モデルにおける1つ目の閾値を設定する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#setConfidenceThresholdTwo(float)" class="member-name-link">setConfidenceThresholdTwo(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dd>
+<div class="block">文字認識モデルにおける2つ目の閾値を設定する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#setCrop(float,float,float,float)" class="member-name-link">setCrop(float, float, float, float)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
 <dd>
 <div class="block">画面に表示する読み取り範囲の位置とサイズを設定する
@@ -819,6 +870,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">モデルの実行デバイスを設定する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/ScanOptions.html#setFlipHorizontal(boolean)" class="member-name-link">setFlipHorizontal(boolean)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
+<dd>
+<div class="block">画像を水平方向に反転するかどうかを設定します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ScanOptions.html#setFlipVertical(boolean)" class="member-name-link">setFlipVertical(boolean)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
+<dd>
+<div class="block">画像を垂直方向に反転するかどうかを設定します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/DBTextDetectorSettings.html#setHeightFactor(float)" class="member-name-link">setHeightFactor(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/DBTextDetectorSettings.html" title="class in com.nefrock.edgeocr">DBTextDetectorSettings</a></dt>
 <dd>
 <div class="block">DB検出モデルにおける縦方向の拡大率を設定する</div>
@@ -826,6 +885,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setHighConfidenceThreshold(float)" class="member-name-link">setHighConfidenceThreshold(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
 <div class="block">検出における高信頼度の閾値（トラッキングに影響する）を設定する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#setMaxCandidates(int)" class="member-name-link">setMaxCandidates(int)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dd>
+<div class="block">文字列の文字ごとの最大候補数を設定する</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/BBoxTextDetectorSettings.html#setNmsThreshold(float)" class="member-name-link">setNmsThreshold(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BBoxTextDetectorSettings.html" title="class in com.nefrock.edgeocr">BBoxTextDetectorSettings</a></dt>
 <dd>
@@ -869,11 +932,16 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm(int)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
-<div class="block">文字検出結果の確定に必要な同じ結果の読み込み回数を設定する</div>
+<div class="block">文字検出結果の確定に必要な同じ結果の読み込み回数を設定する。
+ この設定は<a href="com/nefrock/edgeocr/ScanOptions.ScanMode.html#DEFAULT"><code>ScanOptions.ScanMode.DEFAULT</code></a>の場合のみ有効です。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setTextRecognizerExecutionSettings(com.nefrock.edgeocr.ExecutionSettings)" class="member-name-link">setTextRecognizerExecutionSettings(ExecutionSettings)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
 <div class="block">認識モデルの実行設定を設定する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ModelSettings.html#setTextRecognizerSettings(com.nefrock.edgeocr.TextRecognizerSettings)" class="member-name-link">setTextRecognizerSettings(TextRecognizerSettings)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
+<dd>
+<div class="block">文字認識モデルの詳細設定を設定する</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/DBTextDetectorSettings.html#setWidthFactor(float)" class="member-name-link">setWidthFactor(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/DBTextDetectorSettings.html" title="class in com.nefrock.edgeocr">DBTextDetectorSettings</a></dt>
 <dd>
@@ -914,6 +982,14 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/TextMapper.html#%3Cinit%3E()" class="member-name-link">TextMapper()</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextMapper.html" title="class in com.nefrock.edgeocr">TextMapper</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html" class="type-name-link" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">文字認識モデル設定を表す構造体</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#%3Cinit%3E(int,float,float)" class="member-name-link">TextRecognizerSettings(int, float, float)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dd>
+<div class="block">文字認識モデルの設定を初期化する</div>
+</dd>
 </dl>
 <h2 class="title" id="I:U">U</h2>
 <dl class="index">

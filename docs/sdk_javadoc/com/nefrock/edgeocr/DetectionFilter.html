@@ -44,13 +44,13 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
 <li>Nested&nbsp;|&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
 </ul>
 <ul class="sub-nav-list">
 <li>Detail:&nbsp;</li>
-<li>Field&nbsp;|&nbsp;</li>
+<li><a href="#field-detail">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-detail">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-detail">Method</a></li>
 </ul>
@@ -81,6 +81,34 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>int</code></div>
+<div class="col-second even-row-color"><code><a href="#imageHeight" class="member-name-link">imageHeight</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">元画像の高さ（ピクセル）。「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
+</div>
+<div class="col-first odd-row-color"><code>int</code></div>
+<div class="col-second odd-row-color"><code><a href="#imageWidth" class="member-name-link">imageWidth</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">元画像の幅（ピクセル）。「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
+</div>
+<div class="col-first even-row-color"><code>android.graphics.RectF</code></div>
+<div class="col-second even-row-color"><code><a href="#scanArea" class="member-name-link">scanArea</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">読み取り範囲。
+ この範囲は、元画像の左上を原点とした相対座標系になります。</div>
+</div>
+</div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -126,6 +154,36 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="details">
 <ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="imageWidth">
+<h3>imageWidth</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">imageWidth</span></div>
+<div class="block">元画像の幅（ピクセル）。「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
+</section>
+</li>
+<li>
+<section class="detail" id="imageHeight">
+<h3>imageHeight</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">imageHeight</span></div>
+<div class="block">元画像の高さ（ピクセル）。「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
+</section>
+</li>
+<li>
+<section class="detail" id="scanArea">
+<h3>scanArea</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">android.graphics.RectF</span>&nbsp;<span class="element-name">scanArea</span></div>
+<div class="block">読み取り範囲。
+ この範囲は、元画像の左上を原点とした相対座標系になります。</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
 <!-- ========= CONSTRUCTOR DETAIL ======== -->
 <li>
 <section class="constructor-details" id="constructor-detail">

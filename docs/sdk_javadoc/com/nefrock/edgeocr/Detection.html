@@ -100,8 +100,9 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBoundingBox()" class="member-name-link">getBoundingBox</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出された文字列のバウンディングボックスを取得します。
- バウンディングボックスの座標は入力画像の左上を原点とした座標系になります。
- <a href="ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>において、<a href="CropRect.html" title="class in com.nefrock.edgeocr"><code>CropRect</code></a>が指定されている場合でも、バウンディングボックスの座標は元画像の左上を原点とした座標系になります。</div>
+ バウンディングボックスの座標は入力画像の左上を原点とした相対座標系になります。
+ <a href="ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>において、<a href="CropRect.html" title="class in com.nefrock.edgeocr"><code>CropRect</code></a>が指定されている場合でも、バウンディングボックスの座標は元画像の左上を原点とした相対座標系になります。
+ 上記の「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDetectionScore()" class="member-name-link">getDetectionScore</a>()</code></div>
@@ -140,8 +141,9 @@ loadScripts(document, 'script');</script>
 <h3>getBoundingBox</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">android.graphics.RectF</span>&nbsp;<span class="element-name">getBoundingBox</span>()</div>
 <div class="block">検出された文字列のバウンディングボックスを取得します。
- バウンディングボックスの座標は入力画像の左上を原点とした座標系になります。
- <a href="ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>において、<a href="CropRect.html" title="class in com.nefrock.edgeocr"><code>CropRect</code></a>が指定されている場合でも、バウンディングボックスの座標は元画像の左上を原点とした座標系になります。</div>
+ バウンディングボックスの座標は入力画像の左上を原点とした相対座標系になります。
+ <a href="ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>において、<a href="CropRect.html" title="class in com.nefrock.edgeocr"><code>CropRect</code></a>が指定されている場合でも、バウンディングボックスの座標は元画像の左上を原点とした相対座標系になります。
+ 上記の「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>バウンディングボックス</dd>

@@ -156,6 +156,16 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">設定したスキャン範囲を返します。</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFlipHorizontal()" class="member-name-link">getFlipHorizontal</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">画像を水平方向に反転するかどうかを返します。</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFlipVertical()" class="member-name-link">getFlipVertical</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">画像を垂直方向に反転するかどうかを返します。</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ScanOptions.ScanMode.html" title="enum class in com.nefrock.edgeocr">ScanOptions.ScanMode</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScanMode()" class="member-name-link">getScanMode</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -170,6 +180,16 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCropRect(com.nefrock.edgeocr.CropRect)" class="member-name-link">setCropRect</a><wbr>(<a href="CropRect.html" title="class in com.nefrock.edgeocr">CropRect</a>&nbsp;cropRect)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">スキャン範囲を設定します。</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFlipHorizontal(boolean)" class="member-name-link">setFlipHorizontal</a><wbr>(boolean&nbsp;flipHorizontal)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">画像を水平方向に反転するかどうかを設定します。</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFlipVertical(boolean)" class="member-name-link">setFlipVertical</a><wbr>(boolean&nbsp;flipVertical)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">画像を垂直方向に反転するかどうかを設定します。</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setScanMode(com.nefrock.edgeocr.ScanOptions.ScanMode)" class="member-name-link">setScanMode</a><wbr>(<a href="ScanOptions.ScanMode.html" title="enum class in com.nefrock.edgeocr">ScanOptions.ScanMode</a>&nbsp;scanMode)</code></div>
@@ -276,6 +296,50 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>barcodeFormats</code> - バーコードの種類</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getFlipHorizontal()">
+<h3>getFlipHorizontal</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">getFlipHorizontal</span>()</div>
+<div class="block">画像を水平方向に反転するかどうかを返します。</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>画像を水平方向に反転するかどうか</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setFlipHorizontal(boolean)">
+<h3>setFlipHorizontal</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFlipHorizontal</span><wbr><span class="parameters">(boolean&nbsp;flipHorizontal)</span></div>
+<div class="block">画像を水平方向に反転するかどうかを設定します。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>flipHorizontal</code> - 画像を水平方向に反転するかどうか</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getFlipVertical()">
+<h3>getFlipVertical</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">getFlipVertical</span>()</div>
+<div class="block">画像を垂直方向に反転するかどうかを返します。</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>画像を垂直方向に反転するかどうか</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setFlipVertical(boolean)">
+<h3>setFlipVertical</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFlipVertical</span><wbr><span class="parameters">(boolean&nbsp;flipVertical)</span></div>
+<div class="block">画像を垂直方向に反転するかどうかを設定します。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>flipVertical</code> - 画像を垂直方向に反転するかどうか</dd>
 </dl>
 </section>
 </li>

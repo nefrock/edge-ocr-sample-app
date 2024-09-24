@@ -134,11 +134,19 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="col-first odd-row-color"><code><a href="#DataBarExpanded" class="member-name-link">DataBarExpanded</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">GS1 DataBar 拡張バーコード</div>
+<div class="block">GS1 DataBar Expanded バーコード</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#DataMatrix" class="member-name-link">DataMatrix</a></code></div>
+<div class="col-first even-row-color"><code><a href="#DataBarLimited" class="member-name-link">DataBarLimited</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">GS1 DataBar Limited バーコード</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="#DataMatrix" class="member-name-link">DataMatrix</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">Data Matrix 2D バーコード</div>
+</div>
+<div class="col-first even-row-color"><code><a href="#DXFilmEdge" class="member-name-link">DXFilmEdge</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">DX フィルムエッジバーコード</div>
 </div>
 <div class="col-first odd-row-color"><code><a href="#EAN13" class="member-name-link">EAN13</a></code></div>
 <div class="col-last odd-row-color">
@@ -164,32 +172,36 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">MaxiCode バーコード</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#MicroQRCode" class="member-name-link">MicroQRCode</a></code></div>
+<div class="col-first odd-row-color"><code><a href="#MicroPDF417" class="member-name-link">MicroPDF417</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">MicroPDF417 2D バーコード</div>
+</div>
+<div class="col-first even-row-color"><code><a href="#MicroQRCode" class="member-name-link">MicroQRCode</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Micro QR コード</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#None" class="member-name-link">None</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#None" class="member-name-link">None</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">不明なバーコード、またはどのフォーマットも読み取らない</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#PDF417" class="member-name-link">PDF417</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#PDF417" class="member-name-link">PDF417</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">PDF417 2D バーコード</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#QRCode" class="member-name-link">QRCode</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#QRCode" class="member-name-link">QRCode</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">QR コード</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#RMQRCode" class="member-name-link">RMQRCode</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#RMQRCode" class="member-name-link">RMQRCode</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">長方形の Micro QR コード</div>
 </div>
-<div class="col-first even-row-color"><code><a href="#UPCA" class="member-name-link">UPCA</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code><a href="#UPCA" class="member-name-link">UPCA</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">UPC-A バーコード</div>
 </div>
-<div class="col-first odd-row-color"><code><a href="#UPCE" class="member-name-link">UPCE</a></code></div>
-<div class="col-last odd-row-color">
+<div class="col-first even-row-color"><code><a href="#UPCE" class="member-name-link">UPCE</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">UPC-E バーコード</div>
 </div>
 </div>
@@ -290,7 +302,14 @@ the order they are declared.</div>
 <section class="detail" id="DataBarExpanded">
 <h3>DataBarExpanded</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></span>&nbsp;<span class="element-name">DataBarExpanded</span></div>
-<div class="block">GS1 DataBar 拡張バーコード</div>
+<div class="block">GS1 DataBar Expanded バーコード</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DataBarLimited">
+<h3>DataBarLimited</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></span>&nbsp;<span class="element-name">DataBarLimited</span></div>
+<div class="block">GS1 DataBar Limited バーコード</div>
 </section>
 </li>
 <li>
@@ -336,6 +355,13 @@ the order they are declared.</div>
 </section>
 </li>
 <li>
+<section class="detail" id="MicroPDF417">
+<h3>MicroPDF417</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></span>&nbsp;<span class="element-name">MicroPDF417</span></div>
+<div class="block">MicroPDF417 2D バーコード</div>
+</section>
+</li>
+<li>
 <section class="detail" id="QRCode">
 <h3>QRCode</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></span>&nbsp;<span class="element-name">QRCode</span></div>
@@ -368,6 +394,13 @@ the order they are declared.</div>
 <h3>RMQRCode</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></span>&nbsp;<span class="element-name">RMQRCode</span></div>
 <div class="block">長方形の Micro QR コード</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DXFilmEdge">
+<h3>DXFilmEdge</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></span>&nbsp;<span class="element-name">DXFilmEdge</span></div>
+<div class="block">DX フィルムエッジバーコード</div>
 </section>
 </li>
 <li>

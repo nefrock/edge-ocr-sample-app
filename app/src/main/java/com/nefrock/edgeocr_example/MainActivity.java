@@ -164,8 +164,11 @@ import java.util.Collections;
         api.useModel(model, modelSettings, modelInformation -> {
             intent.putExtra("model_aspect_ratio", modelInformation.getAspectRatio());
             startActivity(intent);
-        }, edgeError -> Toast.makeText(getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG)
-            .show());
+        }, edgeError -> {
+            new Handler(Looper.getMainLooper()).post(() -> {
+                Toast.makeText(getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG).show();
+            });
+        });
     }
 
     @Override
