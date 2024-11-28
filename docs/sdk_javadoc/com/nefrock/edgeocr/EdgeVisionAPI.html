@@ -35,6 +35,7 @@ loadScripts(document, 'script');</script>
 <li><a href="package-summary.html">Package</a></li>
 <li class="nav-bar-cell1-rev">Class</li>
 <li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
 <li><a href="../../../index-all.html">Index</a></li>
 <li><a href="../../../help-doc.html#class">Help</a></li>
 </ul>
@@ -104,9 +105,9 @@ loadScripts(document, 'script');</script>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
-<div id="method-summary-table.tabpanel" role="tabpanel">
-<div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
@@ -188,26 +189,42 @@ loadScripts(document, 'script');</script>
  <a href="ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>を参照してください。</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)" class="member-name-link">useModel</a><wbr>(<a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model,
- <a href="LoadingCallback.html" title="interface in com.nefrock.edgeocr">LoadingCallback</a>&nbsp;callback,
- <a href="ErrorCallback.html" title="interface in com.nefrock.edgeocr">ErrorCallback</a>&nbsp;errorCallback)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#useModel(com.nefrock.edgeocr.Model)" class="member-name-link">useModel</a><wbr>(<a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
- メソッドは非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
- モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
- 規定の設定が使用されます。モデルの設定を変更したい場合は、
- <a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)"><code>useModel(Model, ModelSettings, LoadingCallback, ErrorCallback)</code></a>を使用してください。</div>
+ メソッドは非同期で実行されます。規定の設定が使用されます。モデルの設定を変更したい場合は、
+ <a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)"><code>useModel(Model, ModelSettings)</code></a>を使用してください。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)" class="member-name-link">useModel</a><wbr>(<a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)" class="member-name-link">useModel</a><wbr>(<a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model,
+ <a href="LoadingCallback.html" title="interface in com.nefrock.edgeocr">LoadingCallback</a>&nbsp;callback,
+ <a href="ErrorCallback.html" title="interface in com.nefrock.edgeocr">ErrorCallback</a>&nbsp;errorCallback)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
+ errorCallbackを指定しても例外が発生する可能性があります。getで結果を待機したい場合は、
+ <a href="#useModel(com.nefrock.edgeocr.Model)"><code>useModel(Model)</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)" class="member-name-link">useModel</a><wbr>(<a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model,
+ <a href="ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a>&nbsp;settings)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
+ メソッドは非同期で実行されます。settingsには、モデルの読み込み時に使用する設定を指定する
+ ことができます。</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)" class="member-name-link">useModel</a><wbr>(<a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model,
  <a href="ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a>&nbsp;settings,
  <a href="LoadingCallback.html" title="interface in com.nefrock.edgeocr">LoadingCallback</a>&nbsp;callback,
  <a href="ErrorCallback.html" title="interface in com.nefrock.edgeocr">ErrorCallback</a>&nbsp;errorCallback)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
- メソッドは非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
- モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
- settingsには、モデルの読み込み時に使用する設定を指定することができます。</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
+ errorCallbackを指定しても例外が発生する可能性があります。getで結果を待機したい場合は、
+ <a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)"><code>useModel(Model, ModelSettings)</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
 </div>
 </div>
 </div>
@@ -269,7 +286,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)">
 <h3>useModel</h3>
-<div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useModel</span><wbr><span class="parameters">(@NonNull
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useModel</span><wbr><span class="parameters">(@NonNull
  <a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model,
  @NonNull
  <a href="ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a>&nbsp;settings,
@@ -277,6 +295,11 @@ loadScripts(document, 'script');</script>
  <a href="LoadingCallback.html" title="interface in com.nefrock.edgeocr">LoadingCallback</a>&nbsp;callback,
  @Nullable
  <a href="ErrorCallback.html" title="interface in com.nefrock.edgeocr">ErrorCallback</a>&nbsp;errorCallback)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
+ errorCallbackを指定しても例外が発生する可能性があります。getで結果を待機したい場合は、
+ <a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)"><code>useModel(Model, ModelSettings)</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
 <div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
  メソッドは非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
  モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
@@ -284,8 +307,27 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>model</code> - OCR・バーコードモデル</dd>
+<dd><code>settings</code> - モデルの設定</dd>
 <dd><code>callback</code> - モデルの読み込みが完了したときに呼び出されるコールバック</dd>
 <dd><code>errorCallback</code> - モデルの読み込み中にエラーが発生したときに呼び出されるコールバック</dd>
+<dt>Returns:</dt>
+<dd>読み込まれたモデルの情報のfuture</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)">
+<h3>useModel</h3>
+<div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useModel</span><wbr><span class="parameters">(@NonNull
+ <a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model,
+ @NonNull
+ <a href="ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a>&nbsp;settings)</span></div>
+<div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
+ メソッドは非同期で実行されます。settingsには、モデルの読み込み時に使用する設定を指定する
+ ことができます。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>model</code> - OCR・バーコードモデル</dd>
 <dd><code>settings</code> - モデルの設定</dd>
 <dt>Returns:</dt>
 <dd>読み込まれたモデルの情報のfuture</dd>
@@ -295,12 +337,18 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)">
 <h3>useModel</h3>
-<div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useModel</span><wbr><span class="parameters">(@NonNull
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useModel</span><wbr><span class="parameters">(@NonNull
  <a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model,
  @Nullable
  <a href="LoadingCallback.html" title="interface in com.nefrock.edgeocr">LoadingCallback</a>&nbsp;callback,
  @Nullable
  <a href="ErrorCallback.html" title="interface in com.nefrock.edgeocr">ErrorCallback</a>&nbsp;errorCallback)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
+ errorCallbackを指定しても例外が発生する可能性があります。getで結果を待機したい場合は、
+ <a href="#useModel(com.nefrock.edgeocr.Model)"><code>useModel(Model)</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
 <div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
  メソッドは非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
  モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
@@ -311,6 +359,22 @@ loadScripts(document, 'script');</script>
 <dd><code>model</code> - OCR・バーコードモデル</dd>
 <dd><code>callback</code> - モデルの読み込みが完了したときに呼び出されるコールバック</dd>
 <dd><code>errorCallback</code> - モデルの読み込み中にエラーが発生したときに呼び出されるコールバック</dd>
+<dt>Returns:</dt>
+<dd>読み込まれたモデルの情報のfuture</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="useModel(com.nefrock.edgeocr.Model)">
+<h3>useModel</h3>
+<div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="ModelInformation.html" title="class in com.nefrock.edgeocr">ModelInformation</a>&gt;</span>&nbsp;<span class="element-name">useModel</span><wbr><span class="parameters">(@NonNull
+ <a href="Model.html" title="class in com.nefrock.edgeocr">Model</a>&nbsp;model)</span></div>
+<div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
+ メソッドは非同期で実行されます。規定の設定が使用されます。モデルの設定を変更したい場合は、
+ <a href="#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)"><code>useModel(Model, ModelSettings)</code></a>を使用してください。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>model</code> - OCR・バーコードモデル</dd>
 <dt>Returns:</dt>
 <dd>読み込まれたモデルの情報のfuture</dd>
 </dl>

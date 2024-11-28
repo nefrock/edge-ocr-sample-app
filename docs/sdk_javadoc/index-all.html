@@ -31,6 +31,7 @@ loadScripts(document, 'script');</script>
 <li>Package</li>
 <li>Class</li>
 <li><a href="overview-tree.html">Tree</a></li>
+<li><a href="deprecated-list.html">Deprecated</a></li>
 <li class="nav-bar-cell1-rev">Index</li>
 <li><a href="help-doc.html#index">Help</a></li>
 </ul>
@@ -52,11 +53,18 @@ loadScripts(document, 'script');</script>
 <a href="#I:A">A</a>&nbsp;<a href="#I:B">B</a>&nbsp;<a href="#I:C">C</a>&nbsp;<a href="#I:D">D</a>&nbsp;<a href="#I:E">E</a>&nbsp;<a href="#I:F">F</a>&nbsp;<a href="#I:G">G</a>&nbsp;<a href="#I:H">H</a>&nbsp;<a href="#I:I">I</a>&nbsp;<a href="#I:L">L</a>&nbsp;<a href="#I:M">M</a>&nbsp;<a href="#I:N">N</a>&nbsp;<a href="#I:O">O</a>&nbsp;<a href="#I:P">P</a>&nbsp;<a href="#I:Q">Q</a>&nbsp;<a href="#I:R">R</a>&nbsp;<a href="#I:S">S</a>&nbsp;<a href="#I:T">T</a>&nbsp;<a href="#I:U">U</a>&nbsp;<a href="#I:V">V</a>&nbsp;<a href="#I:W">W</a>&nbsp;<br><a href="allclasses-index.html">All&nbsp;Classes&nbsp;and&nbsp;Interfaces</a><span class="vertical-separator">|</span><a href="allpackages-index.html">All&nbsp;Packages</a><span class="vertical-separator">|</span><a href="serialized-form.html">Serialized&nbsp;Form</a>
 <h2 class="title" id="I:A">A</h2>
 <dl class="index">
-<dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#activate(com.nefrock.edgeocr.ActivationCallback,com.nefrock.edgeocr.ActivationErrorCallback)" class="member-name-link">activate(ActivationCallback, ActivationErrorCallback)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
+<dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#activate()" class="member-name-link">activate()</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
 <dd>
 <div class="block">ライセンス認証を行います。ライセンス認証には時間がかかるため、`activate`メソッドは
- 非同期で実行されます。ライセンス認証が完了すると、`callback`が呼び出されます。
- ライセンス認証中にエラーが発生した場合は、`errorCallback`が呼び出されます。</div>
+ 非同期で実行されます。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#activate(com.nefrock.edgeocr.ActivationCallback,com.nefrock.edgeocr.ActivationErrorCallback)" class="member-name-link">activate(ActivationCallback, ActivationErrorCallback)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
+ errorCallbackを指定しても例外が発生する可能性があります。getで結果を期待したい場合は、
+ <a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#activate()"><code>NefrockLicenseAPI.activate()</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ActivationCallback.html" class="type-name-link" title="interface in com.nefrock.edgeocr">ActivationCallback</a> - Interface in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
@@ -75,6 +83,10 @@ loadScripts(document, 'script');</script>
 <div class="block">テキスト検出結果を変更するためのメソッドです。<br/>
  このメソッドをオーバーライドして、マッピング処理を実装してください。Textクラスの情報を
  元に、文字列を変更することができます。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ASCII" class="member-name-link">ASCII</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ASCII</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#availableModels()" class="member-name-link">availableModels()</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
 <dd>
@@ -114,6 +126,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">BBox文字検出モデルの設定を初期化する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#Big5" class="member-name-link">Big5</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">Big5 エンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#BINARY" class="member-name-link">BINARY</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">エンコーディングなし（バイナリデータ）</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ui/BoxParams.html" class="type-name-link" title="class in com.nefrock.edgeocr.ui">BoxParams</a> - Class in <a href="com/nefrock/edgeocr/ui/package-summary.html">com.nefrock.edgeocr.ui</a></dt>
 <dd>
 <div class="block">バウンディングボックスを描画するためのパラメータ</div>
@@ -150,6 +170,16 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:C">C</h2>
 <dl class="index">
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.html#calcSimilarity(java.lang.String,java.lang.String,boolean)" class="member-name-link">calcSimilarity(String, String, boolean)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.html" title="class in com.nefrock.edgeocr">FuzzySearch</a></dt>
+<dd>
+<div class="block">2つの文字列間の類似度を計算する
+
+ 類似度は次の式で計算されます:</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.html#calcSimilarityWithMasterData(java.lang.String,boolean,boolean)" class="member-name-link">calcSimilarityWithMasterData(String, boolean, boolean)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.html" title="class in com.nefrock.edgeocr">FuzzySearch</a></dt>
+<dd>
+<div class="block">文字列とマスターデータ間の類似度を計算する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ActivationErrorCallback.html#call(com.nefrock.edgeocr.EdgeError)" class="member-name-link">call(EdgeError)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ActivationErrorCallback.html" title="interface in com.nefrock.edgeocr">ActivationErrorCallback</a></dt>
 <dd>
 <div class="block">ライセンス認証中にエラーが発生したときに呼び出されます。</div>
@@ -210,9 +240,41 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">N回連続で同じ結果が読み込まれたので、確定された</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/Barcode.html#containsGS1()" class="member-name-link">containsGS1()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.html" title="class in com.nefrock.edgeocr">Barcode</a></dt>
+<dd>
+<div class="block">バーコードがGS1データを表すかどうかを表します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#Cp1250" class="member-name-link">Cp1250</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">Windows-1250、中欧で使用されるエンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#Cp1251" class="member-name-link">Cp1251</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">Windows-1251、キリル文字用のエンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#Cp1252" class="member-name-link">Cp1252</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">Windows-1252、北米・南米・西欧・オセアニア・アフリカで使用されるエンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#Cp1256" class="member-name-link">Cp1256</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">Windows-1256、アラビア文字用のエンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#Cp437" class="member-name-link">Cp437</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">IBM PC で使用されるエンコーディング</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ExecutionDevice.html#CPU" class="member-name-link">CPU</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ExecutionDevice.html" title="enum class in com.nefrock.edgeocr">ExecutionDevice</a></dt>
 <dd>
 <div class="block">CPU</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html" class="type-name-link" title="class in com.nefrock.edgeocr">CropDetectionFilter</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">範囲を指定して検出のフィルターリングを設定するためのデータクラス</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#%3Cinit%3E(java.util.List,java.util.List,boolean,float)" class="member-name-link">CropDetectionFilter(List&lt;RectF&gt;, List&lt;RectF&gt;, boolean, float)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>
+<div class="block">フィルターを初期化する</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/CropRect.html" class="type-name-link" title="class in com.nefrock.edgeocr">CropRect</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
@@ -262,6 +324,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">DB文字検出モデルの設定を初期化する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html#DEFAULT" class="member-name-link">DEFAULT</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a></dt>
+<dd>
+<div class="block">デフォルト</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html#DEFAULT" class="member-name-link">DEFAULT</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.ScanMode.html#DEFAULT" class="member-name-link">DEFAULT</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.ScanMode.html" title="enum class in com.nefrock.edgeocr">ScanOptions.ScanMode</a></dt>
 <dd>
 <div class="block">画像内の文字を検出・認識します。</div>
@@ -279,6 +347,22 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/DetectionType.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">DetectionType</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
 <div class="block">検出結果の種類を表す列挙型</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html#DISABLED" class="member-name-link">DISABLED</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a></dt>
+<dd>
+<div class="block">曖昧検索の無効化</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html#DISABLED" class="member-name-link">DISABLED</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a></dt>
+<dd>
+<div class="block">重みなし</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.html#dropFuzzyRegex()" class="member-name-link">dropFuzzyRegex()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.html" title="class in com.nefrock.edgeocr">FuzzyRegex</a></dt>
+<dd>
+<div class="block">デストラクタ</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.html#dropFuzzySearch()" class="member-name-link">dropFuzzySearch()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.html" title="class in com.nefrock.edgeocr">FuzzySearch</a></dt>
+<dd>
+<div class="block">デストラクタ</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#DXFilmEdge" class="member-name-link">DXFilmEdge</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
@@ -312,9 +396,25 @@ loadScripts(document, 'script');</script>
  `fromAssets`または`fromPath`メソッドを呼び出して、
  OCRモデルを読み込む方法を指定した後に、`build`メソッドを呼び出してください。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html#EDIT_DISTANCE" class="member-name-link">EDIT_DISTANCE</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a></dt>
+<dd>
+<div class="block">編集距離</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">Encoding</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">文字列のエンコーディングを表す列挙型</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ErrorCallback.html" class="type-name-link" title="interface in com.nefrock.edgeocr">ErrorCallback</a> - Interface in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
 <div class="block">モデルロードに失敗した場合に呼び出されるコールバックを定義します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#EUC_JP" class="member-name-link">EUC_JP</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">EUC-JP エンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#EUC_KR" class="member-name-link">EUC_KR</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">EUC-KR エンコーディング</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ExecutionDevice.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">ExecutionDevice</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
@@ -347,9 +447,72 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">モデルファイルを含むフォルダーの絶対パスを指定します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.html" class="type-name-link" title="class in com.nefrock.edgeocr">FuzzyRegex</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">ファジー検索を行うためのクラスです。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.html#%3Cinit%3E(java.lang.String,com.nefrock.edgeocr.FuzzyRegex.FuzzyType,float)" class="member-name-link">FuzzyRegex(String, FuzzyRegex.FuzzyType, float)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.html" title="class in com.nefrock.edgeocr">FuzzyRegex</a></dt>
+<dd>
+<div class="block">コンストラクタ</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">ファジー検索の種類を定義する列挙型。
+ ファジー検索の際に使用するモードを選択するために使用します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.html" class="type-name-link" title="class in com.nefrock.edgeocr">FuzzySearch</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">このクラスは、2つの文字列間の距離を計算し、その類似度を評価するためのクラスです。
+ 距離は、編集距離または貪欲距離のいずれかを使用して計算されます。
+ 編集距離は、Levenshteinのアルゴリズムを使用して計算されます。
+ また、重み付けされた距離の計算や、マスターデータとの比較機能も提供します。
+
+ 使用例:</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.html#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int)" class="member-name-link">FuzzySearch(FuzzySearch.DistanceType, FuzzySearch.SearchMode, int)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.html" title="class in com.nefrock.edgeocr">FuzzySearch</a></dt>
+<dd>
+<div class="block">コンストラクタ</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">距離タイプを定義する列挙型。
+
+ 距離を測定する方法を選択するために使用します。
+ 例: 編集距離（EDIT_DISTANCE）または貪欲距離（GREEDY_DISTANCE）。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">検索モードを定義する列挙型。
+
+ 検索の際に使用するモードを選択するために使用します。
+ 例: 部分一致（SUBSTRING）、前方一致（PREFIX）、後方一致（SUFFIX）。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">重みの種類を定義する列挙型。
+
+ 距離の計算に使用する重み付けの種類を選択するために使用します。
+ 例: 重みなし（DISABLED）、デフォルト（DEFAULT）、Neural Network距離（NN_DISTANCE）。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearchResult.html" class="type-name-link" title="class in com.nefrock.edgeocr">FuzzySearchResult</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">編集距離の計算結果を保持するクラスです。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearchResult.html#%3Cinit%3E(float,java.lang.String)" class="member-name-link">FuzzySearchResult(float, String)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearchResult.html" title="class in com.nefrock.edgeocr">FuzzySearchResult</a></dt>
+<dd>
+<div class="block">コンストラクタ</div>
+</dd>
 </dl>
 <h2 class="title" id="I:G">G</h2>
 <dl class="index">
+<dt><a href="com/nefrock/edgeocr/Encoding.html#GB18030" class="member-name-link">GB18030</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">GB18030 エンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#GB2312" class="member-name-link">GB2312</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">GB2312 エンコーディング</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ExecutionSettings.html#getAllowPrecisionLoss()" class="member-name-link">getAllowPrecisionLoss()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ExecutionSettings.html" title="class in com.nefrock.edgeocr">ExecutionSettings</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ScanResult.html#getAnalysisTime()" class="member-name-link">getAnalysisTime()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></dt>
@@ -362,6 +525,8 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">モデルのアスペクト比を返します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getBarcodeCrops()" class="member-name-link">getBarcodeCrops()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ScanResult.html#getBarcodeDetections()" class="member-name-link">getBarcodeDetections()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></dt>
 <dd>
 <div class="block">バーコード検出結果のリストを返します。</div>
@@ -389,6 +554,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#getCheckAfterFrames()" class="member-name-link">getCheckAfterFrames()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getCombineHorizontal()" class="member-name-link">getCombineHorizontal()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getCombineHorizontalThreshold()" class="member-name-link">getCombineHorizontalThreshold()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/Text.html#getConfidence()" class="member-name-link">getConfidence()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Text.html" title="class in com.nefrock.edgeocr">Text</a></dt>
 <dd>
 <div class="block">検出された文字列の信頼値を取得します。</div>
@@ -399,6 +568,15 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#getConfidenceThresholdTwo()" class="member-name-link">getConfidenceThresholdTwo()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/ModelSettings.html#getCropDetectionFilter()" class="member-name-link">getCropDetectionFilter()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/Detection.html#getCropIndex()" class="member-name-link">getCropIndex()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Detection.html" title="class in com.nefrock.edgeocr">Detection</a></dt>
+<dd>
+<div class="block">検出範囲インデックスを取得します。
+ <a href="com/nefrock/edgeocr/ModelSettings.html#setCropDetectionFilter(com.nefrock.edgeocr.CropDetectionFilter)"><code>ModelSettings.setCropDetectionFilter(CropDetectionFilter)</code></a>で指定した文字列・バーコードの検出範囲のインデックスです。
+ インデックスは文字列・バーコード別途で割り当てられます。
+ フィルターを設定していない場合は-1が返ります。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.html#getCropRect()" class="member-name-link">getCropRect()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
 <dd>
 <div class="block">設定したスキャン範囲を返します。</div>
@@ -418,6 +596,15 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#getDeviceId()" class="member-name-link">getDeviceId()</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
 <dd>
 <div class="block">APIの認証で端末識別に用いているデバイスIDを返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearchResult.html#getDistance()" class="member-name-link">getDistance()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearchResult.html" title="class in com.nefrock.edgeocr">FuzzySearchResult</a></dt>
+<dd>
+<div class="block">編集距離を取得します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Barcode.html#getEncoding()" class="member-name-link">getEncoding()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.html" title="class in com.nefrock.edgeocr">Barcode</a></dt>
+<dd>
+<div class="block">バーコードのバイナリデータに使用されたエンコーディングを取得します。
+ QRコードなど、バイナリデートをサポートするバーコードの場合のみ有効です。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/EdgeError.html#getErrorCode()" class="member-name-link">getErrorCode()</a> - Method in exception com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></dt>
 <dd>
@@ -473,10 +660,16 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">バーコードが表す文字列を取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearchResult.html#getText()" class="member-name-link">getText()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearchResult.html" title="class in com.nefrock.edgeocr">FuzzySearchResult</a></dt>
+<dd>
+<div class="block">編集距離を計算した文字列を取得します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/Text.html#getText()" class="member-name-link">getText()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Text.html" title="class in com.nefrock.edgeocr">Text</a></dt>
 <dd>
 <div class="block">検出された文字列を取得します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getTextCrops()" class="member-name-link">getTextCrops()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ScanResult.html#getTextDetections()" class="member-name-link">getTextDetections()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></dt>
 <dd>
 <div class="block">文字検出結果のリストを返します。</div>
@@ -505,6 +698,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">GPU</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html#GREEDY_DISTANCE" class="member-name-link">GREEDY_DISTANCE</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a></dt>
+<dd>
+<div class="block">貪欲距離</div>
+</dd>
 </dl>
 <h2 class="title" id="I:H">H</h2>
 <dl class="index">
@@ -523,9 +720,77 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">元画像の幅（ピクセル）。「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#isActivated(com.nefrock.edgeocr.ActivationCallback,com.nefrock.edgeocr.ActivationErrorCallback)" class="member-name-link">isActivated(ActivationCallback, ActivationErrorCallback)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
+<dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#isActivated()" class="member-name-link">isActivated()</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
 <dd>
 <div class="block">ライセンス認証が完了しているかどうかを返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#isActivated(com.nefrock.edgeocr.ActivationCallback,com.nefrock.edgeocr.ActivationErrorCallback)" class="member-name-link">isActivated(ActivationCallback, ActivationErrorCallback)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
+ errorCallbackを指定しても例外が発生する可能性があります。getで結果を期待したい場合は、
+ <a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#isActivated()"><code>NefrockLicenseAPI.isActivated()</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_1" class="member-name-link">ISO8859_1</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-1 西欧）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_10" class="member-name-link">ISO8859_10</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-6 北欧）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_11" class="member-name-link">ISO8859_11</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字とタイ文字（Latin タイ文字）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_13" class="member-name-link">ISO8859_13</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-7 バルト海）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_14" class="member-name-link">ISO8859_14</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-8 ケルト）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_15" class="member-name-link">ISO8859_15</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-9）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_16" class="member-name-link">ISO8859_16</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-9 南西欧）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_2" class="member-name-link">ISO8859_2</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-2 中欧）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_3" class="member-name-link">ISO8859_3</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-3 南欧）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_4" class="member-name-link">ISO8859_4</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-4 北欧）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_5" class="member-name-link">ISO8859_5</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字とキリル文字（Latin キリル文字）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_6" class="member-name-link">ISO8859_6</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字とアラビア文字（Latin アラビア文字）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_7" class="member-name-link">ISO8859_7</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字とギリシャ文字（Latin ギリシャ文字）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_8" class="member-name-link">ISO8859_8</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字とヘブライ文字（Latin ヘブライ文字）</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_9" class="member-name-link">ISO8859_9</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">ラテン文字（Latin-5 トルコ）</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#isReady()" class="member-name-link">isReady()</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
 <dd>
@@ -556,9 +821,21 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">モデルロードが完了したときに呼び出されるコールバックを定義します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.html#loadMasterData(java.lang.String%5B%5D)" class="member-name-link">loadMasterData(String[])</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.html" title="class in com.nefrock.edgeocr">FuzzySearch</a></dt>
+<dd>
+<div class="block">マスターデータを読み込む</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.html#loadWeight(com.nefrock.edgeocr.FuzzySearch.WeightType)" class="member-name-link">loadWeight(FuzzySearch.WeightType)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.html" title="class in com.nefrock.edgeocr">FuzzySearch</a></dt>
+<dd>
+<div class="block">ファイルから重みデータを読み込む</div>
+</dd>
 </dl>
 <h2 class="title" id="I:M">M</h2>
 <dl class="index">
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.html#match(java.lang.String)" class="member-name-link">match(String)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.html" title="class in com.nefrock.edgeocr">FuzzyRegex</a></dt>
+<dd>
+<div class="block">マッチングを行います。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#MatrixCodes" class="member-name-link">MatrixCodes</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
 <div class="block">2D マトリクスバーコード</div>
@@ -614,6 +891,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">ライセンス認証APIのBuilderです</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html#NN" class="member-name-link">NN</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a></dt>
+<dd>
+<div class="block">NN</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html#NN_DISTANCE" class="member-name-link">NN_DISTANCE</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a></dt>
+<dd>
+<div class="block">Neural Network距離</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ExecutionDevice.html#NNAPI" class="member-name-link">NNAPI</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ExecutionDevice.html" title="enum class in com.nefrock.edgeocr">ExecutionDevice</a></dt>
 <dd>
 <div class="block">NNAPI (Android 8.1以降)</div>
@@ -651,6 +936,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#PDF417" class="member-name-link">PDF417</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
 <div class="block">PDF417 2D バーコード</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html#PREFIX" class="member-name-link">PREFIX</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></dt>
+<dd>
+<div class="block">前方一致</div>
 </dd>
 </dl>
 <h2 class="title" id="I:Q">Q</h2>
@@ -800,6 +1089,10 @@ loadScripts(document, 'script');</script>
 <div class="block">画面に表示する読み取り範囲をアスペクト比から設定する
  クロップを行わない場合の読み取り範囲の表示に使用する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#setBarcodeCrops(java.util.List)" class="member-name-link">setBarcodeCrops(List&lt;RectF&gt;)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>
+<div class="block">バーコードの検出範囲を設定する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setBarcodeDetectorExecutionSettings(com.nefrock.edgeocr.ExecutionSettings)" class="member-name-link">setBarcodeDetectorExecutionSettings(ExecutionSettings)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
 <div class="block">バーコード検出モデルの実行設定を設定する</div>
@@ -837,6 +1130,14 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">確定された結果を再度確認するまでのフレーム数を設定する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#setCombineHorizontal(boolean)" class="member-name-link">setCombineHorizontal(boolean)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>
+<div class="block">それぞれの範囲内で、水平方向に近い検出を結合するかどうかを設定する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#setCombineHorizontalThreshold(float)" class="member-name-link">setCombineHorizontalThreshold(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>
+<div class="block">結合する際の距離の閾値（縦方向のIoU）を設定する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setConfidenceThreshold(float)" class="member-name-link">setConfidenceThreshold(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
 <div class="block">検出の最小信頼度を設定する</div>
@@ -853,6 +1154,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">画面に表示する読み取り範囲の位置とサイズを設定する
  <a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>で読み取り範囲を変更する場合に呼び出す</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ModelSettings.html#setCropDetectionFilter(com.nefrock.edgeocr.CropDetectionFilter)" class="member-name-link">setCropDetectionFilter(CropDetectionFilter)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
+<dd>
+<div class="block">文字列・バーコードの検出をそれぞれ範囲を指定してフィルタリングするための設定</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.html#setCropRect(com.nefrock.edgeocr.CropRect)" class="member-name-link">setCropRect(CropRect)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
 <dd>
@@ -922,6 +1227,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">文字列を設定します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#setTextCrops(java.util.List)" class="member-name-link">setTextCrops(List&lt;RectF&gt;)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>
+<div class="block">テキストの検出範囲を設定する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setTextDetectorExecutionSettings(com.nefrock.edgeocr.ExecutionSettings)" class="member-name-link">setTextDetectorExecutionSettings(ExecutionSettings)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
 <div class="block">文字検出モデルの実行設定を設定する</div>
@@ -951,6 +1260,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）を設定する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#Shift_JIS" class="member-name-link">Shift_JIS</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">Shift-JIS エンコーディング</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#showBoxes(boolean)" class="member-name-link">showBoxes(boolean)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
 <dd>
 <div class="block">読み取り結果を表示するかどうかを設定する</div>
@@ -958,6 +1271,14 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#showEmptyBoxes(boolean)" class="member-name-link">showEmptyBoxes(boolean)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
 <dd>
 <div class="block">読み取り結果がない場合に空の枠を表示するかどうかを設定する。規定値はfalse</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html#SUBSTRING" class="member-name-link">SUBSTRING</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></dt>
+<dd>
+<div class="block">部分一致</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html#SUFFIX" class="member-name-link">SUFFIX</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></dt>
+<dd>
+<div class="block">後方一致</div>
 </dd>
 </dl>
 <h2 class="title" id="I:T">T</h2>
@@ -990,12 +1311,32 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">文字認識モデルの設定を初期化する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html#toStr()" class="member-name-link">toStr()</a> - Method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a></dt>
+<dd>
+<div class="block">検索モードの文字列表現を返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html#toStr()" class="member-name-link">toStr()</a> - Method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a></dt>
+<dd>
+<div class="block">距離タイプの文字列表現を返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html#toStr()" class="member-name-link">toStr()</a> - Method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></dt>
+<dd>
+<div class="block">検索モードの文字列表現を返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html#toStr()" class="member-name-link">toStr()</a> - Method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a></dt>
+<dd>
+<div class="block">重みタイプの文字列表現を返します。</div>
+</dd>
 </dl>
 <h2 class="title" id="I:U">U</h2>
 <dl class="index">
 <dt><a href="com/nefrock/edgeocr/ScanConfirmationStatus.html#Unconfirmed" class="member-name-link">Unconfirmed</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanConfirmationStatus.html" title="enum class in com.nefrock.edgeocr">ScanConfirmationStatus</a></dt>
 <dd>
 <div class="block">N回未満で同じ結果が読み込まれたので、まだ確定されていない</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#Unknown" class="member-name-link">Unknown</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">不明なエンコーディング、またはエンコーディングが使用されていない</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#UPCA" class="member-name-link">UPCA</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
@@ -1005,20 +1346,53 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">UPC-E バーコード</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)" class="member-name-link">useModel(Model, LoadingCallback, ErrorCallback)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
+<dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model)" class="member-name-link">useModel(Model)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
 <dd>
 <div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
- メソッドは非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
- モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
- 規定の設定が使用されます。モデルの設定を変更したい場合は、
- <a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)"><code>EdgeVisionAPI.useModel(Model, ModelSettings, LoadingCallback, ErrorCallback)</code></a>を使用してください。</div>
+ メソッドは非同期で実行されます。規定の設定が使用されます。モデルの設定を変更したい場合は、
+ <a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)"><code>EdgeVisionAPI.useModel(Model, ModelSettings)</code></a>を使用してください。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)" class="member-name-link">useModel(Model, LoadingCallback, ErrorCallback)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
+<dd>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
+ errorCallbackを指定しても例外が発生する可能性があります。getで結果を待機したい場合は、
+ <a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model)"><code>EdgeVisionAPI.useModel(Model)</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)" class="member-name-link">useModel(Model, ModelSettings)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
+<dd>
+<div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
+ メソッドは非同期で実行されます。settingsには、モデルの読み込み時に使用する設定を指定する
+ ことができます。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings,com.nefrock.edgeocr.LoadingCallback,com.nefrock.edgeocr.ErrorCallback)" class="member-name-link">useModel(Model, ModelSettings, LoadingCallback, ErrorCallback)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">OCR・バーコードモデルを読み込みます。モデル読み込みには時間がかかるため、`useModel`
- メソッドは非同期で実行されます。モデルの読み込みが完了すると、`callback`が呼び出されます。
- モデルの読み込み中にエラーが発生した場合は、`errorCallback`が呼び出されます。
- settingsには、モデルの読み込み時に使用する設定を指定することができます。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
+ errorCallbackを指定しても例外が発生する可能性があります。getで結果を待機したい場合は、
+ <a href="com/nefrock/edgeocr/EdgeVisionAPI.html#useModel(com.nefrock.edgeocr.Model,com.nefrock.edgeocr.ModelSettings)"><code>EdgeVisionAPI.useModel(Model, ModelSettings)</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#UTF16BE" class="member-name-link">UTF16BE</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">UTF-16 ビッグエンディアンエンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#UTF16LE" class="member-name-link">UTF16LE</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">UTF-16 リトルエンディアンエンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#UTF32BE" class="member-name-link">UTF32BE</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">UTF-32 ビッグエンディアンエンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#UTF32LE" class="member-name-link">UTF32LE</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">UTF-32 リトルエンディアンエンコーディング</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#UTF8" class="member-name-link">UTF8</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">UTF-8 エンコーディング</div>
 </dd>
 </dl>
 <h2 class="title" id="I:V">V</h2>
@@ -1035,7 +1409,27 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ExecutionDevice.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ExecutionDevice.html" title="enum class in com.nefrock.edgeocr">ExecutionDevice</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></dt>
+<dd>
+<div class="block">Returns the enum constant of this class with the specified name.</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html#valueOf(java.lang.String)" class="member-name-link">valueOf(String)</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a></dt>
 <dd>
 <div class="block">Returns the enum constant of this class with the specified name.</div>
 </dd>
@@ -1066,7 +1460,32 @@ the order they are declared.</div>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#values()" class="member-name-link">values()</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ExecutionDevice.html#values()" class="member-name-link">values()</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ExecutionDevice.html" title="enum class in com.nefrock.edgeocr">ExecutionDevice</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html#values()" class="member-name-link">values()</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html#values()" class="member-name-link">values()</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html#values()" class="member-name-link">values()</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></dt>
+<dd>
+<div class="block">Returns an array containing the constants of this enum class, in
+the order they are declared.</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html#values()" class="member-name-link">values()</a> - Static method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.WeightType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a></dt>
 <dd>
 <div class="block">Returns an array containing the constants of this enum class, in
 the order they are declared.</div>
