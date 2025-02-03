@@ -47,7 +47,22 @@
             android:screenOrientation="portrait"/>
 
         <activity
+            android:name=".detection_filter.DetectionFilterScannerActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".ntimes_scan.NtimesTextScanActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity
             android:name=".barcode.BarcodeScannerActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"/>
+
+        <activity
+            android:name=".barcode_recognition_only_mode.BarcodeRecognitionOnlyModeActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
 
@@ -58,14 +73,6 @@
 
         <activity
             android:name=".barcode_bitmap.BarcodeBitmapActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".detection_filter.DetectionFilterScannerActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-
-        <activity android:name=".ntimes_scan.NtimesTextScanActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>
     </application>

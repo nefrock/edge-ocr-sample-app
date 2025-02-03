@@ -19,6 +19,7 @@ import com.nefrock.edgeocr.NefrockLicenseAPI;
 
 import com.nefrock.edgeocr_example.barcode.BarcodeScannerActivity;
 import com.nefrock.edgeocr_example.barcode_bitmap.BarcodeBitmapActivity;
+import com.nefrock.edgeocr_example.barcode_recognition_only_mode.BarcodeRecognitionOnlyModeActivity;
 import com.nefrock.edgeocr_example.camera_overlay.CameraOverlayTextScannerActivity;
 import com.nefrock.edgeocr_example.crop.CropTextScannerActivity;
 import com.nefrock.edgeocr_example.detection_filter.DetectionFilterScannerActivity;
@@ -79,6 +80,14 @@ import java.util.Collections;
             ModelSettings modelSettings = new ModelSettings();
             modelSettings.setBarcodeNToConfirm(Collections.singletonMap(BarcodeFormat.QRCode, 5));
             loadModelAndStartActivity(intent, "edgeocr_barcode_default", modelSettings);
+        });
+
+        findViewById(R.id.barcode_dpm_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), BarcodeRecognitionOnlyModeActivity.class);
+            intent.putExtra("show_dialog", true);
+            ModelSettings modelSettings = new ModelSettings();
+            modelSettings.setBarcodeNToConfirm(Collections.singletonMap(BarcodeFormat.Any, 1));
+            loadModelAndStartActivity(intent, "barcode_dpm", modelSettings);
         });
 
         findViewById(R.id.text_bitmap_button).setOnClickListener(view -> {
@@ -151,7 +160,7 @@ import java.util.Collections;
 
         Model model = null;
 
-        for (Model candidate : api.availableModels()) {
+        for (Model candidate : api.availableModelsWithExperimental()) {
             if (candidate.getUID().equals(modelUid)) {
                 model = candidate;
                 break;

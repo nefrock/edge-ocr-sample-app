@@ -66,8 +66,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:width="240dp"
-                android:text="範囲を指定してOCR"
-                app:layout_constraintTop_toBottomOf="@+id/simple_ocr_button" />
+                android:text="範囲を指定してOCR" />
 
             <Button
                 android:id="@+id/detection_filter_button"
@@ -75,8 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:width="240dp"
-                android:text="真ん中のテキストのみを読むOCR"
-                app:layout_constraintTop_toBottomOf="@+id/simple_ocr_button" />
+                android:text="真ん中のテキストのみを読むOCR" />
 
             <Button
                 android:id="@+id/ntimes_scan_button"
@@ -84,8 +82,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:width="240dp"
-                android:text="複数回読み取りで確定"
-                app:layout_constraintTop_toBottomOf="@+id/whitelist_ocr_button" />
+                android:text="複数回読み取りで確定" />
 
             <Button
                 android:id="@+id/barcode_button"
@@ -93,17 +90,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:width="240dp"
-                android:text="バーコード"
-                app:layout_constraintTop_toBottomOf="@+id/ed_ocr_button" />
+                android:text="バーコード" />
 
             <Button
-                android:id="@+id/activation_button"
+                android:id="@+id/barcode_dpm_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:width="240dp"
-                android:backgroundTint="#35952A"
-                app:layout_constraintTop_toBottomOf="@+id/text_bitmap_button" />
+                android:text="DPM DataMatrix" />
 
             <Button
                 android:id="@+id/text_bitmap_button"
@@ -111,8 +106,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:width="240dp"
-                android:text="TextBitmap実装"
-                app:layout_constraintTop_toBottomOf="@+id/barcode_bitmap_button"/>
+                android:text="TextBitmap実装"/>
 
             <Button
                 android:id="@+id/barcode_bitmap_button"
@@ -121,6 +115,14 @@
                 android:layout_marginTop="8dp"
                 android:width="240dp"
                 android:text="BarcodeBitmap実装" />
+
+            <Button
+                android:id="@+id/activation_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:width="240dp"
+                android:backgroundTint="#35952A" />
         </LinearLayout>
     </ScrollView>
 
