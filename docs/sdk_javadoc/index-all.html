@@ -84,6 +84,12 @@ loadScripts(document, 'script');</script>
  このメソッドをオーバーライドして、マッピング処理を実装してください。Textクラスの情報を
  元に、文字列を変更することができます。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/TextMapperWithConfidence.html#apply(com.nefrock.edgeocr.Text)" class="member-name-link">apply(Text)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextMapperWithConfidence.html" title="class in com.nefrock.edgeocr">TextMapperWithConfidence</a></dt>
+<dd>
+<div class="block">テキスト検出結果を変更するためのメソッドです。<br/>
+ このメソッドをオーバーライドして、マッピング処理を実装してください。Textクラスの情報を
+ 元に、文字列を変更することができます。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/Encoding.html#ASCII" class="member-name-link">ASCII</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
 <dd>
 <div class="block">ASCII</div>
@@ -235,6 +241,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/Text.LetterCandidate.html#confidence" class="member-name-link">confidence</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Text.LetterCandidate.html" title="class in com.nefrock.edgeocr">Text.LetterCandidate</a></dt>
 <dd>
 <div class="block">信頼値</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html#confidence" class="member-name-link">confidence</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html" title="class in com.nefrock.edgeocr">TextMapperWithConfidence.StringWithConfidence</a></dt>
+<dd>
+<div class="block">変更後の信頼度</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ScanConfirmationStatus.html#Confirmed" class="member-name-link">Confirmed</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanConfirmationStatus.html" title="enum class in com.nefrock.edgeocr">ScanConfirmationStatus</a></dt>
 <dd>
@@ -951,6 +961,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:R">R</h2>
 <dl class="index">
+<dt><a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html#reading" class="member-name-link">reading</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html" title="class in com.nefrock.edgeocr">TextMapperWithConfidence.StringWithConfidence</a></dt>
+<dd>
+<div class="block">変更後の文字列</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.ScanMode.html#RECOGNITION_ONLY" class="member-name-link">RECOGNITION_ONLY</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.ScanMode.html" title="enum class in com.nefrock.edgeocr">ScanOptions.ScanMode</a></dt>
 <dd>
 <div class="block">画像内の文字に対する認識のみを行います。</div>
@@ -1239,6 +1253,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">認識された文字列のテキストマッパーを設定する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/ModelSettings.html#setTextMapper(com.nefrock.edgeocr.TextMapperWithConfidence)" class="member-name-link">setTextMapper(TextMapperWithConfidence)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
+<dd>
+<div class="block">認識された文字列のテキストマッパーを設定する（信頼度付き）</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm(int)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
 <div class="block">文字検出結果の確定に必要な同じ結果の読み込み回数を設定する。
@@ -1272,6 +1290,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">読み取り結果がない場合に空の枠を表示するかどうかを設定する。規定値はfalse</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html#%3Cinit%3E(java.lang.String,float)" class="member-name-link">StringWithConfidence(String, float)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html" title="class in com.nefrock.edgeocr">TextMapperWithConfidence.StringWithConfidence</a></dt>
+<dd>
+<div class="block">変更後の文字列と信頼度を保持するクラスを作成します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html#SUBSTRING" class="member-name-link">SUBSTRING</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></dt>
 <dd>
 <div class="block">部分一致</div>
@@ -1303,6 +1325,18 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/TextMapper.html#%3Cinit%3E()" class="member-name-link">TextMapper()</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextMapper.html" title="class in com.nefrock.edgeocr">TextMapper</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/TextMapperWithConfidence.html" class="type-name-link" title="class in com.nefrock.edgeocr">TextMapperWithConfidence</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">テキスト検出結果を変更するためのクラスです。よくブレる文字の修正、または検出結果から不要な
+ 文字を削除するために使用します。変更した検出結果とともに、文字列の新しい信頼度も返却できます。<br/>
+ このクラスを継承して、applyメソッドを実装してください。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/TextMapperWithConfidence.html#%3Cinit%3E()" class="member-name-link">TextMapperWithConfidence()</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextMapperWithConfidence.html" title="class in com.nefrock.edgeocr">TextMapperWithConfidence</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html" class="type-name-link" title="class in com.nefrock.edgeocr">TextMapperWithConfidence.StringWithConfidence</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">変更後の文字列と信頼度を保持するクラスです。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html" class="type-name-link" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
 <div class="block">文字認識モデル設定を表す構造体</div>

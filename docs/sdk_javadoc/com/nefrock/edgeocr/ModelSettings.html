@@ -236,24 +236,29 @@ loadScripts(document, 'script');</script>
 <div class="block">認識された文字列のテキストマッパーを設定する</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm</a><wbr>(int&nbsp;textNToConfirm)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextMapper(com.nefrock.edgeocr.TextMapperWithConfidence)" class="member-name-link">setTextMapper</a><wbr>(<a href="TextMapperWithConfidence.html" title="class in com.nefrock.edgeocr">TextMapperWithConfidence</a>&nbsp;textMapper)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">認識された文字列のテキストマッパーを設定する（信頼度付き）</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextNToConfirm(int)" class="member-name-link">setTextNToConfirm</a><wbr>(int&nbsp;textNToConfirm)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">文字検出結果の確定に必要な同じ結果の読み込み回数を設定する。
  この設定は<a href="ScanOptions.ScanMode.html#DEFAULT"><code>ScanOptions.ScanMode.DEFAULT</code></a>の場合のみ有効です。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextRecognizerExecutionSettings(com.nefrock.edgeocr.ExecutionSettings)" class="member-name-link">setTextRecognizerExecutionSettings</a><wbr>(<a href="ExecutionSettings.html" title="class in com.nefrock.edgeocr">ExecutionSettings</a>&nbsp;textRecognizerExecutionSettings)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextRecognizerExecutionSettings(com.nefrock.edgeocr.ExecutionSettings)" class="member-name-link">setTextRecognizerExecutionSettings</a><wbr>(<a href="ExecutionSettings.html" title="class in com.nefrock.edgeocr">ExecutionSettings</a>&nbsp;textRecognizerExecutionSettings)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">認識モデルの実行設定を設定する</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextRecognizerSettings(com.nefrock.edgeocr.TextRecognizerSettings)" class="member-name-link">setTextRecognizerSettings</a><wbr>(<a href="TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a>&nbsp;textRecognizerSettings)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextRecognizerSettings(com.nefrock.edgeocr.TextRecognizerSettings)" class="member-name-link">setTextRecognizerSettings</a><wbr>(<a href="TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a>&nbsp;textRecognizerSettings)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">文字認識モデルの詳細設定を設定する</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setZeroConfidenceThreshold(float)" class="member-name-link">setZeroConfidenceThreshold</a><wbr>(float&nbsp;zeroConfidenceThreshold)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setZeroConfidenceThreshold(float)" class="member-name-link">setZeroConfidenceThreshold</a><wbr>(float&nbsp;zeroConfidenceThreshold)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）を設定する</div>
 </div>
 </div>
@@ -581,6 +586,17 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>textMapper</code> - テキストマッパー</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setTextMapper(com.nefrock.edgeocr.TextMapperWithConfidence)">
+<h3>setTextMapper</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setTextMapper</span><wbr><span class="parameters">(<a href="TextMapperWithConfidence.html" title="class in com.nefrock.edgeocr">TextMapperWithConfidence</a>&nbsp;textMapper)</span></div>
+<div class="block">認識された文字列のテキストマッパーを設定する（信頼度付き）</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>textMapper</code> - 信頼度付きのテキストマッパー</dd>
 </dl>
 </section>
 </li>
