@@ -44,7 +44,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li>Constr&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -84,12 +84,30 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Barcode.EncodingRange.html" class="type-name-link" title="class in com.nefrock.edgeocr">Barcode.EncodingRange</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">バーコード内容のエンコーディングを表すクラスです。
+ エンコーディングのレンジ重複することがありません。</div>
+</div>
+</div>
+</section>
+</li>
 <!-- ========== METHOD SUMMARY =========== -->
 <li>
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
 <div class="summary-table three-column-summary">
 <div class="table-header col-first">Modifier and Type</div>
@@ -100,16 +118,32 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">バーコードがGS1データを表すかどうかを表します。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEncoding()" class="member-name-link">getEncoding</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">バーコードのバイナリデータに使用されたエンコーディングを取得します。
- QRコードなど、バイナリデートをサポートするバーコードの場合のみ有効です。</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getEncoding()" class="member-name-link">getEncoding</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。バーコードのエンコーディングは、
+ <a href="#getEncodingRanges()"><code>getEncodingRanges()</code></a>を使用して取得してください。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFormat()" class="member-name-link">getFormat</a>()</code></div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Barcode.EncodingRange.html" title="class in com.nefrock.edgeocr">Barcode.EncodingRange</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEncodingRanges()" class="member-name-link">getEncodingRanges</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">バーコードのバイナリデータのエンコーディングの範囲を取得します。
+ <a href="#getRawData()"><code>getRawData()</code></a>の内容を解析するために使用できます。読み取ったバーコードに
+ エンコーディングが明示的に指定されていない場合は推測されますので、誤ったエンコーディングが
+ 返される可能性があります。</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFormat()" class="member-name-link">getFormat</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">バーコードのフォーマットを取得します。</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>byte[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRawData()" class="member-name-link">getRawData</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">バーコードのバイナリデータを取得します。
+ エンコーディングは、<a href="#getEncodingRanges()"><code>getEncodingRanges()</code></a>を使用して取得してください。</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getText()" class="member-name-link">getText</a>()</code></div>
@@ -175,14 +209,46 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="getRawData()">
+<h3>getRawData</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">byte[]</span>&nbsp;<span class="element-name">getRawData</span>()</div>
+<div class="block">バーコードのバイナリデータを取得します。
+ エンコーディングは、<a href="#getEncodingRanges()"><code>getEncodingRanges()</code></a>を使用して取得してください。</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>バーコードのバイナリデータ</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getEncoding()">
 <h3>getEncoding</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></span>&nbsp;<span class="element-name">getEncoding</span>()</div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></span>&nbsp;<span class="element-name">getEncoding</span>()</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。バーコードのエンコーディングは、
+ <a href="#getEncodingRanges()"><code>getEncodingRanges()</code></a>を使用して取得してください。</div>
+</div>
 <div class="block">バーコードのバイナリデータに使用されたエンコーディングを取得します。
- QRコードなど、バイナリデートをサポートするバーコードの場合のみ有効です。</div>
+ QRコードなど、バイナリデートをサポートするバーコードの場合のみ有効です。
+ ECIを使用するバーコードの場合は、最初のエンコーディングのみ返されます。</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>バーコードの文字セット</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getEncodingRanges()">
+<h3>getEncodingRanges</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Barcode.EncodingRange.html" title="class in com.nefrock.edgeocr">Barcode.EncodingRange</a>&gt;</span>&nbsp;<span class="element-name">getEncodingRanges</span>()</div>
+<div class="block">バーコードのバイナリデータのエンコーディングの範囲を取得します。
+ <a href="#getRawData()"><code>getRawData()</code></a>の内容を解析するために使用できます。読み取ったバーコードに
+ エンコーディングが明示的に指定されていない場合は推測されますので、誤ったエンコーディングが
+ 返される可能性があります。</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>バーコードの文字セットのリスト</dd>
 </dl>
 </section>
 </li>

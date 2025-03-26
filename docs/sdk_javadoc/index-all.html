@@ -120,6 +120,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">バーコード</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/Barcode.EncodingRange.html" class="type-name-link" title="class in com.nefrock.edgeocr">Barcode.EncodingRange</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">バーコード内容のエンコーディングを表すクラスです。
+ エンコーディングのレンジ重複することがありません。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
 <div class="block">バーコードの種類を表す列挙型</div>
@@ -410,6 +415,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">編集距離</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/Barcode.EncodingRange.html#encoding" class="member-name-link">encoding</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.EncodingRange.html" title="class in com.nefrock.edgeocr">Barcode.EncodingRange</a></dt>
+<dd>
+<div class="block">エンコーディング</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/Encoding.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">Encoding</a> - Enum Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
 <div class="block">文字列のエンコーディングを表す列挙型</div>
@@ -562,6 +571,11 @@ loadScripts(document, 'script');</script>
  <a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>において、<a href="com/nefrock/edgeocr/CropRect.html" title="class in com.nefrock.edgeocr"><code>CropRect</code></a>が指定されている場合でも、バウンディングボックスの座標は元画像の左上を原点とした相対座標系になります。
  上記の「元画像」とは、ViewPortの適応後の（画面に見えている）画像を指します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/Encoding.html#getCharset()" class="member-name-link">getCharset()</a> - Method in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
+<dd>
+<div class="block">エンコーディングを<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/charset/Charset.html" title="class or interface in java.nio.charset" class="external-link"><code>Charset</code></a>オブジェクトに変換します。
+ <a href="com/nefrock/edgeocr/Encoding.html#BINARY"><code>Encoding.BINARY</code></a>または<a href="com/nefrock/edgeocr/Encoding.html#Unknown"><code>Encoding.Unknown</code></a>の場合は null が返ります。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#getCheckAfterFrames()" class="member-name-link">getCheckAfterFrames()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getCombineHorizontal()" class="member-name-link">getCombineHorizontal()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
@@ -613,8 +627,17 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/Barcode.html#getEncoding()" class="member-name-link">getEncoding()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.html" title="class in com.nefrock.edgeocr">Barcode</a></dt>
 <dd>
-<div class="block">バーコードのバイナリデータに使用されたエンコーディングを取得します。
- QRコードなど、バイナリデートをサポートするバーコードの場合のみ有効です。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。バーコードのエンコーディングは、
+ <a href="com/nefrock/edgeocr/Barcode.html#getEncodingRanges()"><code>Barcode.getEncodingRanges()</code></a>を使用して取得してください。</div>
+</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Barcode.html#getEncodingRanges()" class="member-name-link">getEncodingRanges()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.html" title="class in com.nefrock.edgeocr">Barcode</a></dt>
+<dd>
+<div class="block">バーコードのバイナリデータのエンコーディングの範囲を取得します。
+ <a href="com/nefrock/edgeocr/Barcode.html#getRawData()"><code>Barcode.getRawData()</code></a>の内容を解析するために使用できます。読み取ったバーコードに
+ エンコーディングが明示的に指定されていない場合は推測されますので、誤ったエンコーディングが
+ 返される可能性があります。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/EdgeError.html#getErrorCode()" class="member-name-link">getErrorCode()</a> - Method in exception com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></dt>
 <dd>
@@ -657,6 +680,11 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/ScanResult.html#getPreprocessingTime()" class="member-name-link">getPreprocessingTime()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></dt>
 <dd>
 <div class="block">前処理にかかった時間を返します。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Barcode.html#getRawData()" class="member-name-link">getRawData()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.html" title="class in com.nefrock.edgeocr">Barcode</a></dt>
+<dd>
+<div class="block">バーコードのバイナリデータを取得します。
+ エンコーディングは、<a href="com/nefrock/edgeocr/Barcode.html#getEncodingRanges()"><code>Barcode.getEncodingRanges()</code></a>を使用して取得してください。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.html#getScanMode()" class="member-name-link">getScanMode()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
 <dd>
@@ -813,6 +841,10 @@ loadScripts(document, 'script');</script>
 </dl>
 <h2 class="title" id="I:L">L</h2>
 <dl class="index">
+<dt><a href="com/nefrock/edgeocr/Barcode.EncodingRange.html#length" class="member-name-link">length</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.EncodingRange.html" title="class in com.nefrock.edgeocr">Barcode.EncodingRange</a></dt>
+<dd>
+<div class="block">長さ</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/Text.LetterCandidate.html#letter" class="member-name-link">letter</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Text.LetterCandidate.html" title="class in com.nefrock.edgeocr">Text.LetterCandidate</a></dt>
 <dd>
 <div class="block">文字</div>
@@ -1289,6 +1321,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/ui/CameraOverlay.html#showEmptyBoxes(boolean)" class="member-name-link">showEmptyBoxes(boolean)</a> - Method in class com.nefrock.edgeocr.ui.<a href="com/nefrock/edgeocr/ui/CameraOverlay.html" title="class in com.nefrock.edgeocr.ui">CameraOverlay</a></dt>
 <dd>
 <div class="block">読み取り結果がない場合に空の枠を表示するかどうかを設定する。規定値はfalse</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/Barcode.EncodingRange.html#start" class="member-name-link">start</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Barcode.EncodingRange.html" title="class in com.nefrock.edgeocr">Barcode.EncodingRange</a></dt>
+<dd>
+<div class="block">開始位置</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html#%3Cinit%3E(java.lang.String,float)" class="member-name-link">StringWithConfidence(String, float)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextMapperWithConfidence.StringWithConfidence.html" title="class in com.nefrock.edgeocr">TextMapperWithConfidence.StringWithConfidence</a></dt>
 <dd>
