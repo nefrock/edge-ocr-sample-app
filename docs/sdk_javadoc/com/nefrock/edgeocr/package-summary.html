@@ -282,7 +282,11 @@ loadScripts(document, 'script');</script>
  同期的に画像内の文字を検出・認識します。<br>
  リアルタイムなカメラ画像の解析ではなく、静止画像の解析に使用してください。<br>
  
- </div>
+ 
+
+ 回転の角度を指定することができます。指定しない場合は、以下のように動作します。<br>
+ <a href="EdgeVisionAPI.html#scan(android.graphics.Bitmap,com.nefrock.edgeocr.ScanOptions)"><code>EdgeVisionAPI.scan(ImageProxy, ScanOptions)</code></a> メソッドの場合は、ImageProxyの回転角度を使用します。<br>
+ <a href="EdgeVisionAPI.html#scan(android.graphics.Bitmap,com.nefrock.edgeocr.ScanOptions)"><code>EdgeVisionAPI.scan(Bitmap, ScanOptions)</code></a> メソッドの場合は、回転しません。<br></div>
 </div>
 <div class="col-first odd-row-color class-summary class-summary-tab3"><a href="ScanOptions.ScanMode.html" title="enum class in com.nefrock.edgeocr">ScanOptions.ScanMode</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab3">

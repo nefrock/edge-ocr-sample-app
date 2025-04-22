@@ -167,7 +167,6 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
  バーコードのみ、文字のみ、または両方を検出・認識します。
- 動画に対してではなく、静止画像に対しての利用を想定しているため同期的にOCRを行います。
  android.graphics.Bitmap.Configの全てのバーコードフォーマットをサポートします。</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></code></div>
@@ -184,6 +183,39 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
  バーコードのみ、文字のみ、または両方を検出・認識します。
+
+ scanOptionを用いて、スキャンの動作をカスタマイズすることができます。詳細は、
+ <a href="ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>を参照してください。</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scan(java.nio.ByteBuffer,int,int,int)" class="member-name-link">scan</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;imageBytes,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;stride)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
+ バーコードのみ、文字のみ、または両方を検出・認識します。また、モデルのアスペクト比が固定
+ である場合、画像の中心部分からアスペクト比を保ったまま切り出せる最大のサイズに対してスキャン
+ を行います。
+ 動画に対してではなく、静止画像に対しての利用を想定しているため同期的にOCRを行います。
+ imageBytesには、RGBA8888形式の画像データを使ってください。なお、ByteBufferは
+ direct bufferである必要があります(https://developer.android.com/reference/java/nio/ByteBuffer#direct-vs.-non-direct-buffers)
+ Androidのandroid.graphics.BitmapがgetConfigでARGB8888を返す場合は、実は
+ RGBA8888形式の画像データです。</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#scan(java.nio.ByteBuffer,int,int,int,com.nefrock.edgeocr.ScanOptions)" class="member-name-link">scan</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;imageBytes,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;stride,
+ <a href="ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a>&nbsp;scanOptions)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
+ バーコードのみ、文字のみ、または両方を検出・認識します。
+ imageBytesには、RGBA8888形式の画像データを使ってください。なお、ByteBufferは
+ direct bufferである必要があります(https://developer.android.com/reference/java/nio/ByteBuffer#direct-vs.-non-direct-buffers)
+ Androidのandroid.graphics.BitmapがgetConfigでARGB8888を返す場合は、実は
+ RGBA8888形式の画像データです。
 
  scanOptionを用いて、スキャンの動作をカスタマイズすることができます。詳細は、
  <a href="ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>を参照してください。</div>
@@ -515,7 +547,6 @@ loadScripts(document, 'script');</script>
          throws <span class="exceptions"><a href="EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></span></div>
 <div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
  バーコードのみ、文字のみ、または両方を検出・認識します。
- 動画に対してではなく、静止画像に対しての利用を想定しているため同期的にOCRを行います。
  android.graphics.Bitmap.Configの全てのバーコードフォーマットをサポートします。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -534,6 +565,71 @@ loadScripts(document, 'script');</script>
  ScanOptionsを参照してください。</li>
 </ul>
 </dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="scan(java.nio.ByteBuffer,int,int,int)">
+<h3>scan</h3>
+<div class="member-signature"><span class="return-type"><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></span>&nbsp;<span class="element-name">scan</span><wbr><span class="parameters">(@NonNull
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;imageBytes,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;stride)</span>
+         throws <span class="exceptions"><a href="EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></span></div>
+<div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
+ バーコードのみ、文字のみ、または両方を検出・認識します。また、モデルのアスペクト比が固定
+ である場合、画像の中心部分からアスペクト比を保ったまま切り出せる最大のサイズに対してスキャン
+ を行います。
+ 動画に対してではなく、静止画像に対しての利用を想定しているため同期的にOCRを行います。
+ imageBytesには、RGBA8888形式の画像データを使ってください。なお、ByteBufferは
+ direct bufferである必要があります(https://developer.android.com/reference/java/nio/ByteBuffer#direct-vs.-non-direct-buffers)
+ Androidのandroid.graphics.BitmapがgetConfigでARGB8888を返す場合は、実は
+ RGBA8888形式の画像データです。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>imageBytes</code> - 入力画像のバイナリデータ(ByteBuffer)</dd>
+<dd><code>width</code> - 入力画像の幅</dd>
+<dd><code>height</code> - 入力画像の高さ</dd>
+<dd><code>stride</code> - 入力画像のストライド</dd>
+<dt>Returns:</dt>
+<dd>入力画像に写っている文字列・バーコードの位置情報、内容及びOCR結果の確からしさに関する情報</dd>
+<dt>Throws:</dt>
+<dd><code><a href="EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></code> - 検出・認識に失敗した場合</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="scan(java.nio.ByteBuffer,int,int,int,com.nefrock.edgeocr.ScanOptions)">
+<h3>scan</h3>
+<div class="member-signature"><span class="return-type"><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></span>&nbsp;<span class="element-name">scan</span><wbr><span class="parameters">(@NonNull
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;imageBytes,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;stride,
+ @NonNull
+ <a href="ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a>&nbsp;scanOptions)</span>
+         throws <span class="exceptions"><a href="EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></span></div>
+<div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
+ バーコードのみ、文字のみ、または両方を検出・認識します。
+ imageBytesには、RGBA8888形式の画像データを使ってください。なお、ByteBufferは
+ direct bufferである必要があります(https://developer.android.com/reference/java/nio/ByteBuffer#direct-vs.-non-direct-buffers)
+ Androidのandroid.graphics.BitmapがgetConfigでARGB8888を返す場合は、実は
+ RGBA8888形式の画像データです。
+
+ scanOptionを用いて、スキャンの動作をカスタマイズすることができます。詳細は、
+ <a href="ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>を参照してください。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>imageBytes</code> - 入力画像(ImageProxy)</dd>
+<dd><code>width</code> - 入力画像の幅</dd>
+<dd><code>height</code> - 入力画像の高さ</dd>
+<dd><code>stride</code> - 入力画像のストライド</dd>
+<dd><code>scanOptions</code> - クロップの位置、スキャンモードを指定するオプション</dd>
+<dt>Returns:</dt>
+<dd>入力画像に写っている文字列の位置情報、内容及びOCR結果の確からしさに関する情報</dd>
+<dt>Throws:</dt>
+<dd><code><a href="EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></code> - 検出・認識に失敗した場合</dd>
 </dl>
 </section>
 </li>

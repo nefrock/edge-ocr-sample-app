@@ -686,6 +686,10 @@ loadScripts(document, 'script');</script>
 <div class="block">バーコードのバイナリデータを取得します。
  エンコーディングは、<a href="com/nefrock/edgeocr/Barcode.html#getEncodingRanges()"><code>Barcode.getEncodingRanges()</code></a>を使用して取得してください。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/ScanOptions.html#getRotation()" class="member-name-link">getRotation()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
+<dd>
+<div class="block">設定した回転角度を返します。設定していない場合は、nullを返します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.html#getScanMode()" class="member-name-link">getScanMode()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
 <dd>
 <div class="block">設定したスキャンモードを返します。</div>
@@ -1057,7 +1061,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
  バーコードのみ、文字のみ、または両方を検出・認識します。
- 動画に対してではなく、静止画像に対しての利用を想定しているため同期的にOCRを行います。
  android.graphics.Bitmap.Configの全てのバーコードフォーマットをサポートします。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#scan(androidx.camera.core.ImageProxy)" class="member-name-link">scan(ImageProxy)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
@@ -1071,6 +1074,30 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
  バーコードのみ、文字のみ、または両方を検出・認識します。
+
+ scanOptionを用いて、スキャンの動作をカスタマイズすることができます。詳細は、
+ <a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>を参照してください。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#scan(java.nio.ByteBuffer,int,int,int)" class="member-name-link">scan(ByteBuffer, int, int, int)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
+<dd>
+<div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
+ バーコードのみ、文字のみ、または両方を検出・認識します。また、モデルのアスペクト比が固定
+ である場合、画像の中心部分からアスペクト比を保ったまま切り出せる最大のサイズに対してスキャン
+ を行います。
+ 動画に対してではなく、静止画像に対しての利用を想定しているため同期的にOCRを行います。
+ imageBytesには、RGBA8888形式の画像データを使ってください。なお、ByteBufferは
+ direct bufferである必要があります(https://developer.android.com/reference/java/nio/ByteBuffer#direct-vs.-non-direct-buffers)
+ Androidのandroid.graphics.BitmapがgetConfigでARGB8888を返す場合は、実は
+ RGBA8888形式の画像データです。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#scan(java.nio.ByteBuffer,int,int,int,com.nefrock.edgeocr.ScanOptions)" class="member-name-link">scan(ByteBuffer, int, int, int, ScanOptions)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
+<dd>
+<div class="block">入力画像に対して文字・バーコードの検出・認識を行います。useModelで選択したモデルによって、
+ バーコードのみ、文字のみ、または両方を検出・認識します。
+ imageBytesには、RGBA8888形式の画像データを使ってください。なお、ByteBufferは
+ direct bufferである必要があります(https://developer.android.com/reference/java/nio/ByteBuffer#direct-vs.-non-direct-buffers)
+ Androidのandroid.graphics.BitmapがgetConfigでARGB8888を返す場合は、実は
+ RGBA8888形式の画像データです。
 
  scanOptionを用いて、スキャンの動作をカスタマイズすることができます。詳細は、
  <a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr"><code>ScanOptions</code></a>を参照してください。</div>
@@ -1106,7 +1133,11 @@ loadScripts(document, 'script');</script>
  同期的に画像内の文字を検出・認識します。<br>
  リアルタイムなカメラ画像の解析ではなく、静止画像の解析に使用してください。<br>
  
- </div>
+ 
+
+ 回転の角度を指定することができます。指定しない場合は、以下のように動作します。<br>
+ <a href="com/nefrock/edgeocr/EdgeVisionAPI.html#scan(android.graphics.Bitmap,com.nefrock.edgeocr.ScanOptions)"><code>EdgeVisionAPI.scan(ImageProxy, ScanOptions)</code></a> メソッドの場合は、ImageProxyの回転角度を使用します。<br>
+ <a href="com/nefrock/edgeocr/EdgeVisionAPI.html#scan(android.graphics.Bitmap,com.nefrock.edgeocr.ScanOptions)"><code>EdgeVisionAPI.scan(Bitmap, ScanOptions)</code></a> メソッドの場合は、回転しません。<br></div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.html#%3Cinit%3E()" class="member-name-link">ScanOptions()</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
 <dd>
@@ -1260,6 +1291,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/DBTextDetectorSettings.html#setPostProcessing(com.nefrock.edgeocr.DBPostProcessing)" class="member-name-link">setPostProcessing(DBPostProcessing)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/DBTextDetectorSettings.html" title="class in com.nefrock.edgeocr">DBTextDetectorSettings</a></dt>
 <dd>
 <div class="block">内部使用（実験的）：検出モデルの出力のポストプロセスを設定する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/ScanOptions.html#setRotation(com.nefrock.edgeocr.Rotation)" class="member-name-link">setRotation(Rotation)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
+<dd>
+<div class="block">回転角度を設定します。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.html#setScanMode(com.nefrock.edgeocr.ScanOptions.ScanMode)" class="member-name-link">setScanMode(ScanOptions.ScanMode)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
 <dd>

@@ -98,7 +98,11 @@ loadScripts(document, 'script');</script>
  同期的に画像内の文字を検出・認識します。<br>
  リアルタイムなカメラ画像の解析ではなく、静止画像の解析に使用してください。<br>
  </li>
- </ol></div>
+ </ol>
+
+ 回転の角度を指定することができます。指定しない場合は、以下のように動作します。<br>
+ <a href="EdgeVisionAPI.html#scan(android.graphics.Bitmap,com.nefrock.edgeocr.ScanOptions)"><code>EdgeVisionAPI.scan(ImageProxy, ScanOptions)</code></a> メソッドの場合は、ImageProxyの回転角度を使用します。<br>
+ <a href="EdgeVisionAPI.html#scan(android.graphics.Bitmap,com.nefrock.edgeocr.ScanOptions)"><code>EdgeVisionAPI.scan(Bitmap, ScanOptions)</code></a> メソッドの場合は、回転しません。<br></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -167,30 +171,40 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">画像を垂直方向に反転するかどうかを返します。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ScanOptions.ScanMode.html" title="enum class in com.nefrock.edgeocr">ScanOptions.ScanMode</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScanMode()" class="member-name-link">getScanMode</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Rotation.html" title="enum class in com.nefrock.edgeocr">Rotation</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRotation()" class="member-name-link">getRotation</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">設定した回転角度を返します。設定していない場合は、nullを返します。</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ScanOptions.ScanMode.html" title="enum class in com.nefrock.edgeocr">ScanOptions.ScanMode</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScanMode()" class="member-name-link">getScanMode</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">設定したスキャンモードを返します。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBarcodeFormats(java.util.List)" class="member-name-link">setBarcodeFormats</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a>&gt;&nbsp;barcodeFormats)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBarcodeFormats(java.util.List)" class="member-name-link">setBarcodeFormats</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a>&gt;&nbsp;barcodeFormats)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">バーコードの種類を設定します。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCropRect(com.nefrock.edgeocr.CropRect)" class="member-name-link">setCropRect</a><wbr>(<a href="CropRect.html" title="class in com.nefrock.edgeocr">CropRect</a>&nbsp;cropRect)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCropRect(com.nefrock.edgeocr.CropRect)" class="member-name-link">setCropRect</a><wbr>(<a href="CropRect.html" title="class in com.nefrock.edgeocr">CropRect</a>&nbsp;cropRect)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">スキャン範囲を設定します。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFlipHorizontal(boolean)" class="member-name-link">setFlipHorizontal</a><wbr>(boolean&nbsp;flipHorizontal)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFlipHorizontal(boolean)" class="member-name-link">setFlipHorizontal</a><wbr>(boolean&nbsp;flipHorizontal)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">画像を水平方向に反転するかどうかを設定します。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFlipVertical(boolean)" class="member-name-link">setFlipVertical</a><wbr>(boolean&nbsp;flipVertical)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFlipVertical(boolean)" class="member-name-link">setFlipVertical</a><wbr>(boolean&nbsp;flipVertical)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">画像を垂直方向に反転するかどうかを設定します。</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRotation(com.nefrock.edgeocr.Rotation)" class="member-name-link">setRotation</a><wbr>(<a href="Rotation.html" title="enum class in com.nefrock.edgeocr">Rotation</a>&nbsp;rotation)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">回転角度を設定します。</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setScanMode(com.nefrock.edgeocr.ScanOptions.ScanMode)" class="member-name-link">setScanMode</a><wbr>(<a href="ScanOptions.ScanMode.html" title="enum class in com.nefrock.edgeocr">ScanOptions.ScanMode</a>&nbsp;scanMode)</code></div>
@@ -274,6 +288,29 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>cropRect</code> - スキャン範囲</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getRotation()">
+<h3>getRotation</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Rotation.html" title="enum class in com.nefrock.edgeocr">Rotation</a></span>&nbsp;<span class="element-name">getRotation</span>()</div>
+<div class="block">設定した回転角度を返します。設定していない場合は、nullを返します。</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>回転角度</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setRotation(com.nefrock.edgeocr.Rotation)">
+<h3>setRotation</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setRotation</span><wbr><span class="parameters">(@NonNull
+ <a href="Rotation.html" title="enum class in com.nefrock.edgeocr">Rotation</a>&nbsp;rotation)</span></div>
+<div class="block">回転角度を設定します。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>rotation</code> - 回転角度</dd>
 </dl>
 </section>
 </li>
