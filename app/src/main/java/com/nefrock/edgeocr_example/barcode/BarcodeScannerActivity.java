@@ -2,14 +2,17 @@ package com.nefrock.edgeocr_example.barcode;
 
 import android.app.AlertDialog;
 import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.util.Rational;
 import android.util.Size;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.Preview;
@@ -38,6 +41,8 @@ public class BarcodeScannerActivity extends AppCompatActivity {
     private final ExecutorService analysisExecutor = Executors.newSingleThreadExecutor();
     private BarcodeAnalyzer barcodeAnalyzer;
     private CameraOverlay cameraOverlay;
+    private SeekBar zoomBar;
+    private Camera camera;
     private ImageAnalysis imageAnalysis;
     //ダイアログを表示するか（表示中はスキャンを辞める）
     private boolean showDialog = false;
@@ -58,6 +63,30 @@ public class BarcodeScannerActivity extends AppCompatActivity {
         // Wait for overlay to be drawn
         cameraOverlay = findViewById(R.id.overlay);
         cameraOverlay.post(() -> cameraOverlay.setCrop(0f, 0f, 1f, 1f));
+
+        zoomBar = findViewById(R.id.zoom_bar);
+        zoomBar.setMax(100);
+        // Get initial zoom value from shared preferences
+        SharedPreferences prefs = getPreferences(MODE_PRIVATE);
+        float zoom = prefs.getInt("cameraZoom", 70);
+        zoomBar.setProgress((int)zoom);
+        zoomBar.setOnSeekBarChangeListener(
+            new SeekBar.OnSeekBarChangeListener() {
+                @Override
+                public void onProgressChanged(
+                        SeekBar zoomBar, int progress, boolean fromUser) {
+                    if (camera == null) return;
+                    camera.getCameraControl().setLinearZoom(progress / 100.0f);
+                    // Save zoom value to shared preferences
+                    SharedPreferences.Editor editor = prefs.edit();
+                    editor.putInt("cameraZoom", progress);
+                    editor.apply();
+                }
+                @Override
+                public void onStartTrackingTouch(SeekBar zoomBar) {}
+                @Override
+                public void onStopTrackingTouch(SeekBar zoomBar) {}
+            });
 
         if (cameraPermissionGranted()) {
             startCamera();
@@ -142,8 +171,10 @@ public class BarcodeScannerActivity extends AppCompatActivity {
 
             try {
                 cameraProvider.unbindAll();
-                cameraProvider.bindToLifecycle(
+                camera = cameraProvider.bindToLifecycle(
                         this, CameraSelector.DEFAULT_BACK_CAMERA, useCaseGroup);
+                // Set initial zoom value
+                camera.getCameraControl().setLinearZoom(zoomBar.getProgress() / 100.0f);
             } catch(Exception e) {
                 Log.e("EdgeOCRExample", "[startCamera] Use case binding failed", e);
             }
