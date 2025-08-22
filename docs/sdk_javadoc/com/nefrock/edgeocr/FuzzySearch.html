@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../script.js"></script>
-<script type="text/javascript" src="../../../script-dir/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../script-dir/jquery-3.7.1.min.js"></script>
 <script type="text/javascript" src="../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -90,7 +90,7 @@ loadScripts(document, 'script');</script>
  FuzzySearch fs = new FuzzySearch("greedy_distance", "substring", 100);
 
  // 編集距離計算のために重みをロード
- fs.loadWeight("radical_distance");
+ fs.loadWeight("radical_distance", true);
 
  // 2つの文字列間の類似度を計算
  double similarity = ds.calcSimilarity("文字列A", "文字列B");
@@ -152,6 +152,13 @@ loadScripts(document, 'script');</script>
  <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
  int&nbsp;size)</code></div>
 <div class="col-last even-row-color">
+<div class="block">コンストラクタ</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
+ <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
+ int&nbsp;size,
+ boolean&nbsp;ignoreCase)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">コンストラクタ</div>
 </div>
 </div>
@@ -228,6 +235,23 @@ loadScripts(document, 'script');</script>
 <dd><code>distType</code> - 距離の種類</dd>
 <dd><code>mode</code> - 検索モード</dd>
 <dd><code>size</code> - GreedyDistance に使用するマッチングのサイズ</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean)">
+<h3>FuzzySearch</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
+ <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
+ int&nbsp;size,
+ boolean&nbsp;ignoreCase)</span></div>
+<div class="block">コンストラクタ</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>distType</code> - 距離の種類</dd>
+<dd><code>mode</code> - 検索モード</dd>
+<dd><code>size</code> - GreedyDistance に使用するマッチングのサイズ</dd>
+<dd><code>ignoreCase</code> - 大文字小文字を区別するかどうか</dd>
 </dl>
 </section>
 </li>

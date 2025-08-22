@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Rational;
 import android.util.Size;
+import android.view.View;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -28,6 +29,9 @@ import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.google.common.util.concurrent.ListenableFuture;
 
@@ -54,6 +58,15 @@ import java.util.concurrent.TimeUnit;
     private SurfaceOrientedMeteringPointFactory meteringPointFactory;
     //ダイアログを表示するか（表示中はスキャンを辞める）
     EdgeVisionAPI api;
+
+    void addMarginsForEdgeToEdge() {
+        View view = this.getWindow().getDecorView().findViewById(android.R.id.content);
+        ViewCompat.setOnApplyWindowInsetsListener(view, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +143,7 @@ import java.util.concurrent.TimeUnit;
                 }
             }
         );
+        addMarginsForEdgeToEdge();
     }
 
     @Override

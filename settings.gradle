@@ -11,9 +11,9 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url "$rootDir/edge_ocr_sdk_maven"
+            url = "$rootDir/edge_ocr_sdk_maven"
         }
     }
 }
 rootProject.name = "EdgeOCR Example"
-include ':app'
+include(':app')

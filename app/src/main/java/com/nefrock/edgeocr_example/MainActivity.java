@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.camera.camera2.interop.ExperimentalCamera2Interop;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 import com.nefrock.edgeocr.BarcodeFormat;
 import com.nefrock.edgeocr.EdgeError;
@@ -33,6 +37,14 @@ import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
 import java.util.Collections;
 
 @ExperimentalCamera2Interop public class MainActivity extends AppCompatActivity {
+    void addMarginsForEdgeToEdge() {
+        View view = this.getWindow().getDecorView().findViewById(android.R.id.content);
+        ViewCompat.setOnApplyWindowInsetsListener(view, (v, windowInsets) -> {
+            Insets insets = windowInsets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(insets.left, insets.top, insets.right, insets.bottom);
+            return WindowInsetsCompat.CONSUMED;
+        });
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -142,6 +154,7 @@ import java.util.Collections;
                     getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG).show());
             }
         ));
+        addMarginsForEdgeToEdge();
     }
 
     private void loadModelAndStartActivity(Intent intent, String modelUid) {
