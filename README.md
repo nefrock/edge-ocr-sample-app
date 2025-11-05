@@ -45,7 +45,6 @@ dependencies {
 - [アクティベーション](./docs/activation.md)
 - [最もシンプルな例](./docs/simple-text.md)
 - [OCR結果を画面に表示する](./docs/boxesoverlay.md)
-- [読み取れない画像のフィードバック](./docs/feedback.md)
 - [範囲を指定してOCR](./docs/crop.md)
 - [テキスト範囲の検出時にフィルタを行う](./docs/detectionfilter.md)
 - [textの複数回読み取りで精度を上げる](./docs/ntimes-scan.md)

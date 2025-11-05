@@ -37,11 +37,6 @@
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".report.ReportScannerActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"/>
-
-        <activity
             android:name=".crop.CropTextScannerActivity"
             android:exported="true"
             android:screenOrientation="portrait"/>

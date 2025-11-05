@@ -18,7 +18,6 @@ import androidx.camera.camera2.interop.ExperimentalCamera2Interop;
 import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
-import androidx.camera.core.ImageCapture;
 import androidx.camera.core.Preview;
 import androidx.camera.core.UseCaseGroup;
 import androidx.camera.core.ViewPort;
@@ -47,7 +46,6 @@ import java.util.concurrent.Executors;
     private PostCodeRegexTextAnalyzer imageAnalyzer;
     private CameraOverlay cameraOverlay;
     private ImageAnalysis imageAnalysis;
-    private ImageCapture imageCapture;
     private Camera camera;
     EdgeVisionAPI api;
 
@@ -163,14 +161,6 @@ import java.util.concurrent.Executors;
                     .build();
             imageAnalysis.setAnalyzer(analysisExecutor, imageAnalyzer);
 
-            ImageCapture.Builder imageCaptureBuilder = new ImageCapture.Builder();
-
-            imageCapture = imageCaptureBuilder
-                    .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
-                    .setTargetRotation(preview.getTargetRotation())
-                    .setTargetResolution(targetResolution)
-                    .build();
-
             // Aspect ratio is ignored since we use FIT
             Rational aspectRatio = new Rational(1, 1);
             ViewPort viewPort = new ViewPort.Builder(aspectRatio, preview.getTargetRotation())
@@ -179,7 +169,6 @@ import java.util.concurrent.Executors;
             UseCaseGroup useCaseGroup = new UseCaseGroup.Builder()
                     .addUseCase(preview)
                     .addUseCase(imageAnalysis)
-                    .addUseCase(imageCapture)
                     .setViewPort(viewPort)
                     .build();
             try {

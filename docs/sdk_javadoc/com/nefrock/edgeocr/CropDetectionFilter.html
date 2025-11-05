@@ -44,7 +44,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li>Field&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -82,6 +82,23 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="CropDetectionFilter.CropSpec.html" class="type-name-link" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">検出範囲とその属性を表すクラス</div>
+</div>
+</div>
+</section>
+</li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
 <li>
 <section class="constructor-summary" id="constructor-summary">
@@ -90,11 +107,18 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,java.util.List,boolean,float)" class="member-name-link">CropDetectionFilter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;&nbsp;textCrops,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(boolean,float,java.util.List,java.util.List)" class="member-name-link">CropDetectionFilter</a><wbr>(boolean&nbsp;combineHorizontal,
+ float&nbsp;combineHorizontalThreshold,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;&nbsp;textCropSpecs,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;&nbsp;barcodeCropSpecs)</code></div>
+<div class="col-last even-row-color">
+<div class="block">フィルターを初期化する</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.List,java.util.List,boolean,float)" class="member-name-link">CropDetectionFilter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;&nbsp;textCrops,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;&nbsp;barcodeCrops,
  boolean&nbsp;combineHorizontal,
  float&nbsp;combineHorizontalThreshold)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">フィルターを初期化する</div>
 </div>
 </div>
@@ -114,14 +138,20 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBarcodeCrops()" class="member-name-link">getBarcodeCrops</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCombineHorizontal()" class="member-name-link">getCombineHorizontal</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBarcodeCropSpecs()" class="member-name-link">getBarcodeCropSpecs</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCombineHorizontalThreshold()" class="member-name-link">getCombineHorizontalThreshold</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCombineHorizontal()" class="member-name-link">getCombineHorizontal</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTextCrops()" class="member-name-link">getTextCrops</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCombineHorizontalThreshold()" class="member-name-link">getCombineHorizontalThreshold</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTextCrops()" class="member-name-link">getTextCrops</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTextCropSpecs()" class="member-name-link">getTextCropSpecs</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBarcodeCrops(java.util.List)" class="member-name-link">setBarcodeCrops</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;&nbsp;barcodeCrops)</code></div>
@@ -129,19 +159,29 @@ loadScripts(document, 'script');</script>
 <div class="block">バーコードの検出範囲を設定する</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCombineHorizontal(boolean)" class="member-name-link">setCombineHorizontal</a><wbr>(boolean&nbsp;combineHorizontal)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBarcodeCropSpecs(java.util.List)" class="member-name-link">setBarcodeCropSpecs</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;&nbsp;barcodeCropSpecs)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">それぞれの範囲内で、水平方向に近い検出を結合するかどうかを設定する</div>
+<div class="block">バーコードの検出範囲とその属性を設定する</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCombineHorizontalThreshold(float)" class="member-name-link">setCombineHorizontalThreshold</a><wbr>(float&nbsp;combineHorizontalThreshold)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCombineHorizontal(boolean)" class="member-name-link">setCombineHorizontal</a><wbr>(boolean&nbsp;combineHorizontal)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">結合する際の距離の閾値（縦方向のIoU）を設定する</div>
+<div class="block">それぞれの範囲内で、水平方向に近い検出を結合するかどうかを設定する</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextCrops(java.util.List)" class="member-name-link">setTextCrops</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;&nbsp;textCrops)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCombineHorizontalThreshold(float)" class="member-name-link">setCombineHorizontalThreshold</a><wbr>(float&nbsp;combineHorizontalThreshold)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">結合する際の距離の閾値（縦方向のIoU）を設定する</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextCrops(java.util.List)" class="member-name-link">setTextCrops</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;&nbsp;textCrops)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">テキストの検出範囲を設定する</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setTextCropSpecs(java.util.List)" class="member-name-link">setTextCropSpecs</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;&nbsp;textCropSpecs)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">テキストの検出範囲とその属性を設定する</div>
 </div>
 </div>
 </div>
@@ -160,6 +200,23 @@ loadScripts(document, 'script');</script>
 <section class="constructor-details" id="constructor-detail">
 <h2>Constructor Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(boolean,float,java.util.List,java.util.List)">
+<h3>CropDetectionFilter</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">CropDetectionFilter</span><wbr><span class="parameters">(boolean&nbsp;combineHorizontal,
+ float&nbsp;combineHorizontalThreshold,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;&nbsp;textCropSpecs,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;&nbsp;barcodeCropSpecs)</span></div>
+<div class="block">フィルターを初期化する</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>combineHorizontal</code> - それぞれの範囲内で、水平方向に近い検出を結合するかどうか</dd>
+<dd><code>combineHorizontalThreshold</code> - 結合する際の距離の閾値（縦方向のIoU）</dd>
+<dd><code>textCropSpecs</code> - テキストの検出範囲とその属性</dd>
+<dd><code>barcodeCropSpecs</code> - バーコードの検出範囲とその属性</dd>
+</dl>
+</section>
+</li>
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.List,java.util.List,boolean,float)">
 <h3>CropDetectionFilter</h3>
@@ -186,6 +243,27 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="getTextCropSpecs()">
+<h3>getTextCropSpecs</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;</span>&nbsp;<span class="element-name">getTextCropSpecs</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>テキストの検出範囲とその属性</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setTextCropSpecs(java.util.List)">
+<h3>setTextCropSpecs</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setTextCropSpecs</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;&nbsp;textCropSpecs)</span></div>
+<div class="block">テキストの検出範囲とその属性を設定する</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>textCropSpecs</code> - テキストの検出範囲とその属性</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="getTextCrops()">
 <h3>getTextCrops</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;android.graphics.RectF&gt;</span>&nbsp;<span class="element-name">getTextCrops</span>()</div>
@@ -203,6 +281,27 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>textCrops</code> - テキストの検出範囲</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getBarcodeCropSpecs()">
+<h3>getBarcodeCropSpecs</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;</span>&nbsp;<span class="element-name">getBarcodeCropSpecs</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>バーコードの検出範囲とその属性</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setBarcodeCropSpecs(java.util.List)">
+<h3>setBarcodeCropSpecs</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBarcodeCropSpecs</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a>&gt;&nbsp;barcodeCropSpecs)</span></div>
+<div class="block">バーコードの検出範囲とその属性を設定する</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>barcodeCropSpecs</code> - バーコードの検出範囲とその属性</dd>
 </dl>
 </section>
 </li>

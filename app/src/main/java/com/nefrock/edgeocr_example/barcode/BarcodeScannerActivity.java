@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.util.Rational;
 import android.util.Size;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageAnalysis;
 import androidx.camera.core.Preview;
+import androidx.camera.core.TorchState;
 import androidx.camera.core.UseCaseGroup;
 import androidx.camera.core.ViewPort;
 import androidx.camera.lifecycle.ProcessCameraProvider;
@@ -87,6 +89,13 @@ public class BarcodeScannerActivity extends AppCompatActivity {
                 @Override
                 public void onStopTrackingTouch(SeekBar zoomBar) {}
             });
+
+        Button torchButton = findViewById(R.id.torch_button);
+        torchButton.setOnClickListener(v -> {
+            if (camera == null) return;
+            boolean torchEnabled = camera.getCameraInfo().getTorchState().getValue() == TorchState.ON;
+            camera.getCameraControl().enableTorch(!torchEnabled);
+        });
 
         if (cameraPermissionGranted()) {
             startCamera();

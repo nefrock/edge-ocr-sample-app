@@ -19,7 +19,6 @@ import androidx.camera.core.CameraSelector;
 import androidx.camera.core.FocusMeteringAction;
 import androidx.camera.core.FocusMeteringResult;
 import androidx.camera.core.ImageAnalysis;
-import androidx.camera.core.ImageCapture;
 import androidx.camera.core.MeteringPoint;
 import androidx.camera.core.Preview;
 import androidx.camera.core.SurfaceOrientedMeteringPointFactory;
@@ -53,7 +52,6 @@ import java.util.concurrent.TimeUnit;
     private CameraOverlay cameraOverlay;
     private SeekBar hbCropBar, vbCropBar, hsCropBar, vsCropBar;
     private ImageAnalysis imageAnalysis;
-    private ImageCapture imageCapture;
     private Camera camera;
     private SurfaceOrientedMeteringPointFactory meteringPointFactory;
     //ダイアログを表示するか（表示中はスキャンを辞める）
@@ -201,14 +199,6 @@ import java.util.concurrent.TimeUnit;
                     .build();
             imageAnalysis.setAnalyzer(analysisExecutor, cropFreeStyleTextAnalyzer);
 
-            ImageCapture.Builder imageCaptureBuilder = new ImageCapture.Builder();
-
-            imageCapture = imageCaptureBuilder
-                    .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
-                    .setTargetRotation(preview.getTargetRotation())
-                    .setTargetResolution(targetResolution)
-                    .build();
-
             // Aspect ratio is ignored since we use FIT
             Rational aspectRatio = new Rational(1, 1);
             ViewPort viewPort = new ViewPort.Builder(aspectRatio, preview.getTargetRotation())
@@ -217,7 +207,6 @@ import java.util.concurrent.TimeUnit;
             UseCaseGroup useCaseGroup = new UseCaseGroup.Builder()
                     .addUseCase(preview)
                     .addUseCase(imageAnalysis)
-                    .addUseCase(imageCapture)
                     .setViewPort(viewPort)
                     .build();
             try {

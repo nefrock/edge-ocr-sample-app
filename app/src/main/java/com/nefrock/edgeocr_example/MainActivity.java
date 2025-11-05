@@ -30,7 +30,6 @@ import com.nefrock.edgeocr_example.detection_filter.DetectionFilterScannerActivi
 import com.nefrock.edgeocr_example.detection_filter.GetCenterDetectionFilter;
 import com.nefrock.edgeocr_example.ntimes_scan.NtimesTextScanActivity;
 import com.nefrock.edgeocr_example.ntimes_scan.PostCodeTextMapper;
-import com.nefrock.edgeocr_example.report.ReportScannerActivity;
 import com.nefrock.edgeocr_example.simple_text.SimpleTextScannerActivity;
 import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
 
@@ -59,11 +58,6 @@ import java.util.Collections;
         findViewById(R.id.camera_overlay_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), CameraOverlayTextScannerActivity.class);
             loadModelAndStartActivity(intent, "model-d320x320_with_barcode");
-        });
-
-        findViewById(R.id.report_button).setOnClickListener(view -> {
-            Intent intent = new Intent(getApplication(), ReportScannerActivity.class);
-            loadModelAndStartActivity(intent, "model-d320x320");
         });
 
         findViewById(R.id.free_ocr_button).setOnClickListener(view -> {

@@ -129,22 +129,22 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">OCR・バーコードモデルが使用可能かどうかを返します。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#reportImage(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.CropRect,java.lang.String)" class="member-name-link">reportImage</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#reportImage(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.CropRect,java.lang.String)" class="member-name-link">reportImage</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image,
  <a href="CropRect.html" title="class in com.nefrock.edgeocr">CropRect</a>&nbsp;cropRect,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userMessage)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">読み取れない画像のフィードバックを送信します。useModelで選択したモデルによって、
- バーコードのみ、文字のみ、または両方を検出・認識します。</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。画像の報告のサポートを終了する予定です。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#reportImage(androidx.camera.core.ImageProxy,java.lang.String)" class="member-name-link">reportImage</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image,
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#reportImage(androidx.camera.core.ImageProxy,java.lang.String)" class="member-name-link">reportImage</a><wbr>(androidx.camera.core.ImageProxy&nbsp;image,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userMessage)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
-<div class="block">読み取れない画像のフィードバックをスキャン結果と共に送信します。
- useModelで選択したモデルによって、バーコードのみ、文字のみ、または両方を検出・認識します。
- また、モデルのアスペクト比が固定である場合、画像の中心部分からアスペクト比を保ったまま
- 切り出せる最大のサイズに対してスキャンを行います。</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。画像の報告のサポートを終了する予定です。</div>
+</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#resetScanningState()" class="member-name-link">resetScanningState</a>()</code></div>
@@ -415,11 +415,15 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reportImage(androidx.camera.core.ImageProxy,java.lang.String)">
 <h3>reportImage</h3>
-<div class="member-signature"><span class="return-type"><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></span>&nbsp;<span class="element-name">reportImage</span><wbr><span class="parameters">(@NonNull
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type"><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></span>&nbsp;<span class="element-name">reportImage</span><wbr><span class="parameters">(@NonNull
  androidx.camera.core.ImageProxy&nbsp;image,
  @NonNull
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userMessage)</span>
                 throws <span class="exceptions"><a href="EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。画像の報告のサポートを終了する予定です。</div>
+</div>
 <div class="block">読み取れない画像のフィードバックをスキャン結果と共に送信します。
  useModelで選択したモデルによって、バーコードのみ、文字のみ、または両方を検出・認識します。
  また、モデルのアスペクト比が固定である場合、画像の中心部分からアスペクト比を保ったまま
@@ -438,13 +442,17 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reportImage(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.CropRect,java.lang.String)">
 <h3>reportImage</h3>
-<div class="member-signature"><span class="return-type"><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></span>&nbsp;<span class="element-name">reportImage</span><wbr><span class="parameters">(@NonNull
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="return-type"><a href="ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></span>&nbsp;<span class="element-name">reportImage</span><wbr><span class="parameters">(@NonNull
  androidx.camera.core.ImageProxy&nbsp;image,
  @NonNull
  <a href="CropRect.html" title="class in com.nefrock.edgeocr">CropRect</a>&nbsp;cropRect,
  @NonNull
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;userMessage)</span>
                 throws <span class="exceptions"><a href="EdgeError.html" title="class in com.nefrock.edgeocr">EdgeError</a></span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。画像の報告のサポートを終了する予定です。</div>
+</div>
 <div class="block">読み取れない画像のフィードバックを送信します。useModelで選択したモデルによって、
  バーコードのみ、文字のみ、または両方を検出・認識します。</div>
 <dl class="notes">

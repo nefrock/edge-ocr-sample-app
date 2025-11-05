@@ -291,9 +291,17 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">範囲を指定して検出のフィルターリングを設定するためのデータクラス</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#%3Cinit%3E(boolean,float,java.util.List,java.util.List)" class="member-name-link">CropDetectionFilter(boolean, float, List&lt;CropDetectionFilter.CropSpec&gt;, List&lt;CropDetectionFilter.CropSpec&gt;)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>
+<div class="block">フィルターを初期化する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#%3Cinit%3E(java.util.List,java.util.List,boolean,float)" class="member-name-link">CropDetectionFilter(List&lt;RectF&gt;, List&lt;RectF&gt;, boolean, float)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
 <dd>
 <div class="block">フィルターを初期化する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.CropSpec.html" class="type-name-link" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
+<dd>
+<div class="block">検出範囲とその属性を表すクラス</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/CropRect.html" class="type-name-link" title="class in com.nefrock.edgeocr">CropRect</a> - Class in <a href="com/nefrock/edgeocr/package-summary.html">com.nefrock.edgeocr</a></dt>
 <dd>
@@ -312,6 +320,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/CropRect.html#%3Cinit%3E(java.lang.Float,java.lang.Float,java.lang.Float,java.lang.Float)" class="member-name-link">CropRect(Float, Float, Float, Float)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropRect.html" title="class in com.nefrock.edgeocr">CropRect</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.CropSpec.html#%3Cinit%3E(android.graphics.RectF,boolean)" class="member-name-link">CropSpec(RectF, boolean)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a></dt>
+<dd>
+<div class="block">コンストラクタ</div>
+</dd>
 </dl>
 <h2 class="title" id="I:D">D</h2>
 <dl class="index">
@@ -558,6 +570,8 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getBarcodeCrops()" class="member-name-link">getBarcodeCrops()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getBarcodeCropSpecs()" class="member-name-link">getBarcodeCropSpecs()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ScanResult.html#getBarcodeDetections()" class="member-name-link">getBarcodeDetections()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></dt>
 <dd>
 <div class="block">バーコード検出結果のリストを返します。</div>
@@ -741,6 +755,8 @@ loadScripts(document, 'script');</script>
 <div class="block">検出された文字列を取得します。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getTextCrops()" class="member-name-link">getTextCrops()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#getTextCropSpecs()" class="member-name-link">getTextCropSpecs()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/ScanResult.html#getTextDetections()" class="member-name-link">getTextDetections()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanResult.html" title="class in com.nefrock.edgeocr">ScanResult</a></dt>
 <dd>
@@ -1075,21 +1091,29 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">画像内の文字に対する認識のみを行います。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.CropSpec.html#rect" class="member-name-link">rect</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a></dt>
+<dd>
+<div class="block">範囲</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#reportImage(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.CropRect,java.lang.String)" class="member-name-link">reportImage(ImageProxy, CropRect, String)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">読み取れない画像のフィードバックを送信します。useModelで選択したモデルによって、
- バーコードのみ、文字のみ、または両方を検出・認識します。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。画像の報告のサポートを終了する予定です。</div>
+</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#reportImage(androidx.camera.core.ImageProxy,java.lang.String)" class="member-name-link">reportImage(ImageProxy, String)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
 <dd>
-<div class="block">読み取れない画像のフィードバックをスキャン結果と共に送信します。
- useModelで選択したモデルによって、バーコードのみ、文字のみ、または両方を検出・認識します。
- また、モデルのアスペクト比が固定である場合、画像の中心部分からアスペクト比を保ったまま
- 切り出せる最大のサイズに対してスキャンを行います。</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">このメソッドは非推奨です。画像の報告のサポートを終了する予定です。</div>
+</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#resetScanningState()" class="member-name-link">resetScanningState()</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
 <dd>
 <div class="block">スキャン状態をリセットします。検出・認識の履歴がクリアされます。</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.CropSpec.html#returnMultiple" class="member-name-link">returnMultiple</a> - Variable in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.CropSpec.html" title="class in com.nefrock.edgeocr">CropDetectionFilter.CropSpec</a></dt>
+<dd>
+<div class="block">複数検出を返すかどうか</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/BarcodeFormat.html#RMQRCode" class="member-name-link">RMQRCode</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/BarcodeFormat.html" title="enum class in com.nefrock.edgeocr">BarcodeFormat</a></dt>
 <dd>
@@ -1247,6 +1271,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">バーコードの検出範囲を設定する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#setBarcodeCropSpecs(java.util.List)" class="member-name-link">setBarcodeCropSpecs(List&lt;CropDetectionFilter.CropSpec&gt;)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>
+<div class="block">バーコードの検出範囲とその属性を設定する</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setBarcodeDetectorExecutionSettings(com.nefrock.edgeocr.ExecutionSettings)" class="member-name-link">setBarcodeDetectorExecutionSettings(ExecutionSettings)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
 <div class="block">バーコード検出モデルの実行設定を設定する</div>
@@ -1392,6 +1420,10 @@ loadScripts(document, 'script');</script>
 <dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#setTextCrops(java.util.List)" class="member-name-link">setTextCrops(List&lt;RectF&gt;)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
 <dd>
 <div class="block">テキストの検出範囲を設定する</div>
+</dd>
+<dt><a href="com/nefrock/edgeocr/CropDetectionFilter.html#setTextCropSpecs(java.util.List)" class="member-name-link">setTextCropSpecs(List&lt;CropDetectionFilter.CropSpec&gt;)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a></dt>
+<dd>
+<div class="block">テキストの検出範囲とその属性を設定する</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setTextDetectorExecutionSettings(com.nefrock.edgeocr.ExecutionSettings)" class="member-name-link">setTextDetectorExecutionSettings(ExecutionSettings)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
