@@ -29,6 +29,26 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+OCR と同時にバーコードをスキャンすることも可能です。
+OCR に使用しているモデルの UID に `_with_barcode` を付与したモデルを使用することで、OCR とバーコードスキャンの両方を同時に実行できます。
+`app/src/main/java/com/nefrock/edgeocr_example/MainActivity.java` の `camera_overlay_button` のクリックリスナーで OCR とバーコードスキャンを同時に実行する例を示します。
+```Java
+public class MainActivity extends AppCompatActivity {
+    // ...
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        findViewById(R.id.camera_overlay_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), CameraOverlayTextScannerActivity.class);
+            loadModelAndStartActivity(intent, "model-d320x320_with_barcode");
+        });
+        // ...
+    }
+    // ...
+}
+```
+
+### バーコードスキャンの設定
+
 `app/src/main/java/com/nefrock/edgeocr_example/barcode/BarcodeAnalyzer.java` においてバーコードスキャンを実行しています。
 
 OCR の場合と同じように `scan` メソッドを使用してバーコードをスキャンします．
