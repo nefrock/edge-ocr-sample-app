@@ -734,6 +734,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">設定したスキャンモードを返します。</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#getSDKVersion()" class="member-name-link">getSDKVersion()</a> - Static method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
+<dd>
+<div class="block">EdgeOCR SDKのバージョンを取得します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/License.html#getStartDate()" class="member-name-link">getStartDate()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/License.html" title="class in com.nefrock.edgeocr">License</a></dt>
 <dd>
 <div class="block">ライセンスの開始日を取得します。</div>
@@ -862,6 +866,8 @@ loadScripts(document, 'script');</script>
  <a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#isActivated()"><code>NefrockLicenseAPI.isActivated()</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
 </div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#isEnableMasking()" class="member-name-link">isEnableMasking()</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dd>&nbsp;</dd>
 <dt><a href="com/nefrock/edgeocr/Encoding.html#ISO8859_1" class="member-name-link">ISO8859_1</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
 <dd>
 <div class="block">ラテン文字（Latin-1 西欧）</div>
@@ -1357,6 +1363,11 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">モデルの実行デバイスを設定する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#setEnableMasking(boolean)" class="member-name-link">setEnableMasking(boolean)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dd>
+<div class="block">マスク処理を有効にするかどうかを設定する。
+ 行間が狭い画像などで、誤認識を減らす効果がある。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/ScanOptions.html#setFlipHorizontal(boolean)" class="member-name-link">setFlipHorizontal(boolean)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ScanOptions.html" title="class in com.nefrock.edgeocr">ScanOptions</a></dt>
 <dd>
 <div class="block">画像を水平方向に反転するかどうかを設定します。</div>
@@ -1529,7 +1540,7 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">文字認識モデル設定を表す構造体</div>
 </dd>
-<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#%3Cinit%3E(int,float,float)" class="member-name-link">TextRecognizerSettings(int, float, float)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
+<dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#%3Cinit%3E(int,float,float,boolean)" class="member-name-link">TextRecognizerSettings(int, float, float, boolean)</a> - Constructor for class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
 <dd>
 <div class="block">文字認識モデルの設定を初期化する</div>
 </dd>

@@ -36,7 +36,16 @@ dependencies {
 ```
 ダウンロードした SDK のバージョンと一致しない場合は、ビルドエラーが発生します。
 
-モデルファイルは、`app/src/main/assets` ディレクトリーに配置し、解凍してください。`app/src/main/assets/models` ディレクトリーが作成されます。
+モデルファイルのZIPを `app/src/main/assets` ディレクトリーに配置し、解凍してください。
+モデルバージョンを含む名前のディレクトリーが作成されます。
+展開ソフトによって、ZIPの内容が直接 `assets` に展開される場合もありますので、その場合はフォルダー
+を新たに作成してください。
+作成されたフォルダー名を `model` にリネームするか、 `MainActivity.java` の `"models"` の部分を
+解凍したフォルダー名に変更してください。
+```java
+api = new EdgeVisionAPI.Builder(this).fromAssets("models").build();
+```
+
 
 ここまで完了したら Android Studio で example ディレクトリを開いて、ビルドをしてみてください。
 

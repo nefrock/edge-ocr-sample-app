@@ -90,9 +90,10 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,float,float)" class="member-name-link">TextRecognizerSettings</a><wbr>(int&nbsp;maxCandidates,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,float,float,boolean)" class="member-name-link">TextRecognizerSettings</a><wbr>(int&nbsp;maxCandidates,
  float&nbsp;confidenceThresholdOne,
- float&nbsp;confidenceThresholdTwo)</code></div>
+ float&nbsp;confidenceThresholdTwo,
+ boolean&nbsp;enableMasking)</code></div>
 <div class="col-last even-row-color">
 <div class="block">文字認識モデルの設定を初期化する</div>
 </div>
@@ -119,15 +120,24 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxCandidates()" class="member-name-link">getMaxCandidates</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfidenceThresholdOne(float)" class="member-name-link">setConfidenceThresholdOne</a><wbr>(float&nbsp;confidenceThresholdOne)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEnableMasking()" class="member-name-link">isEnableMasking</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfidenceThresholdOne(float)" class="member-name-link">setConfidenceThresholdOne</a><wbr>(float&nbsp;confidenceThresholdOne)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">文字認識モデルにおける1つ目の閾値を設定する</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfidenceThresholdTwo(float)" class="member-name-link">setConfidenceThresholdTwo</a><wbr>(float&nbsp;confidenceThresholdTwo)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfidenceThresholdTwo(float)" class="member-name-link">setConfidenceThresholdTwo</a><wbr>(float&nbsp;confidenceThresholdTwo)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">文字認識モデルにおける2つ目の閾値を設定する</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setEnableMasking(boolean)" class="member-name-link">setEnableMasking</a><wbr>(boolean&nbsp;enableMasking)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">マスク処理を有効にするかどうかを設定する。
+ 行間が狭い画像などで、誤認識を減らす効果がある。</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaxCandidates(int)" class="member-name-link">setMaxCandidates</a><wbr>(int&nbsp;maxCandidates)</code></div>
@@ -152,17 +162,19 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(int,float,float)">
+<section class="detail" id="&lt;init&gt;(int,float,float,boolean)">
 <h3>TextRecognizerSettings</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">TextRecognizerSettings</span><wbr><span class="parameters">(int&nbsp;maxCandidates,
  float&nbsp;confidenceThresholdOne,
- float&nbsp;confidenceThresholdTwo)</span></div>
+ float&nbsp;confidenceThresholdTwo,
+ boolean&nbsp;enableMasking)</span></div>
 <div class="block">文字認識モデルの設定を初期化する</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>maxCandidates</code> - 文字列の文字ごとの最大候補数</dd>
 <dd><code>confidenceThresholdOne</code> - 文字候補の確率計算における1つ目の閾値</dd>
 <dd><code>confidenceThresholdTwo</code> - 文字候補の確率計算における2つ目の閾値</dd>
+<dd><code>enableMasking</code> - マスク処理を有効にするかどうか</dd>
 </dl>
 </section>
 </li>
@@ -234,6 +246,28 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>confidenceThresholdTwo</code> - 文字候補の確率計算における2つ目の閾値</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="isEnableMasking()">
+<h3>isEnableMasking</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isEnableMasking</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>マスク処理が有効かどうか</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setEnableMasking(boolean)">
+<h3>setEnableMasking</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setEnableMasking</span><wbr><span class="parameters">(boolean&nbsp;enableMasking)</span></div>
+<div class="block">マスク処理を有効にするかどうかを設定する。
+ 行間が狭い画像などで、誤認識を減らす効果がある。</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>enableMasking</code> - マスク処理を有効にするかどうか</dd>
 </dl>
 </section>
 </li>
