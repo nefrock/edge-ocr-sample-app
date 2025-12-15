@@ -109,6 +109,14 @@
                 android:text="BarcodeBitmap実装" />
 
             <Button
+                android:id="@+id/zebra_ocr_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:width="240dp"
+                android:text="Zebra連続OCR" />
+
+            <Button
                 android:id="@+id/activation_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

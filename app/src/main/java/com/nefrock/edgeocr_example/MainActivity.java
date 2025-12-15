@@ -108,6 +108,11 @@ import java.util.Collections;
             loadModelAndStartActivity(intent, "edgeocr_barcode_default", modelSettings);
         });
 
+        findViewById(R.id.zebra_ocr_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), com.nefrock.edgeocr_example.zebra.ZebraFrameStreamingOcrActivity.class);
+            loadModelAndStartActivity(intent, "model-d320x320");
+        });
+
         // TODO:ライセンスキー部分のコメントアウト
         NefrockLicenseAPI licenseAPI;
         try {
