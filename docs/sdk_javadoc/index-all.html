@@ -355,6 +355,12 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">DB文字検出モデルの設定を初期化する</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#deactivate()" class="member-name-link">deactivate()</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
+<dd>
+<div class="block">ライセンス認証を解除します。
+
+ デバイスにライセンス情報が保存されている場合は削除されます。サーバー側の登録も解除されます。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html#DEFAULT" class="member-name-link">DEFAULT</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a></dt>
 <dd>
 <div class="block">デフォルト</div>
@@ -1101,6 +1107,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">範囲</div>
 </dd>
+<dt><a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#refreshLicense()" class="member-name-link">refreshLicense()</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/NefrockLicenseAPI.html" title="interface in com.nefrock.edgeocr">NefrockLicenseAPI</a></dt>
+<dd>
+<div class="block">最新のライセンス情報をサーバーから取得し、ローカルのライセンス情報を更新します。</div>
+</dd>
 <dt><a href="com/nefrock/edgeocr/EdgeVisionAPI.html#reportImage(androidx.camera.core.ImageProxy,com.nefrock.edgeocr.CropRect,java.lang.String)" class="member-name-link">reportImage(ImageProxy, CropRect, String)</a> - Method in interface com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/EdgeVisionAPI.html" title="interface in com.nefrock.edgeocr">EdgeVisionAPI</a></dt>
 <dd>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
@@ -1328,7 +1338,9 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setConfidenceThreshold(float)" class="member-name-link">setConfidenceThreshold(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
-<div class="block">検出の最小信頼度を設定する</div>
+<div class="block">検出の最小信頼度を設定する
+
+ highConfidenceThresholdよりも小さい値に設定してください。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/TextRecognizerSettings.html#setConfidenceThresholdOne(float)" class="member-name-link">setConfidenceThresholdOne(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/TextRecognizerSettings.html" title="class in com.nefrock.edgeocr">TextRecognizerSettings</a></dt>
 <dd>
@@ -1471,7 +1483,9 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="com/nefrock/edgeocr/ModelSettings.html#setZeroConfidenceThreshold(float)" class="member-name-link">setZeroConfidenceThreshold(float)</a> - Method in class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/ModelSettings.html" title="class in com.nefrock.edgeocr">ModelSettings</a></dt>
 <dd>
-<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）を設定する</div>
+<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）を設定する
+
+ confidenceThresholdよりも小さい値に設定してください。</div>
 </dd>
 <dt><a href="com/nefrock/edgeocr/Encoding.html#Shift_JIS" class="member-name-link">Shift_JIS</a> - Enum constant in enum class com.nefrock.edgeocr.<a href="com/nefrock/edgeocr/Encoding.html" title="enum class in com.nefrock.edgeocr">Encoding</a></dt>
 <dd>

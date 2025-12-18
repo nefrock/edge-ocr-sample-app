@@ -126,25 +126,37 @@ loadScripts(document, 'script');</script>
  <a href="#activate()"><code>activate()</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
 </div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getDeviceId()" class="member-name-link">getDeviceId</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#deactivate()" class="member-name-link">deactivate</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">ライセンス認証を解除します。
+
+ デバイスにライセンス情報が保存されている場合は削除されます。サーバー側の登録も解除されます。</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getDeviceId()" class="member-name-link">getDeviceId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">APIの認証で端末識別に用いているデバイスIDを返します。</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="License.html" title="class in com.nefrock.edgeocr">License</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isActivated()" class="member-name-link">isActivated</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="License.html" title="class in com.nefrock.edgeocr">License</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isActivated()" class="member-name-link">isActivated</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
 <div class="block">ライセンス認証が完了しているかどうかを返します。</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="License.html" title="class in com.nefrock.edgeocr">License</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#isActivated(com.nefrock.edgeocr.ActivationCallback,com.nefrock.edgeocr.ActivationErrorCallback)" class="member-name-link">isActivated</a><wbr>(<a href="ActivationCallback.html" title="interface in com.nefrock.edgeocr">ActivationCallback</a>&nbsp;callback,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="License.html" title="class in com.nefrock.edgeocr">License</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6"><code><a href="#isActivated(com.nefrock.edgeocr.ActivationCallback,com.nefrock.edgeocr.ActivationErrorCallback)" class="member-name-link">isActivated</a><wbr>(<a href="ActivationCallback.html" title="interface in com.nefrock.edgeocr">ActivationCallback</a>&nbsp;callback,
  <a href="ActivationErrorCallback.html" title="interface in com.nefrock.edgeocr">ActivationErrorCallback</a>&nbsp;errorCallback)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span>
 <div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
  errorCallbackを指定しても例外が発生する可能性があります。getで結果を期待したい場合は、
  <a href="#isActivated()"><code>isActivated()</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
 </div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>com.google.common.util.concurrent.ListenableFuture&lt;<a href="License.html" title="class in com.nefrock.edgeocr">License</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#refreshLicense()" class="member-name-link">refreshLicense</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">最新のライセンス情報をサーバーから取得し、ローカルのライセンス情報を更新します。</div>
 </div>
 </div>
 </div>
@@ -239,6 +251,30 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>デバイスID</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="refreshLicense()">
+<h3>refreshLicense</h3>
+<div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="License.html" title="class in com.nefrock.edgeocr">License</a>&gt;</span>&nbsp;<span class="element-name">refreshLicense</span>()</div>
+<div class="block">最新のライセンス情報をサーバーから取得し、ローカルのライセンス情報を更新します。</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>ライセンス情報のfuture</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="deactivate()">
+<h3>deactivate</h3>
+<div class="member-signature"><span class="return-type">com.google.common.util.concurrent.ListenableFuture&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name">deactivate</span>()</div>
+<div class="block">ライセンス認証を解除します。
+
+ デバイスにライセンス情報が保存されている場合は削除されます。サーバー側の登録も解除されます。</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>ライセンス認証解除の完了を示すfuture</dd>
 </dl>
 </section>
 </li>

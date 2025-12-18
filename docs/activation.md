@@ -18,28 +18,41 @@ NefrockLicenseAPI licenseAPI = new NefrockLicenseAPI.Builder(<Context>)
 
 アクティベーションを行うには、`activate` メソッドを呼び出します。
 ```Java
-ListenableFuture<License> activate(
-            @Nullable ActivationCallback callback,
-            @Nullable ActivationErrorCallback errorCallback);
+ListenableFuture<License> activate();
 ```
-- `callback` には、アクティベーションが成功したときに呼び出されるコールバックを定義します。
-- `errorCallback` には、アクティベーションが失敗したときに呼び出されるコールバックを定義します。
+返却される `ListenableFuture` は、デバイスのライセンス情報を含む `License` オブジェクトを返します。
+必要に応じて以下のようにコールバックを登録して、ライセンス情報を受け取ることができます。
+```Java
+ListenableFuture<License> future = licenseAPI.refreshLicense();
+Futures.addCallback(
+    future,
+    new FutureCallback<License>() {
+        @Override
+        public void onSuccess(License license) {
+            // ライセンス情報の更新に成功した場合の処理
+        }
+
+        @Override
+        public void onFailure(Throwable t) {
+            // ライセンス情報の更新に失敗した場合の処理
+        }
+    },
+    Runnable::run
+);
+```
 
 一度アクティベーションを行うと、次回以降はアクティベーションを行う必要はありません。
 ライセンス情報はファイルに保存されますので、アプリを再起動してもアクティベーションを行う必要はありません。
 
 アクティベーション状態の確認は、`isActivated` で行うことができます。
 ```Java
-ListenableFuture<License> isActivated(
-            @Nullable ActivationCallback callback,
-            @Nullable ActivationErrorCallback errorCallback);
+ListenableFuture<License> isActivated();
 ```
 ライセンスファイルが存在するか確認を行います。
 ファイルが見つからない場合、サーバーに非同期で問い合わせを行います。
 デバイスがアクティベーション済みの場合ライセンスファイルが生成されます。
 この関数を呼ぶことにより、新しいデバイスとして登録されることはありません。
-- `callback` には、アクティベーションが確認できたときに呼び出されるコールバックを定義します。
-- `errorCallback` には、アクティベーションが確認できなかったときに呼び出されるコールバックを定義します。
+`activate` メソッドと同様に、`ListenableFuture` を用いてコールバックを登録することができます。
 
 このアクティベーションフローの例は`app/src/main/java/com/nefrock/edgeocr_example/MainActivity.java`に定義されていますので、ご参考にしてください。
 
@@ -52,3 +65,19 @@ ListenableFuture<License> isActivated(
 <br/>
 
 アクティベーション済みの場合、アクティベーションボタンには「アクティベーション済み」と表示されます。
+
+### ライセンス情報の更新
+ライセンス情報をサーバーから最新の情報に更新するには、`refreshLicense` メソッドを呼び出します。
+```Java
+ListenableFuture<License> refreshLicense();
+```
+`activate` メソッドと同様に、`ListenableFuture` を用いてコールバックを登録することができます。
+
+
+### アクティベーションの解除
+アクティベーションを解除するには、`deactivate` メソッドを呼び出します。
+```Java
+ListenableFuture<Void> deactivate();
+```
+アクティベーションを解除すると、デバイスに保存されているライセンス情報が削除され、サーバー側の登録も解除されます。
+認証の解除終了、またはエラーに反応するために、`ListenableFuture` を用いてコールバックを登録することができます。

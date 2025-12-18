@@ -196,7 +196,9 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfidenceThreshold(float)" class="member-name-link">setConfidenceThreshold</a><wbr>(float&nbsp;confidenceThreshold)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">検出の最小信頼度を設定する</div>
+<div class="block">検出の最小信頼度を設定する
+
+ highConfidenceThresholdよりも小さい値に設定してください。</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCropDetectionFilter(com.nefrock.edgeocr.CropDetectionFilter)" class="member-name-link">setCropDetectionFilter</a><wbr>(<a href="CropDetectionFilter.html" title="class in com.nefrock.edgeocr">CropDetectionFilter</a>&nbsp;cropDetectionFilter)</code></div>
@@ -267,7 +269,9 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setZeroConfidenceThreshold(float)" class="member-name-link">setZeroConfidenceThreshold</a><wbr>(float&nbsp;zeroConfidenceThreshold)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）を設定する</div>
+<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）を設定する
+
+ confidenceThresholdよりも小さい値に設定してください。</div>
 </div>
 </div>
 </div>
@@ -357,7 +361,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="setZeroConfidenceThreshold(float)">
 <h3>setZeroConfidenceThreshold</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setZeroConfidenceThreshold</span><wbr><span class="parameters">(float&nbsp;zeroConfidenceThreshold)</span></div>
-<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）を設定する</div>
+<div class="block">検出の最小信頼度（これ以下の信頼度ならトラッキングに使用しない）を設定する
+
+ confidenceThresholdよりも小さい値に設定してください。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>zeroConfidenceThreshold</code> - 信頼度</dd>
@@ -378,7 +384,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="setConfidenceThreshold(float)">
 <h3>setConfidenceThreshold</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setConfidenceThreshold</span><wbr><span class="parameters">(float&nbsp;confidenceThreshold)</span></div>
-<div class="block">検出の最小信頼度を設定する</div>
+<div class="block">検出の最小信頼度を設定する
+
+ highConfidenceThresholdよりも小さい値に設定してください。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>confidenceThreshold</code> - 信頼度</dd>

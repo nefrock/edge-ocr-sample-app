@@ -17,6 +17,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.nefrock.edgeocr.BarcodeFormat;
 import com.nefrock.edgeocr.EdgeError;
 import com.nefrock.edgeocr.EdgeVisionAPI;
+import com.nefrock.edgeocr.License;
 import com.nefrock.edgeocr.Model;
 import com.nefrock.edgeocr.ModelSettings;
 import com.nefrock.edgeocr.NefrockLicenseAPI;
@@ -32,6 +33,9 @@ import com.nefrock.edgeocr_example.ntimes_scan.NtimesTextScanActivity;
 import com.nefrock.edgeocr_example.ntimes_scan.PostCodeTextMapper;
 import com.nefrock.edgeocr_example.simple_text.SimpleTextScannerActivity;
 import com.nefrock.edgeocr_example.text_bitmap.TextBitmapActivity;
+
+import com.google.common.util.concurrent.Futures;
+import com.google.common.util.concurrent.FutureCallback;
 
 import java.util.Collections;
 
@@ -123,31 +127,120 @@ import java.util.Collections;
         Button activationButton = findViewById(R.id.activation_button);
         activationButton.setText("アクティベーション状態を確認");
         activationButton.setEnabled(false);
+        Button licenseRefreshButton = findViewById(R.id.license_refresh_button);
+        licenseRefreshButton.setText("ライセンス情報を更新");
+        licenseRefreshButton.setEnabled(true);
+        Button deactivationButton = findViewById(R.id.deactivation_button);
+        deactivationButton.setText("ディアクティベート");
+        deactivationButton.setEnabled(false);
 
-        licenseAPI.isActivated(
-            license -> new Handler(
-                    Looper.getMainLooper()).post(() -> activationButton.setText("アクティベート済み")),
-            edgeError -> new Handler(Looper.getMainLooper()).post(() -> {
-                activationButton.setText("アクティベート");
-                activationButton.setEnabled(true);
-            })
-        );
-        activationButton.setOnClickListener(view -> licenseAPI.activate(
-            license -> {
-                // Make Toast in Main Thread
-                new Handler(Looper.getMainLooper()).post(() -> {
-                    activationButton.setText("アクティベート済み");
-                    activationButton.setEnabled(false);
-                    Toast.makeText(
-                        getApplicationContext(), "アクティベーション完了", Toast.LENGTH_LONG).show();
-                });
+        Futures.addCallback(
+            licenseAPI.isActivated(),
+            new FutureCallback<>() {
+                @Override
+                public void onSuccess(License license) {
+                    // Make Toast in Main Thread
+                    new Handler(Looper.getMainLooper()).post(() -> {
+                        activationButton.setText("アクティベート済み");
+                        activationButton.setEnabled(false);
+                        deactivationButton.setEnabled(true);
+                    });
+                }
+                @Override
+                public void onFailure(Throwable t) {
+                    // Make Toast in Main Thread
+                    new Handler(Looper.getMainLooper()).post(() -> {
+                        activationButton.setText("アクティベート");
+                        activationButton.setEnabled(true);
+                        deactivationButton.setEnabled(false);
+                    });
+                }
             },
-            edgeError -> {
-                // Make Toast in Main Thread
-                new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(
-                    getApplicationContext(), edgeError.getMessage(), Toast.LENGTH_LONG).show());
-            }
-        ));
+            Runnable::run
+        );
+
+        activationButton.setOnClickListener(view -> {
+            Futures.addCallback(
+                licenseAPI.activate(),
+                new FutureCallback<>() {
+                    @Override
+                    public void onSuccess(License license) {
+                        // Make Toast in Main Thread
+                        new Handler(Looper.getMainLooper()).post(() -> {
+                            activationButton.setText("アクティベート済み");
+                            activationButton.setEnabled(false);
+                            deactivationButton.setEnabled(true);
+                            Toast.makeText(
+                                getApplicationContext(), "アクティベーション完了", Toast.LENGTH_LONG).show();
+                        });
+                    }
+                    @Override
+                    public void onFailure(Throwable t) {
+                        // Make Toast in Main Thread
+                        new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(
+                            getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show());
+                    }
+                },
+                Runnable::run
+            );
+        });
+
+        licenseRefreshButton.setOnClickListener(view -> {
+            Futures.addCallback(
+                licenseAPI.refreshLicense(),
+                new FutureCallback<>() {
+                    @Override
+                    public void onSuccess(License license) {
+                        // Make Toast in Main Thread
+                        new Handler(Looper.getMainLooper()).post(() -> {
+                            activationButton.setText("アクティベート済み");
+                            activationButton.setEnabled(false);
+                            deactivationButton.setEnabled(true);
+                            Toast.makeText(
+                                getApplicationContext(), "ライセンス情報の更新が完了しました", Toast.LENGTH_LONG).show();
+                        });
+                    }
+                    @Override
+                    public void onFailure(Throwable t) {
+                        // Make Toast in Main Thread
+                        new Handler(Looper.getMainLooper()).post(() -> {
+                            activationButton.setText("アクティベート");
+                            activationButton.setEnabled(true);
+                            deactivationButton.setEnabled(false);
+                            Toast.makeText(
+                                getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
+                        });
+                    }
+                },
+                Runnable::run
+            );
+        });
+
+        deactivationButton.setOnClickListener(view -> {
+            Futures.addCallback(
+                licenseAPI.deactivate(),
+                new FutureCallback<Void>() {
+                    @Override
+                    public void onSuccess(Void result) {
+                        // Make Toast in Main Thread
+                        new Handler(Looper.getMainLooper()).post(() -> {
+                            activationButton.setText("アクティベート");
+                            activationButton.setEnabled(true);
+                            deactivationButton.setEnabled(false);
+                            Toast.makeText(
+                                getApplicationContext(), "ディアクティベーション完了", Toast.LENGTH_LONG).show();
+                        });
+                    }
+                    @Override
+                    public void onFailure(Throwable t) {
+                        // Make Toast in Main Thread
+                        new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(
+                            getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show());
+                    }
+                },
+                Runnable::run
+            );
+        });
         addMarginsForEdgeToEdge();
     }
 
