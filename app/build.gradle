@@ -36,7 +36,7 @@ dependencies {
     implementation('androidx.constraintlayout:constraintlayout:2.2.1')
     implementation('com.google.guava:guava:33.4.8-android')
 
-    implementation("com.nefrock.edgeocr:edgeocr:3.9.0")
+    implementation("com.nefrock.edgeocr:edgeocr:3.8.2")
     implementation("info.debatty:java-string-similarity:2.0.0")
 
     //camerax

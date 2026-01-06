@@ -127,9 +127,6 @@ import java.util.Collections;
         Button activationButton = findViewById(R.id.activation_button);
         activationButton.setText("アクティベーション状態を確認");
         activationButton.setEnabled(false);
-        Button licenseRefreshButton = findViewById(R.id.license_refresh_button);
-        licenseRefreshButton.setText("ライセンス情報を更新");
-        licenseRefreshButton.setEnabled(true);
         Button deactivationButton = findViewById(R.id.deactivation_button);
         deactivationButton.setText("ディアクティベート");
         deactivationButton.setEnabled(false);
@@ -179,37 +176,6 @@ import java.util.Collections;
                         // Make Toast in Main Thread
                         new Handler(Looper.getMainLooper()).post(() -> Toast.makeText(
                             getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show());
-                    }
-                },
-                Runnable::run
-            );
-        });
-
-        licenseRefreshButton.setOnClickListener(view -> {
-            Futures.addCallback(
-                licenseAPI.refreshLicense(),
-                new FutureCallback<>() {
-                    @Override
-                    public void onSuccess(License license) {
-                        // Make Toast in Main Thread
-                        new Handler(Looper.getMainLooper()).post(() -> {
-                            activationButton.setText("アクティベート済み");
-                            activationButton.setEnabled(false);
-                            deactivationButton.setEnabled(true);
-                            Toast.makeText(
-                                getApplicationContext(), "ライセンス情報の更新が完了しました", Toast.LENGTH_LONG).show();
-                        });
-                    }
-                    @Override
-                    public void onFailure(Throwable t) {
-                        // Make Toast in Main Thread
-                        new Handler(Looper.getMainLooper()).post(() -> {
-                            activationButton.setText("アクティベート");
-                            activationButton.setEnabled(true);
-                            deactivationButton.setEnabled(false);
-                            Toast.makeText(
-                                getApplicationContext(), t.getMessage(), Toast.LENGTH_LONG).show();
-                        });
                     }
                 },
                 Runnable::run

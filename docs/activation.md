@@ -23,18 +23,18 @@ ListenableFuture<License> activate();
 返却される `ListenableFuture` は、デバイスのライセンス情報を含む `License` オブジェクトを返します。
 必要に応じて以下のようにコールバックを登録して、ライセンス情報を受け取ることができます。
 ```Java
-ListenableFuture<License> future = licenseAPI.refreshLicense();
+ListenableFuture<License> future = licenseAPI.activate();
 Futures.addCallback(
     future,
     new FutureCallback<License>() {
         @Override
         public void onSuccess(License license) {
-            // ライセンス情報の更新に成功した場合の処理
+            // 認証成功時の処理。ライセンス情報は license に格納されている
         }
 
         @Override
         public void onFailure(Throwable t) {
-            // ライセンス情報の更新に失敗した場合の処理
+            // 認証失敗時の処理
         }
     },
     Runnable::run
@@ -65,14 +65,6 @@ ListenableFuture<License> isActivated();
 <br/>
 
 アクティベーション済みの場合、アクティベーションボタンには「アクティベーション済み」と表示されます。
-
-### ライセンス情報の更新
-ライセンス情報をサーバーから最新の情報に更新するには、`refreshLicense` メソッドを呼び出します。
-```Java
-ListenableFuture<License> refreshLicense();
-```
-`activate` メソッドと同様に、`ListenableFuture` を用いてコールバックを登録することができます。
-
 
 ### アクティベーションの解除
 アクティベーションを解除するには、`deactivate` メソッドを呼び出します。
