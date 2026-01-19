@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.nefrock.edgeocr"},{"l":"com.nefrock.edgeocr.ui"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.nefrock.deviceipc"},{"l":"com.nefrock.edgeocr"},{"l":"com.nefrock.edgeocr.ui"}];updateSearchResults();
