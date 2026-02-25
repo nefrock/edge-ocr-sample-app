@@ -121,17 +121,22 @@ loadScripts(document, 'script');</script>
  距離を測定する方法を選択するために使用します。
  例: 編集距離（EDIT_DISTANCE）または貪欲距離（GREEDY_DISTANCE）。</div>
 </div>
-<div class="col-first odd-row-color"><code>static enum&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="FuzzySearch.SearchMode.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></code></div>
+<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="FuzzySearch.DistanceTypeConfig.html" class="type-name-link" title="class in com.nefrock.edgeocr">FuzzySearch.DistanceTypeConfig</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">距離計算に使用するアルゴリズムとそのパラメータをまとめた設定クラスです。</div>
+</div>
+<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="FuzzySearch.SearchMode.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">検索モードを定義する列挙型。
 
  検索の際に使用するモードを選択するために使用します。
  例: 部分一致（SUBSTRING）、前方一致（PREFIX）、後方一致（SUFFIX）。</div>
 </div>
-<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="FuzzySearch.WeightType.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="FuzzySearch.WeightType.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzySearch.WeightType</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">重みの種類を定義する列挙型。
 
  距離の計算に使用する重み付けの種類を選択するために使用します。
@@ -148,26 +153,51 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
- <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
- int&nbsp;size)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceTypeConfig)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr">FuzzySearch.DistanceTypeConfig</a>&nbsp;config)</code></div>
 <div class="col-last even-row-color">
 <div class="block">コンストラクタ</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
- <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
- int&nbsp;size,
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceTypeConfig,boolean)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr">FuzzySearch.DistanceTypeConfig</a>&nbsp;config,
  boolean&nbsp;ignoreCase)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">コンストラクタ</div>
 </div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean,int)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
- <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
- int&nbsp;size,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceTypeConfig,boolean,int)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr">FuzzySearch.DistanceTypeConfig</a>&nbsp;config,
  boolean&nbsp;ignoreCase,
  int&nbsp;maxCandidates)</code></div>
 <div class="col-last even-row-color">
 <div class="block">コンストラクタ</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
+ <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
+ int&nbsp;size)</code></div>
+<div class="col-last odd-row-color">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment"><a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.editDistance())</code> または
+   <code>new FuzzySearch(DistanceTypeConfig.greedyDistance(SearchMode.SUBSTRING, 3))</code></div>
+</div>
+</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
+ <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
+ int&nbsp;size,
+ boolean&nbsp;ignoreCase)</code></div>
+<div class="col-last even-row-color">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment"><a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.editDistance(), true)</code></div>
+</div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean,int)" class="member-name-link">FuzzySearch</a><wbr>(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
+ <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
+ int&nbsp;size,
+ boolean&nbsp;ignoreCase,
+ int&nbsp;maxCandidates)</code></div>
+<div class="col-last odd-row-color">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment"><a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.greedyDistance(SearchMode.PREFIX, 3), true, 5)</code></div>
+</div>
 </div>
 </div>
 </section>
@@ -239,33 +269,91 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int)">
+<section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.FuzzySearch.DistanceTypeConfig)">
 <h3>FuzzySearch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
- <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
- int&nbsp;size)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr">FuzzySearch.DistanceTypeConfig</a>&nbsp;config)</span></div>
 <div class="block">コンストラクタ</div>
 <dl class="notes">
 <dt>Parameters:</dt>
+<dd><code>config</code> - 距離タイプの設定</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.FuzzySearch.DistanceTypeConfig,boolean)">
+<h3>FuzzySearch</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr">FuzzySearch.DistanceTypeConfig</a>&nbsp;config,
+ boolean&nbsp;ignoreCase)</span></div>
+<div class="block">コンストラクタ</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>config</code> - 距離タイプの設定</dd>
+<dd><code>ignoreCase</code> - 大文字小文字を区別するかどうか</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.FuzzySearch.DistanceTypeConfig,boolean,int)">
+<h3>FuzzySearch</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr">FuzzySearch.DistanceTypeConfig</a>&nbsp;config,
+ boolean&nbsp;ignoreCase,
+ int&nbsp;maxCandidates)</span></div>
+<div class="block">コンストラクタ</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>config</code> - 距離タイプの設定</dd>
+<dd><code>ignoreCase</code> - 大文字小文字を区別するかどうか</dd>
+<dd><code>maxCandidates</code> - 最大候補数</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int)">
+<h3>FuzzySearch</h3>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
+ <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
+ int&nbsp;size)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment"><a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.editDistance())</code> または
+   <code>new FuzzySearch(DistanceTypeConfig.greedyDistance(SearchMode.SUBSTRING, 3))</code></div>
+</div>
+<div class="block">コンストラクタ
+
+ <p>注意: <code>distType</code> が <a href="FuzzySearch.DistanceType.html#EDIT_DISTANCE"><code>FuzzySearch.DistanceType.EDIT_DISTANCE</code></a> の場合、
+ <code>mode</code> と <code>size</code> は無視されます。
+ 代わりに <a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタの利用を推奨します。</p></div>
+<dl class="notes">
+<dt>Parameters:</dt>
 <dd><code>distType</code> - 距離の種類</dd>
-<dd><code>mode</code> - 検索モード</dd>
-<dd><code>size</code> - GreedyDistance に使用するマッチングのサイズ</dd>
+<dd><code>mode</code> - 検索モード（EditDistanceの場合は無視される）</dd>
+<dd><code>size</code> - GreedyDistance に使用するマッチングのサイズ（EditDistanceとGreedyDistanceのExactモードの場合は無視される）</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean)">
 <h3>FuzzySearch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
  <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
  int&nbsp;size,
  boolean&nbsp;ignoreCase)</span></div>
-<div class="block">コンストラクタ</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment"><a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.editDistance(), true)</code></div>
+</div>
+<div class="block">コンストラクタ
+
+ <p>注意: <code>distType</code> が <a href="FuzzySearch.DistanceType.html#EDIT_DISTANCE"><code>FuzzySearch.DistanceType.EDIT_DISTANCE</code></a> の場合、
+ <code>mode</code> と <code>size</code> は無視されます。
+ 代わりに <a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタの利用を推奨します。</p></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>distType</code> - 距離の種類</dd>
-<dd><code>mode</code> - 検索モード</dd>
-<dd><code>size</code> - GreedyDistance に使用するマッチングのサイズ</dd>
+<dd><code>mode</code> - 検索モード（EditDistanceの場合は無視される）</dd>
+<dd><code>size</code> - GreedyDistance に使用するマッチングのサイズ（EditDistanceとGreedyDistanceのExactモードの場合は無視される）</dd>
 <dd><code>ignoreCase</code> - 大文字小文字を区別するかどうか</dd>
 </dl>
 </section>
@@ -273,17 +361,26 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean,int)">
 <h3>FuzzySearch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzySearch</span><wbr><span class="parameters">(<a href="FuzzySearch.DistanceType.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.DistanceType</a>&nbsp;distType,
  <a href="FuzzySearch.SearchMode.html" title="enum class in com.nefrock.edgeocr">FuzzySearch.SearchMode</a>&nbsp;mode,
  int&nbsp;size,
  boolean&nbsp;ignoreCase,
  int&nbsp;maxCandidates)</span></div>
-<div class="block">コンストラクタ</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment"><a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.greedyDistance(SearchMode.PREFIX, 3), true, 5)</code></div>
+</div>
+<div class="block">コンストラクタ
+
+ <p>注意: <code>distType</code> が <a href="FuzzySearch.DistanceType.html#EDIT_DISTANCE"><code>FuzzySearch.DistanceType.EDIT_DISTANCE</code></a> の場合、
+ <code>mode</code> と <code>size</code> は無視されます。
+ 代わりに <a href="FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタの利用を推奨します。</p></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>distType</code> - 距離の種類</dd>
-<dd><code>mode</code> - 検索モード</dd>
-<dd><code>size</code> - GreedyDistance に使用するマッチングのサイズ</dd>
+<dd><code>mode</code> - 検索モード（EditDistanceの場合は無視される）</dd>
+<dd><code>size</code> - GreedyDistance に使用するマッチングのサイズ（EditDistanceの場合は無視される）</dd>
 <dd><code>ignoreCase</code> - 大文字小文字を区別するかどうか</dd>
 <dd><code>maxCandidates</code> - 最大候補数</dd>
 </dl>

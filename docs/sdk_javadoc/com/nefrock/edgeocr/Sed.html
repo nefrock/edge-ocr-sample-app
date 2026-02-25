@@ -78,8 +78,32 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Sed</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">sedライクなテキスト変換機能を提供するクラスです。
- 文字列内のパターンを検索し、置換を行います。</div>
+<div class="block">sed ライクなテキスト変換機能を提供するユーティリティクラスです。
+
+ <p>入力文字列に対してパターン検索と置換を行い、変換後の文字列を返します。
+ パターンはリテラル文字列として扱うことも、正規表現として扱うこともできます。
+ 置換はマッチ箇所すべてに適用されます。</p>
+
+ <p>戻り値が <code>null</code> になる主なケース:</p>
+ <ul>
+   <li>引数 <code>input</code> / <code>pattern</code> / <code>replacement</code> のいずれかが <code>null</code> の場合</li>
+   <li>内部変換処理でエラーが発生した場合（例: 不正な正規表現）</li>
+ </ul>
+
+ <p>使用例:</p>
+ <pre>
+ // 1) リテラル置換（全マッチ）
+ String s1 = Sed.transform("foo bar foo", "foo", "qux");
+ // -> "qux bar qux"
+
+ // 2) 正規表現置換（数字を除去）
+ String s2 = Sed.transformRegex("Item1: $25.99", "\\d", "");
+ // -> "Item: $."
+
+ // 3) キャプチャグループを使った並び替え
+ String s3 = Sed.transformRegex("Yamada, Taro", "(\\w+),\\s*(\\w+)", "$2 $1");
+ // -> "Taro Yamada"
+ </pre></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -166,14 +190,17 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">transform</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;input,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pattern,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;replacement)</span></div>
-<div class="block">文字列変換を実行します（リテラルパターン）。</div>
+<div class="block">文字列変換を実行します（リテラルパターン）。
+
+ <p>このメソッドは内部で  <code>useRegex = false</code> で
+ <a href="#transform(java.lang.String,java.lang.String,java.lang.String,boolean)"><code>transform(String, String, String, boolean)</code></a> を呼び出します。</p></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>input</code> - 変換対象の文字列</dd>
 <dd><code>pattern</code> - 検索するパターン（リテラル文字列）</dd>
 <dd><code>replacement</code> - 置換文字列</dd>
 <dt>Returns:</dt>
-<dd>変換後の文字列。エラーが発生した場合はnull</dd>
+<dd>変換後の文字列。エラー時は <code>null</code></dd>
 </dl>
 </section>
 </li>
@@ -184,7 +211,15 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pattern,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;replacement,
  boolean&nbsp;useRegex)</span></div>
-<div class="block">文字列変換を実行します。</div>
+<div class="block">文字列変換を実行します。
+
+ <p><code>useRegex = true</code> の場合、<code>pattern</code> は正規表現として評価されます。
+ <code>useRegex = false</code> の場合、<code>pattern</code> はリテラル文字列として扱われます。</p>
+
+ <p>正規表現モードでは、置換文字列に <code>$1</code>, <code>$2</code> のような
+ キャプチャ参照を使用できます。</p>
+
+ <p>引数のいずれかが <code>null</code> の場合は変換を行わず、<code>null</code> を返します。</p></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>input</code> - 変換対象の文字列</dd>
@@ -192,7 +227,7 @@ loadScripts(document, 'script');</script>
 <dd><code>replacement</code> - 置換文字列</dd>
 <dd><code>useRegex</code> - trueの場合、patternを正規表現として扱います。falseの場合、リテラル文字列として扱います。</dd>
 <dt>Returns:</dt>
-<dd>変換後の文字列。エラーが発生した場合はnull</dd>
+<dd>変換後の文字列。エラー時は <code>null</code></dd>
 </dl>
 </section>
 </li>
@@ -202,14 +237,17 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">transformRegex</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;input,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;regex,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;replacement)</span></div>
-<div class="block">文字列変換を実行します（正規表現パターン）。</div>
+<div class="block">文字列変換を実行します（正規表現パターン）。
+
+ <p>このメソッドは内部で <code>useRegex = true</code> で
+ <a href="#transform(java.lang.String,java.lang.String,java.lang.String,boolean)"><code>transform(String, String, String, boolean)</code></a> を呼び出します。</p></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>input</code> - 変換対象の文字列</dd>
 <dd><code>regex</code> - 検索する正規表現パターン</dd>
 <dd><code>replacement</code> - 置換文字列</dd>
 <dt>Returns:</dt>
-<dd>変換後の文字列。エラーが発生した場合はnull</dd>
+<dd>変換後の文字列。エラー時は <code>null</code></dd>
 </dl>
 </section>
 </li>

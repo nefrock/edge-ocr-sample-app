@@ -52,6 +52,7 @@ loadScripts(document, 'script');</script>
 <h2 title="Contents">Contents</h2>
 <ul>
 <li><a href="#method">Methods</a></li>
+<li><a href="#constructor">Constructors</a></li>
 </ul>
 </div>
 <ul class="block-list">
@@ -97,6 +98,33 @@ loadScripts(document, 'script');</script>
 <div class="deprecation-comment">このメソッドは非推奨です。この関数の返り値のListenableFutureをgetすると、
  errorCallbackを指定しても例外が発生する可能性があります。getで結果を期待したい場合は、
  <a href="com/nefrock/edgeocr/NefrockLicenseAPI.html#isActivated()"><code>NefrockLicenseAPI.isActivated()</code></a>を使用し、必要に応じて例外をキャッチしてください。</div>
+</div>
+</div>
+</div>
+</li>
+</ul>
+<ul class="block-list">
+<li>
+<div id="constructor">
+<div class="caption"><span>Deprecated Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/FuzzySearch.html#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int)">com.nefrock.edgeocr.FuzzySearch<wbr>(FuzzySearch.DistanceType, FuzzySearch.SearchMode, int)</a></div>
+<div class="col-last even-row-color">
+<div class="deprecation-comment"><a href="com/nefrock/edgeocr/FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.editDistance())</code> または
+   <code>new FuzzySearch(DistanceTypeConfig.greedyDistance(SearchMode.SUBSTRING, 3))</code></div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="com/nefrock/edgeocr/FuzzySearch.html#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean)">com.nefrock.edgeocr.FuzzySearch<wbr>(FuzzySearch.DistanceType, FuzzySearch.SearchMode, int, boolean)</a></div>
+<div class="col-last odd-row-color">
+<div class="deprecation-comment"><a href="com/nefrock/edgeocr/FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.editDistance(), true)</code></div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="com/nefrock/edgeocr/FuzzySearch.html#%3Cinit%3E(com.nefrock.edgeocr.FuzzySearch.DistanceType,com.nefrock.edgeocr.FuzzySearch.SearchMode,int,boolean,int)">com.nefrock.edgeocr.FuzzySearch<wbr>(FuzzySearch.DistanceType, FuzzySearch.SearchMode, int, boolean, int)</a></div>
+<div class="col-last even-row-color">
+<div class="deprecation-comment"><a href="com/nefrock/edgeocr/FuzzySearch.DistanceTypeConfig.html" title="class in com.nefrock.edgeocr"><code>FuzzySearch.DistanceTypeConfig</code></a> を使用するコンストラクタを利用してください。
+   例: <code>new FuzzySearch(DistanceTypeConfig.greedyDistance(SearchMode.PREFIX, 3), true, 5)</code></div>
 </div>
 </div>
 </div>

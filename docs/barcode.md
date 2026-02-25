@@ -107,3 +107,26 @@ class BarcodeAnalyzer implements ImageAnalysis.Analyzer {
     // ...
 }
 ```
+
+## 高度バーコードスキャン
+高度バーコードスキャンは、ボヤケや照明条件の悪い画像からもバーコードを認識できるようにするための、より強力なバーコード認識モデルです。
+現在はまだ実験的ですので、使用するには `availableModelsWithExperimental` メソッドを使用してモデルを取得し、`useModel` メソッドで有効化してください。
+モデル名は、`barcode_advanced` です。
+
+現在認識できるバーコード種類は以下の通りです。
+- ITF-14とITF-16
+- EAN13、JAN、UPCA
+- Code128
+
+以下の設定が可能である以外は，通常のバーコードスキャンと同様に使用できます．
+```java
+ModelSettings modelSettings = new ModelSettings();
+AdvancedBarcodeRecognizerSettings advancedSettings = new AdvancedBarcodeRecognizerSettings();
+advancedSettings.setEnforceChecksum(true);
+advancedSettings.setCandidateThreshold(0.45f);
+advancedSettings.setAcceptanceThreshold(0.65f);
+advancedSettings.setAdvancedOnly(false);
+advancedSettings.setEan13Hint(Ean13Type.EAN13);
+modelSettings.setAdvancedBarcodeRecognizerSettings(advancedSettings);
+edgeVisionAPI.useModel("barcode_advanced", modelSettings);
+```

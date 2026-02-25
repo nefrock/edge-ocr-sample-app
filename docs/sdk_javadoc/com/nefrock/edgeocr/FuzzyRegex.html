@@ -78,7 +78,27 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">FuzzyRegex</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
-<div class="block">ファジー検索を行うためのクラスです。</div>
+<div class="block">曖昧正規表現マッチングを提供するクラスです。
+
+ <p>入力文字列に対してファジー正規表現によるマッチングを行い、
+ マッチ結果（正規化やキャプチャ連結を含む）を返します。</p>
+
+ <p>使用例:</p>
+ <pre>
+ // 1) 単純なファジーマッチ
+ FuzzyRegex fr = new FuzzyRegex("CODE", FuzzyRegex.FuzzyType.DEFAULT, 1.0f);
+ String result1 = fr.match("C0DE");
+ // -> "CODE"（OCR誤認識の補正）
+
+ // 2) 名前付きキャプチャの連結
+ FuzzyRegex fr2 = new FuzzyRegex("(?&lt;a2&gt;AB)(?&lt;a1&gt;12)", FuzzyRegex.FuzzyType.DEFAULT, 1.0f);
+ String result2 = fr2.match("AB12");
+ // -> "12AB"（キャプチャ名の辞書順連結）
+
+ // 3) マッチしない場合
+ String result3 = fr.match("XYZ");
+ // -> null
+ </pre></div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -94,8 +114,7 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="FuzzyRegex.FuzzyType.html" class="type-name-link" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">ファジー検索の種類を定義する列挙型。
- ファジー検索の際に使用するモードを選択するために使用します。</div>
+<div class="block">ファジー検索の種類を定義する列挙型です。</div>
 </div>
 </div>
 </section>
@@ -112,7 +131,7 @@ loadScripts(document, 'script');</script>
  <a href="FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a>&nbsp;fuzzyType,
  float&nbsp;threshold)</code></div>
 <div class="col-last even-row-color">
-<div class="block">コンストラクタ</div>
+<div class="block">曖昧正規表現インスタンスを作成します。</div>
 </div>
 </div>
 </section>
@@ -131,12 +150,22 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dropFuzzyRegex()" class="member-name-link">dropFuzzyRegex</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">デストラクタ</div>
+<div class="block">このインスタンスが保持するネイティブリソースを解放します。</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#match(java.lang.String)" class="member-name-link">match</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">マッチングを行います。</div>
+<div class="block">入力文字列に対してマッチングを行い、結果文字列を返します。
+
+ 
+   マッチしない場合は <code>null</code> を返します。
+   パターンに名前付きキャプチャ（例: <code>(?&lt;a1&gt;...)</code>）が1つ以上ある場合は、
+       名前付きキャプチャの内容を連結した文字列を返します。
+       連結順はキャプチャ名の辞書順です（宣言順ではありません）。
+   名前付きキャプチャが無い場合は、マッチした文字列（全体一致）を返します。
+   曖昧マッチ有効時は OCR 由来の揺れを補正した正規化結果を返すことがあります
+       （例: <code>C0DE -&gt; CODE</code>, 全角英数字/記号の正規化など）。
+ </div>
 </div>
 </div>
 </div>
@@ -161,12 +190,12 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FuzzyRegex</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pattern,
  <a href="FuzzyRegex.FuzzyType.html" title="enum class in com.nefrock.edgeocr">FuzzyRegex.FuzzyType</a>&nbsp;fuzzyType,
  float&nbsp;threshold)</span></div>
-<div class="block">コンストラクタ</div>
+<div class="block">曖昧正規表現インスタンスを作成します。</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>pattern</code> - 正規表現のString</dd>
-<dd><code>fuzzyType</code> - FuzzyType による検索モード</dd>
-<dd><code>threshold</code> - NNで使用するしきい値</dd>
+<dd><code>pattern</code> - 正規表現パターン</dd>
+<dd><code>fuzzyType</code> - マッチングモード</dd>
+<dd><code>threshold</code> - NN モードで使用するしきい値（通常は 0.0〜1.0）</dd>
 </dl>
 </section>
 </li>
@@ -182,19 +211,29 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="dropFuzzyRegex()">
 <h3>dropFuzzyRegex</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dropFuzzyRegex</span>()</div>
-<div class="block">デストラクタ</div>
+<div class="block">このインスタンスが保持するネイティブリソースを解放します。</div>
 </section>
 </li>
 <li>
 <section class="detail" id="match(java.lang.String)">
 <h3>match</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">match</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text)</span></div>
-<div class="block">マッチングを行います。</div>
+<div class="block">入力文字列に対してマッチングを行い、結果文字列を返します。
+
+ <ul>
+   <li>マッチしない場合は <code>null</code> を返します。</li>
+   <li>パターンに名前付きキャプチャ（例: <code>(?&lt;a1&gt;...)</code>）が1つ以上ある場合は、
+       名前付きキャプチャの内容を連結した文字列を返します。
+       連結順はキャプチャ名の辞書順です（宣言順ではありません）。</li>
+   <li>名前付きキャプチャが無い場合は、マッチした文字列（全体一致）を返します。</li>
+   <li>曖昧マッチ有効時は OCR 由来の揺れを補正した正規化結果を返すことがあります
+       （例: <code>C0DE -&gt; CODE</code>, 全角英数字/記号の正規化など）。</li>
+ </ul></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>text</code> - マッチング対象の文字列</dd>
 <dt>Returns:</dt>
-<dd>マッチング結果</dd>
+<dd>マッチング結果（マッチしない場合は <code>null</code>）</dd>
 </dl>
 </section>
 </li>

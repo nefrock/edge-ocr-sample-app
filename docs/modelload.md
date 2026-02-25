@@ -80,6 +80,7 @@ private void loadModelAndStartActivity(Intent intent) {
 ユースケースやデバイスのスペックに合わせてどのモデルを使うかを選択していただけます。
 また、カスタマイズしたモデルを利用する場合もこちらで指定を行います。
 バーコードモデルとしては、 `edgeocr_barcode_default` を指定してください．
+実験的な高度なバーコード認識を行う場合は、 `edgeocr_barcode_advanced` を指定してください。
 
 また`api.useModel`の第2引数には、`ModelSettings`を指定することができます。
 `ModelSettings`では、モデルパラメータの設定や、検出結果のフィルタ設定、`TextMapper`の設定を行うことができます。
