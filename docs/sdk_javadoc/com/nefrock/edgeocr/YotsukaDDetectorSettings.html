@@ -90,7 +90,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(float)" class="member-name-link">YotsukaDDetectorSettings</a><wbr>(float&nbsp;nmsThreshold)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(float)" class="member-name-link">YotsukaDDetectorSettings</a><wbr>(float&nbsp;confidenceThreshold)</code></div>
 <div class="col-last even-row-color">
 <div class="block">YotsukaD検出モデルの設定を初期化する</div>
 </div>
@@ -109,12 +109,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNmsThreshold()" class="member-name-link">getNmsThreshold</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getConfidenceThreshold()" class="member-name-link">getConfidenceThreshold</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setNmsThreshold(float)" class="member-name-link">setNmsThreshold</a><wbr>(float&nbsp;nmsThreshold)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setConfidenceThreshold(float)" class="member-name-link">setConfidenceThreshold</a><wbr>(float&nbsp;confidenceThreshold)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">YotsukaD検出モデルにおけるNMSの閾値を設定する</div>
+<div class="block">YotsukaD検出モデルにおける信頼度の閾値を設定する</div>
 </div>
 </div>
 </div>
@@ -136,11 +136,11 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(float)">
 <h3>YotsukaDDetectorSettings</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">YotsukaDDetectorSettings</span><wbr><span class="parameters">(float&nbsp;nmsThreshold)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">YotsukaDDetectorSettings</span><wbr><span class="parameters">(float&nbsp;confidenceThreshold)</span></div>
 <div class="block">YotsukaD検出モデルの設定を初期化する</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>nmsThreshold</code> - NMSの閾値</dd>
+<dd><code>confidenceThreshold</code> - 信頼度の閾値</dd>
 </dl>
 </section>
 </li>
@@ -153,23 +153,23 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getNmsThreshold()">
-<h3>getNmsThreshold</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getNmsThreshold</span>()</div>
+<section class="detail" id="getConfidenceThreshold()">
+<h3>getConfidenceThreshold</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getConfidenceThreshold</span>()</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>YotsukaD検出モデルにおけるNMSの閾値</dd>
+<dd>YotsukaD検出モデルにおける信頼度の閾値</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="setNmsThreshold(float)">
-<h3>setNmsThreshold</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setNmsThreshold</span><wbr><span class="parameters">(float&nbsp;nmsThreshold)</span></div>
-<div class="block">YotsukaD検出モデルにおけるNMSの閾値を設定する</div>
+<section class="detail" id="setConfidenceThreshold(float)">
+<h3>setConfidenceThreshold</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setConfidenceThreshold</span><wbr><span class="parameters">(float&nbsp;confidenceThreshold)</span></div>
+<div class="block">YotsukaD検出モデルにおける信頼度の閾値を設定する</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>nmsThreshold</code> - 閾値</dd>
+<dd><code>confidenceThreshold</code> - 閾値</dd>
 </dl>
 </section>
 </li>

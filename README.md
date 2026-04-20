@@ -31,7 +31,7 @@ dependencyResolutionManagement {
 ```gradle
 dependencies {
     // ...
-    implementation "com.nefrock.edgeocr:edgeocr:1.0.0"
+    implementation "com.nefrock.edgeocr:edgeocr:+"
 }
 ```
 ダウンロードした SDK のバージョンと一致しない場合は、ビルドエラーが発生します。
