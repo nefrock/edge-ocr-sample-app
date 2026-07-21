@@ -92,6 +92,14 @@ import java.util.Collections;
             loadModelAndStartActivity(intent, "edgeocr_barcode_default", modelSettings);
         });
 
+        findViewById(R.id.barcode_panda_button).setOnClickListener(view -> {
+            Intent intent = new Intent(getApplication(), BarcodeScannerActivity.class);
+            intent.putExtra("show_dialog", true);
+            ModelSettings modelSettings = new ModelSettings();
+            modelSettings.setBarcodeNToConfirm(Collections.singletonMap(BarcodeFormat.Any, 1));
+            loadModelAndStartActivity(intent, "barcode_next", modelSettings);
+        });
+
         findViewById(R.id.barcode_dpm_button).setOnClickListener(view -> {
             Intent intent = new Intent(getApplication(), BarcodeRecognitionOnlyModeActivity.class);
             intent.putExtra("show_dialog", true);
